@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="JavaScript" src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+<style>
+* { margin: 0; padding: 0; }
+div#box_box{ width: 100%; background: black; height: 430px; position: fixed; top: 0px; text-align: center; }
+div#video_controls_bar{ background: #333; padding:10px; color:#CCC;}
+.text{ font-family: Tahoma; line-height: 1.5; font-size: 17px; max-width: 1000px; min-width: 600px; margin: 440px auto;}
+.current { background: yellow; text-decoration: underline; }
+
+span:hover{ color: green; }
+</style>
+<script>
+ var t = [13.209569, 16.240239,18.004871,20.048129,22.090775,24.099816,30.159933,33.247427,35.02428,40.108594,43.162483,45.205741,48.003611,50.069476,54.121775,57.18605,59.206089,63.061028,64.059438,65.081067,67.101106,70.142774,72.162813,77.003942,79.023981,82.065037,86.105115,88.137375,89.146783,91.179043,93.222301, 95.264947,97.0418,99.084446,102.138335,105.156784,108.244278,111.04276,117.160924,118.182553,121.23583,123.000462,127.063147,132.195122,133.23997,137.059469,140.101137,142.097957,145.162232,146.183861,148.2039,153.03403,156.063477,159.140585,160.161602,166.013361,169.078248,171.120894,172.142523,175.196412,179.015911,180.014321,182.057579,188.140303,191.159364,194.212641,198.019919,199.041548,200.052179,202.118656,203.139673,205.159712,207.191972,211.23205,213.252089,217.059367,218.058389,222.121074,223.131705,224.153334,228.018659,232.03613,235.100405,237.132665,248.03391,251.110406,252.132035,255.219529,258.237978,260.014831,263.056499,265.099145,266.109776,268.176253,270.218899,274.038398,276.03583,279.112326,281.132365,282.176601,285.207271,288.016139,289.037768,291.093247,294.111696,296.177561,297.188192,299.208231,300.206641,302.02932,304.072578,307.114246,310.167523,321.114594,326.211741,329.23019,332.015839,337.03172,340.072776,342.105036,345.19253,350.011051,352.065918,353.064328,355.107586,357.173451,360.204121,363.233568,366.031438,371.128585,374.19286,377.211309,379.010769,381.043029,384.130523,387.184412,390.005501,392.048759,393.047169,396.123665,397.145294,400.163743,402.183782,405.22545,408.011099,411.029548,412.051177,413.049587,414.071216,422.186813,423.185223,431.0448,432.066429,437.162964,442.004092,443.025721,444.069957,445.068367,449.143885,450.142295,455.227221,461.066759,462.087776,463.109405,467.184923,470.203372,474.24345,476.04291,477.04132,480.106207,482.137855,484.181113,485.202742,488.000612,489.022241,499.145043,500.166672,507.23742,509.002052,511.044698,514.086366,517.140255,518.161884,521.00558,523.03784,524.059469,529.156004,532.197672,534.217711,536.23775,537.00336,541.078878,542.100507,545.142175,548.183231,552.00273,554.03499,556.007784,559.142523,561.174783,564.20423,565.23808,569.03436,571.042178,572.063807,574.096067,577.114516,580.143963,581.142373,585.24111,586.262127,587.017351,588.015761,593.123294,596.153964,597.175593,600.217261,602.214081,604.23412,606.254159,607.019769,612.116916,615.135365,618.177033,621.241308,628.114696,630.111516,631.133145,636.171633,640.014351,644.054429,646.074468,650.172593,651.217441,654.212671,657.010541,658.03217,663.070658,667.179781,669.212041,671.011501,674.053169,677.129665,680.194552,684.23463,685.23304,689.052539,692.094207,693.115836,696.156892,700.23241,702.008651,704.075128,706.095167,710.134633,712.132065,715.208561,718.22701,721.035878,722.034288,725.088177,728.129845,730.126665,733.191552,736.23322,738.009461,742.072758,744.092797,747.133853,749.153892,752.207781,754.251039,759.114774,761.134813,764.165483,767.23037,769.02983,770.051459,773.092515,774.114144,776.134183,778.131615,780.186482,782.22974,786.049239,788.069278,792.086137,794.152002,797.182672,799.202711,802.232158,805.03064,807.062288,810.127175,814.18986,818.009971,819.008381,821.02842,823.071066,826.101736,828.144994,838.082657,839.104286,840.102696,842.145954,844.165993,846.208639,850.028138,853.069806,856.100476,858.108294,866.247109,867.001721,870.066608,872.086647,875.105096,876.103506,879.180002,883.207859,884.241709,892.101286,894.121325,896.163971,898.207229,900.227268,902.247307,904.046767,907.077437,910.106884,912.139144,914.159183,917.22407,918.245087,920.02194,923.063608,924.096846,926.116885,927.138514,929.146332,933.18641,935.206449,936.21708,940.059798,944.099876,945.098286,950.205819,951.239669,955.035949,959.099246,961.165111,964.195781,966.239039,970.058538,974.121835,975.142852,978.18452,980.239999,983.01465,987.077947,988.076357,989.097986,992.116435,996.179732,999.198181,1002.262456,1004.039309,1010.157473,1012.200119,1013.221748,1016.02023,1019.073507,1021.116765,1026.178472,1029.231749,1032.01801,1035.059066,1037.079105,1040.132994,1041.154623,1042.153033,1044.196291,1048.236369,1052.032649,1061.157653,1062.190891,1063.21252,1069.075277,1071.117923,1075.158001,1078.21189,1080.231929,1083.029799,1087.093096,1090.134764,1091.156393,1094.232889,1097.030759,1102.115685,1106.248638,1109.057506,1112.111395,1114.17726,1118.217338,1121.015208,1123.047468,1126.112355,1131.196669,1135.236747,1137.256786,1138.01201,1141.030459,1143.096324,1145.126994,1147.148623];
+var languages = [{"en": "Good morning! How are you?", "ru":"Доброе утро! Как дела?","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "It\'s been great, hasn\'t it?", "ru":"Это было великолепно неправда ли?","now":"en"},
+{"en": "I've been blown away by the whole thing.", "ru":"Предыдущие выступления поразили меня до глубины души.","now":"en"},
+{"en": "In fact, I'm leaving.", "ru":"Так что я, пожалуй, пойду.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "There have been three themes running through the conference", "ru":"В течение конференции я следил за тремя вещами","now":"en"},
+{"en": "which are relevant to what I want to talk about.", "ru":"важными для моего выступления.","now":"en"},
+{"en": "One is the extraordinary evidence of human creativity", "ru":"Первое это, экстроординарное доказательство человеческой креативности","now":"en"},
+{"en": "in all of the presentations that we've had", "ru":"во всех прошедших презентациях","now":"en"},
+{"en": "and in all of the people here.", "ru":"и во всех кто присутствует здесь.","now":"en"},
+{"en": "Just the variety of it and the range of it.", "ru":"Какова её широта и разнообразие.","now":"en"},
+{"en": "The second is that it's put us in a place", "ru":"Во-вторых, мы поняли,","now":"en"},
+{"en": "where we have no idea what's going to happen, in terms future", "ru":"что совершенно не представляем как будет устроено наше будущее.","now":"en"},
+{"en": "No idea how this may play out.", "ru":"Не имеем ни малейшего понятия.","now":"en"},
+{"en": "I have an interest in education.", "ru":"Я интересуюсь образованием.","now":"en"},
+{"en": "Actually, what I find is everybody has an interest in education.", "ru":"откровенно говоря, мне кажется, что образование интересно всем.","now":"en"},
+{"en": "Don't you?", "ru":"Вы не интересуетесь?","now":"en"},
+{"en": "I find this very interesting:", "ru":"Это довольно любопытно:","now":"en"},
+{"en": "If you're at a dinner party,", "ru":"вот вы на вечеринке,","now":"en"},
+{"en": "and you say you work in education", "ru":"и вы упоминаете о том, что занимаетесь педагогикой.","now":"en"},
+{"en": "Actually, you're not often at dinner parties, frankly.", "ru":"На самом деле работники образования не часто бывают на вечеринках.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "If you work in education, you're not asked.", "ru":"Если вы педагог, вас не приглашают.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "And you're never asked back, curiously.That's strange to me.", "ru":"Интересно, что не приглашают, даже побывав в гостях. Это странно для меня.","now":"en"},
+{"en": "But if you are, and you say to somebody,", "ru":"Но пусть вы всё же на вечеринке,и кто-нибудь","now":"en"},
+{"en": "you know, they say, \"What do you do?\"", "ru":"поинтересовался вашей профессией","now":"en"},
+{"en": "and you say you work in education,", "ru":"и вы отвечаете, что вы педагог,","now":"en"},
+{"en": "you can see the blood run from their face.", "ru":"у собеседника кровь отливает от лица.","now":"en"},
+{"en": "They're like, \"Oh my God,\" you know, \"Why me?\"", "ru":"Они думают \"Боже, почему я?\" знаете, \"Почему я?\"","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "\"My one night out all week.\"", "ru":"\"В единственный выходной за всю неделю\"","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "But if you ask about their education, they pin you to the wall.", "ru":"Однако если спросить собеседника о его собственном образовании, он сразу оскорбится.","now":"en"},
+{"en": "Because it's one of those things that goes deep with people, am I right?", "ru":"Потому что этот вопрос считается бестактным, слишком личным, правда?","now":"en"},
+{"en": "Like religion, and money and other things.", "ru":"Как вопросы о вероисповедании, зарплате и тому подобные.","now":"en"},
+{"en": "So I have a big interest in education, and I think we all do.", "ru":"Я очень интересуюсь образованием, как, полагаю, мы все.","now":"en"},
+{"en": "We have a huge vested interest in it,", "ru":"Эта тема бизка нам","now":"en"},
+{"en": "partly because it's education that's meant to take us into this future", "ru":"отчасти потому, что именно образование станет для нас дверью в будущее","now":"en"},
+{"en": "that we can't grasp.", "ru":"Которое мы не способны представить.","now":"en"},
+{"en": "If you think of it, children starting school this year", "ru":"Если вдуматься, поступившие в этом году в школу дети","now":"en"},
+{"en": "will be retiring in 2065.", "ru":"выйдут на пенсию в 2065 году.","now":"en"},
+{"en": "Nobody has a clue,", "ru":"Никто не имеет понятия","now":"en"},
+{"en": "despite all the expertise that's been on parade for the past four days,", "ru":"несмотря на весь опыт представленный за поледние 4 дня","now":"en"},
+{"en": "what the world will look like in five years' time.", "ru":"как мир будет выглядеть через 5 лет.","now":"en"},
+{"en": "And yet we're meant to be educating them for it.", "ru":"И тем не менее мы должны подготовить их к этому.","now":"en"},
+{"en": "So the unpredictability, I think, is extraordinary.", "ru":"Здесь решительно ничего нельзя спрогнозировать.","now":"en"},
+{"en": "And the third part of this", "ru":"И в третьих,","now":"en"},
+{"en": "is that we've all agreed, nonetheless,", "ru":" мы все, думаю, согласимся,","now":"en"},
+{"en": "on the really extraordinary capacities that children have", "ru":"что дети способны на совершенно необычайные вещи,","now":"en"},
+{"en": "their capacities for innovation.", "ru":"способны творить.","now":"en"},
+{"en": "I mean, Sirena last night was a marvel, wasn't she?", "ru":"Вчера мы видели Сирин — её способности необычайны.","now":"en"},
+{"en": "Just seeing what she could do.", "ru":"Только посмотрите что она могла делать","now":"en"},
+{"en": "And she's exceptional, but I think she's not, so to speak,", "ru":"Она — исключение из правил, но в каком-то смысле она заурядна — если можно так выразиться,","now":"en"},
+{"en": "exceptional in the whole of childhood.", "ru":"в масштабе всех детей мира.","now":"en"},
+{"en": "What you have there is a person of extraordinary dedication", "ru":"В ней мы видим сочетание редкой самоотверженности","now":"en"},
+{"en": "who found a talent.", "ru":"с природным талантом.","now":"en"},
+{"en": "And my contention is, all kids have tremendous talents.", "ru":"Я полагаю, что такие талантыесть у всех детей","now":"en"},
+{"en": "And we squander them, pretty ruthlessly.", "ru":"а мы безответственно разбрасываемся ими.","now":"en"},
+{"en": "So I want to talk about education", "ru":"Я хотел бы поговорить об образовании","now":"en"},
+{"en": "and I want to talk about creativity.", "ru":"и о творчестве.","now":"en"},
+{"en": "My contention is that creativity now is as important in education as literacy,", "ru":"Мне кажется, что творчество сейчас настолько же важно, насколько важна грамотность,","now":"en"},
+{"en": "and we should treat it with the same status.", "ru":"и мы должны придать творчеству соответствующий статус.","now":"en"},
+{"en": "(Applause) Thank you.", "ru":"(Аплодисменты)Спасибо.","now":"en"},
+{"en": "(Applause)", "ru":"(Аплодисменты)","now":"en"},
+{"en": "That was it, by the way.", "ru":"Вот и все, кстати.","now":"en"},
+{"en": "Thank you very much.", "ru":"Спасибо за внимание.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "So, 15 minutes left.", "ru":"Так, осталось 15 минут.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "Well, I was born... no.", "ru":"Ну, я родился... нет.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "I heard a great story recently -- I love telling it --", "ru":"Недавно я услышал одну интересную историю, я люблю её рассказывать","now":"en"},
+{"en": "of a little girl who was in a drawing lesson. ", "ru":"про маленькую девочку, на уроке рисования","now":"en"},
+{"en": "She was six, and she was at the back, drawing,", "ru":"Ей было 6 , она сидела на задней парте и что-то рисовала","now":"en"},
+{"en": "and the teacher said this girl hardly ever paid attention,", "ru":"учитель говорил что девочка не уделяла уроку внимания","now":"en"},
+{"en": "and in this drawing lesson, she did.", "ru":"но тогда она работала очень увлечённо.","now":"en"},
+{"en": "The teacher was fascinated.", "ru":"Учитель был очарован.","now":"en"},
+{"en": "She went over to her, and she said, \"What are you drawing?\"", "ru":"Она подошла к ней, и спросила Что ты рисуешь?","now":"en"},
+{"en": "And the girl said, \"I'm drawing a picture of God.\"", "ru":"Девочка ответила: «Я рисую Бога».","now":"en"},
+{"en": "And the teacher said, \"But nobody knows what God looks like.\"", "ru":"Учитель сказала: «Но никто не знает, как выглядит Бог», ","now":"en"},
+{"en": "And the girl said, \"They will, in a minute.\"", "ru":"а девочка ответила: «Сейчас узнают».","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "When my son was four in England --", "ru":"Когда моему сыну в англии было 4 года","now":"en"},
+{"en": "Actually, he was four everywhere, to be honest.", "ru":"честно говоря, ему везде было четыре года.","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "If we're being strict about it, wherever he went, he was four that year.", "ru":"Строго говоря, в том году где бы он ни был, ему было четыре года.","now":"en"},
+{"en": "He was in the Nativity play. Do you remember the story? ", "ru":"Так вот он играл в рождественской пьесе. Вы помните сюжет?","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "No, it was big, it was a big story.", "ru":"Это же был блокбастер!","now":"en"},
+{"en": "Mel Gibson did the sequel, you may have seen it.", "ru":"Мел Гибсон снял продолжение, наверняка видели","now":"en"},
+{"en": "(Laughter)", "ru":"(Смех)","now":"en"},
+{"en": "Nativity II.", "ru":"«Рождество-2»","now":"en"},
+{'en':'But James got the part of Joseph, which we were thrilled about. ','ru':'Джеймс получил роль Иосифа, мы были очень рады.','now':'en'},
+{'en':'We considered this to be one of the lead parts. ','ru':'Мы тогда подумали, что это — одна из главных ролей.','now':'en'},
+{'en':'We had the place crammed full of agents in T-shirts: ','ru':'Мы наняли специальных людей в футболках:','now':'en'},
+{'en':'"James Robinson IS Joseph!" (Laughter) ','ru':'«Джеймс Робинсон — Иосиф!» (Смех)','now':'en'},
+{'en':'He didn\'t have to speak, ','ru':'Роль без слов,','now':'en'},
+{'en':'but you know the bit where the three kings come in? ','ru':'но вы помните часть, где появляются три волхва?','now':'en'},
+{'en':'They come in bearing gifts, gold, frankincense and myrrh. ','ru':'Они приходят с дарами, приносят золото, ладан и мирру.','now':'en'},
+{'en':'This really happened. ','ru':'Реальный случай.','now':'en'},
+{'en':'We were sitting there and I think they just went out of sequence, ','ru':' Мы сидели в зале, и волхвы, кажется, перепутали порядок даров','now':'en'},
+{'en':'because we talked to the little boy afterward and we said, ','ru':'по крайней мере, после спектакля мы спросили одного из мальчиков,','now':'en'},
+{'en':'"You OK with that?" And he said, "Yeah, why? Was that wrong?" ','ru':'всё ли прошло хорошо, и он очень удивился вопросу.','now':'en'},
+{'en':'They just switched. ','ru':'Они просто поменялись друг с дружкой.','now':'en'},
+{'en':'The three boys came in, ','ru':'Так вот, входят три мальчика,','now':'en'},
+{'en':'four-year-olds with tea towels on their heads, ','ru':'каждому по четыре года, с полотенцами на головах,','now':'en'},
+{'en':'and they put these boxes down, ','ru':'кладут на пол коробки,','now':'en'},
+{'en':'and the first boy said, "I bring you gold." ','ru':'первый говорит: «Я принёс тебе золота»,','now':'en'},
+{'en':'And the second boy said, "I bring you myrrh." ','ru':'второй говорит: «Я принёс тебе мирры», ','now':'en'},
+{'en':'And the third boy said, "Frank sent this." ','ru':'а третий говорит: «Я принёс тебе... ладно, на!»','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'What these things have in common is that kids will take a chance. ','ru':'В обеих историях есть нечто общее — дети умеют рисковать;','now':'en'},
+{'en':'If they don\'t know, they\'ll have a go. ','ru':'если они не уверены в чем-то, они всё равно пробуют,','now':'en'},
+{'en':'Am I right? They\'re not frightened of being wrong. ','ru':'Я прав? Они не боятся ошибаться.','now':'en'},
+{'en':'I don\'t mean to say that being wrong is the same thing as being creative. ','ru':'Я, разумеется, не утверждаю, что творить и ошибаться — одно и то же,','now':'en'},
+{'en':'What we do know is, if you\'re not prepared to be wrong, ','ru':'однако нам известно, что тот, кто не готов ошибаться,','now':'en'},
+{'en':'you\'ll never come up with anything original -- ','ru':'не способен творить.','now':'en'},
+{'en':'if you\'re not prepared to be wrong. ','ru':'Нужно уметь ошибаться','now':'en'},
+{'en':'And by the time they get to be adults, most kids have lost that capacity. ','ru':'Но когда дети вырастают, большинство теряют эту способность','now':'en'},
+{'en':'They have become frightened of being wrong. ','ru':'Им становится страшно совершать ошибки','now':'en'},
+{'en':'And we run our companies like this. ','ru':'Точно так же работают наши компании.','now':'en'},
+{'en':'We stigmatize mistakes. ','ru':'Ошибки не прощаются','now':'en'},
+{'en':'And we\'re now running national education systems ','ru':'Да и наши системы государственного образования','now':'en'},
+{'en':'where mistakes are the worst thing you can make. ','ru':'построены на нетерпимости по отношению к ошибкам.','now':'en'},
+{'en':'And the result is that we are educating people ','ru':'В результате мы отучаем людей','now':'en'},
+{'en':'out of their creative capacities. ','ru':'от способности к творчеству. ','now':'en'},
+{'en':'Picasso once said this, he said that all children are born artists. ','ru':'Однажды Пикассо сказал, что все дети рождаются художниками;','now':'en'},
+{'en':'The problem is to remain an artist as we grow up. ','ru':'проблема в том, чтобы остаться художником, повзрослев.','now':'en'},
+{'en':'I believe this passionately, that we don\'t grow into creativity, ','ru':'Я уверен, что мы не растим свои творческие способности','now':'en'},
+{'en':'we grow out of it. ','ru':'а, скорее, вырастаем из них.','now':'en'},
+{'en':'Or rather, we get educated out if it. ','ru':'Или даже нас от них отучают.','now':'en'},
+{'en':'So why is this? ','ru':'Почему так происходит?','now':'en'},
+{'en':'I lived in Stratford-on-Avon until about five years ago. ','ru':'Примерно пять лет назад я жил в Стратфорде на Эйвоне —','now':'en'},
+{'en':'In fact, we moved from Stratford to Los Angeles. ','ru':'мы переехали из Стратфорда в Лос-Анджелес,','now':'en'},
+{'en':'So you can imagine what a seamless transition that was. ','ru':'и, как вы можете представить, сразу почувствовали себя как дома.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Actually, we lived in a place called Snitterfield, ','ru':'мы жили в местечке под названием Сниттерфилд,','now':'en'},
+{'en':'just outside Stratford, ','ru':'рядом со Стратфордом.','now':'en'},
+{'en':'which is where Shakespeare\'s father was born. ','ru':'Там родился отец Шекспира.','now':'en'},
+{'en':'Are you struck by a new thought? I was. ','ru':'Удивлены? Я был удивлён.','now':'en'},
+{'en':'You don\'t think of Shakespeare having a father, do you? ','ru':'Вы ведь никогда не думали о том, что у Шекспира был отец, правда?','now':'en'},
+{'en':'Do you? Because you don\'t think of Shakespeare being a child, do you? ','ru':'Поскольку вы никогда не думали о том, что Шекспир когда-то был ребёнком!','now':'en'},
+{'en':'Shakespeare being seven? ','ru':'Семилетний Шекспир?','now':'en'},
+{'en':'I never thought of it. ','ru':'Мне никогда такое не приходило в голову.','now':'en'},
+{'en':'I mean, he was seven at some point. ','ru':'Ему же было когда-то семь лет!','now':'en'},
+{'en':'He was in somebody\'s English class, wasn\'t he? ','ru':'Кто-то учил его английскому языку!','now':'en'},
+{'en':'(Laughter)','ru':'(Смех)','now':'en'},
+{'en':'How annoying would that be?','ru':'Как это раздражало?','now':'en'},
+{'en':'(Laughter)','ru':'(Смех)','now':'en'},
+{'en':'"Must try harder." ','ru':'«Плохо работал на уроке»','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Being sent to bed by his dad, you know, to Shakespeare, "Go to bed, now! ','ru':'Отец заставлял его вовремя ложиться спать, Шекспира! «А ну марш в кровать!»','now':'en'},
+{'en':'And put the pencil down." ','ru':'«Положи карандаш','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'"And stop speaking like that." ','ru':'и перестань так разговаривать.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'"It\'s confusing everybody." ','ru':'Тебя никто не понимает!»','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Anyway, we moved from Stratford to Los Angeles, ','ru':'Итак, мы переехали из Стратфорда в Лос-Анджелес,','now':'en'},
+{'en':'and I just want to say a word about the transition. ','ru':'и я немного хочу рассказать о переезде.','now':'en'},
+{'en':'My son didn\'t want to come.','ru':'Мой сын не хотел ехать с нами. ','now':'en'},
+{'en':'I\'ve got two kids; he\'s 21 now, my daughter\'s 16.','ru':'У меня двое детей. Сыну сейчас 21, дочери — 16,','now':'en'},
+{'en':'He didn\'t want to come to Los Angeles. ','ru':'и он не хотел ехать в Лос-Анджелес.','now':'en'},
+{'en':'He loved it, but he had a girlfriend in England. ','ru':'Ему нравилась затея, но в Англии у него была девушка.','now':'en'},
+{'en':'This was the love of his life, Sarah. ','ru':'Любовь всей его жизни, Сара,','now':'en'},
+{'en':'He\'d known her for a month. ','ru':'Он был знаком с ней один месяц','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Mind you, they\'d had their fourth anniversary, ','ru':'Напомню, что они отметили свою четвертую годовщину,','now':'en'},
+{'en':'because it\'s a long time when you\'re 16. ','ru':'поскольку месяц — это немало, когда тебе 16 лет.','now':'en'},
+{'en':'He was really upset on the plane, ','ru':'Всю дорогу он очень переживал,','now':'en'},
+{'en':'he said, "I\'ll never find another girl like Sarah." ','ru':'говорил, что больше никогда не найдёт себе такую девушку, как Сара.','now':'en'},
+{'en':'And we were rather pleased about that, frankly -- ','ru':'Честно говоря, мы были этому скорее рады,','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Because she was the main reason we were leaving the country.','ru':'поскольку мы решили уехать в первую очередь из-за неё.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'But something strikes you when you move to America ','ru':'Но замечаешь одну вещь, когда ты приезжаешь в Америку','now':'en'},
+{'en':'and travel around the world: ','ru':'или вообще путешествуешь по разным странам,','now':'en'},
+{'en':'Every education system on Earth has the same hierarchy of subjects. ','ru':'с точки зрения иерархии предметов все образовательные системы устроены одинаково.','now':'en'},
+{'en':'Every one. Doesn\'t matter where you go. ','ru':'Все без исключения. ','now':'en'},
+{'en':'You\'d think it would be otherwise, but it isn\'t.','ru':'Кажется, что должны быть отличия, но их нет.','now':'en'},
+{'en':'At the top are mathematics and languages, ','ru':'Главенствуют всегда математика и изучение языков,','now':'en'},
+{'en':'then the humanities, and at the bottom are the arts. ','ru':'затем идут гуманитарные науки, а потом уже искусства,','now':'en'},
+{'en':'Everywhere on Earth. ','ru':'и так — везде.','now':'en'},
+{'en':'And in pretty much every system too, there\'s a hierarchy within the arts. ','ru':'Среди творческих предметов тоже есть своя иерархия.','now':'en'},
+{'en':'Art and music are normally given a higher status in schools ','ru':'Изобразительное искусство и музыка получают приоритет','now':'en'},
+{'en':'than drama and dance. ','ru':'перед театром и хореографией.','now':'en'},
+{'en':'There isn\'t an education system on the planet ','ru':'Нет такой образовательной системы,','now':'en'},
+{'en':'that teaches dance everyday to children ','ru':'в которой танцевальное искусство преподавалось бы','now':'en'},
+{'en':'the way we teach them mathematics. Why? ','ru':'как математика, ежедневно. Почему?','now':'en'},
+{'en':'Why not? I think this is rather important. ','ru':'Почему бы и нет? Мне кажется, что учить танцу — важно.','now':'en'},
+{'en':'I think math is very important, but so is dance. ','ru':'Важно учить математике, но важно учить и танцевать.','now':'en'},
+{'en':'Children dance all the time if they\'re allowed to, we all do. ','ru':'Дети начинают танцевать при первой возможности, как мы все','now':'en'},
+{'en':'We all have bodies, don\'t we? Did I miss a meeting? ','ru':'у нас же у всех есть руки и ноги, или я что-то пропустил?','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Truthfully, what happens is, as children grow up, ','ru':'Вот что происходит, пока ребёнок растёт:','now':'en'},
+{'en':'we start to educate them progressively from the waist up. ','ru':'мы последовательно начинаем образовывать ребёнка от поясницы,','now':'en'},
+{'en':'And then we focus on their heads. ','ru':'затем центром нашего внимания становится его голова,','now':'en'},
+{'en':'And slightly to one side. ','ru':'в основном, левая её часть.','now':'en'},
+{'en':'If you were to visit education, as an alien, ','ru':'Если посмотреть на наше образование с точки зрения инопланетянина','now':'en'},
+{'en':'and say "What\'s it for, public education?" ','ru':'и задаться вопросом о том, ради чего оно существует,','now':'en'},
+{'en':'I think you\'d have to conclude, if you look at the output, ','ru':'то, посмотрев на результаты;','now':'en'},
+{'en':'who really succeeds by this, ','ru':'на тех, кто преуспевает;','now':'en'},
+{'en':'who does everything that they should, ','ru':'на детей, выполняющих всё, что от них просят;','now':'en'},
+{'en':'who gets all the brownie points, who are the winners -- ','ru':'кто получает всеобщее одобрение, кто победитель','now':'en'},
+{'en':'I think you\'d have to conclude the whole purpose of public education ','ru':'вы как инопланетянин пришли бы к выводу, что цель государственных систем образования','now':'en'},
+{'en':'throughout the world','ru':'по всему миру','now':'en'},
+{'en':'is to produce university professors. ','ru':'заключается в производстве университетских профессоров.','now':'en'},
+{'en':'Isn\'t it? ','ru':'не так ли?','now':'en'},
+{'en':'They\'re the people who come out the top.','ru':'Вот, кто получается в результате.','now':'en'},
+{'en':'And I used to be one, so there. ','ru':'А я был одним из них, так-то!','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'And I like university professors, but you know, ','ru':'Я ничего не имею против профессуры, но ','now':'en'},
+{'en':'we shouldn\'t hold them up ','ru':'не стоит о ник думать','now':'en'},
+{'en':'as the high-water mark of all human achievement. ','ru':'что этот класс людей — показатель достижений человечества;','now':'en'},
+{'en':'They\'re just a form of life, ','ru':'они просто особый вид,','now':'en'},
+{'en':'another form of life. ','ru':'другая форма жизни,','now':'en'},
+{'en':'But they\'re rather curious, and I say this out of affection for them. ','ru':'надо сказать странноватая. Я говорю это любя. ','now':'en'},
+{'en':'There\'s something curious about professors in my experience -- ','ru':'Большинство встретившихся мне профессоров,','now':'en'},
+{'en':'not all of them, but typically, they live in their heads. ','ru':'не все, но большинство, живут внутри своих голов —','now':'en'},
+{'en':'They live up there, and slightly to one side. ','ru':'там, наверху, в основном в левой части.','now':'en'},
+{'en':'They\'re disembodied, you know, in a kind of literal way.','ru':'Они бесплотны, практически в буквальном смысле.','now':'en'},
+{'en':'They look upon their body as a form of transport for their heads. ','ru':'Они рассматривают тело в качестве средства транспортировки головы.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Don\'t they? ','ru':'не так ли?','now':'en'},
+{'en':'It\'s a way of getting their head to meetings. ','ru':'Они рассматривают тело в качестве средства транспортировки головы.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'If you want real evidence of out-of-body experiences, ','ru':'Если вам требуется доказательство того, что возможно существовать вне своего тела,','now':'en'},
+{'en':'get yourself along to a residential conference of senior academics, ','ru':'зайдите на конференцию пожилых учёных,','now':'en'},
+{'en':'and pop into the discotheque on the final night. ','ru':'и сходите на танцы в последний вечер.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'And there, you will see it. ','ru':'Вы увидите,','now':'en'},
+{'en':'Grown men and women writhing uncontrollably, off the beat. ','ru':'как взрослые мужчины и женщины корчатся, не попадая в ритм,','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Waiting until it ends so they can go home and write a paper about it. ','ru':'в ожидании окончания танцев, когда они дойдут домой и напишут обо всем этом статью.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Our education system is predicated on the idea of academic ability. ','ru':'Идеал нашей образовательной системы — учёный,','now':'en'},
+{'en':'And there\'s a reason. ','ru':'и тому есть причина.','now':'en'},
+{'en':'Around the world, there were no public systems of education, ','ru':'Государственные системы образования были построены практически на пустом месте.','now':'en'},
+{'en':'really, before the 19th century. ','ru':'в девятнадцатом веке','now':'en'},
+{'en':'They all came into being to meet the needs of industrialism. ','ru':'Они были приспособлены под нужды индустриальной революции.','now':'en'},
+{'en':'So the hierarchy is rooted on two ideas. ','ru':'Иерархия предметов построена на двух столпах.','now':'en'},
+{'en':'Number one, that the most useful subjects for work are at the top. ','ru':'Во-первых, высокий приоритет получают дисциплины, полезные для приобретения трудовых навыков.','now':'en'},
+{'en':'So you were probably steered benignly away ','ru':'В школе вас наверняка мягко отвлекали','now':'en'},
+{'en':'from things at school when you were a kid, things you liked, ','ru':'от интересных вам уроков,','now':'en'},
+{'en':'on the grounds that you would never get a job doing that. Is that right? ','ru':'поскольку вы бы никогда не смогли сделать их своей профессией:','now':'en'},
+{'en':'Don\'t do music, you\'re not going to be a musician; ','ru':'Не занимайся музыкой, ты никогда не станешь музыкантом,','now':'en'},
+{'en':'don\'t do art, you won\'t be an artist. ','ru':'не занимайся рисунком, ты никогда не станешь художником','now':'en'},
+{'en':'Benign advice -- now, profoundly mistaken. ','ru':'Добрый совет, но, увы, ошибочный','now':'en'},
+{'en':'The whole world is engulfed in a revolution. ','ru':'наш мир охвачен революцией.','now':'en'},
+{'en':'And the second is academic ability, ','ru':'Во-вторых, дело в научной деятельности,','now':'en'},
+{'en':'which has really come to dominate our view of intelligence, ','ru':'которая стала для нас образцом интеллектуальной способности,','now':'en'},
+{'en':'because the universities designed the system in their image. ','ru':'поскольку университеты разработали систему по своему образу и подобию.','now':'en'},
+{'en':'If you think of it, the whole system of public education around the world ','ru':'Если вдуматься, государственная образовательная система —','now':'en'},
+{'en':'is a protracted process of university entrance. ','ru':'это растянутый процесс поступления в университет.','now':'en'},
+{'en':'And the consequence is that many highly-talented, ','ru':'В результате очень талантливые люди','now':'en'},
+{'en':'brilliant, creative people think they\'re not, ','ru':'не считают себя таковыми,','now':'en'},
+{'en':'because the thing they were good at at school ','ru':'поскольку их любимыми школьными предметами.','now':'en'},
+{'en':'wasn\'t valued, or was actually stigmatized. ','ru':'никто ни капли не дорожит','now':'en'},
+{'en':'And I think we can\'t afford to go on that way. ','ru':'Но, как мне кажется, так продолжаться не может.','now':'en'},
+{'en':'In the next 30 years, according to UNESCO, ','ru':'За следующие 30 лет, если верить ЮНЕСКО,','now':'en'},
+{'en':'more people worldwide will be graduating ','ru':'университеты выпустят больше людей,','now':'en'},
+{'en':'through education than since the beginning of history. ','ru':'чем за всю историю человечества.','now':'en'},
+{'en':'More people, and it\'s the combination of all the things we\'ve talked about -- ','ru':'Все это — совокупность факторов, о которых мы говорили ранее:','now':'en'},
+{'en':'technology and its transformation effect on work, and demography ','ru':'влияние технологии на профессиональную деятельность,','now':'en'},
+{'en':'and the huge explosion in population. ','ru':'огромный прирост населения.','now':'en'},
+{'en':'Suddenly, degrees aren\'t worth anything. ','ru':'И теперь диплом ничего не стоит,','now':'en'},
+{'en':'Isn\'t that true? ','ru':'Правда?','now':'en'},
+{'en':'When I was a student, if you had a degree, you had a job. ','ru':'Когда я был студентом, если у тебя был диплом, у тебя была работа,','now':'en'},
+{'en':'If you didn\'t have a job, it\'s because you didn\'t want one. ','ru':'а если работы не было, то лишь потому, что тебе не хотелось работать,','now':'en'},
+{'en':'And I didn\'t want one, frankly. (Laughter) ','ru':'а мне, честно говоря, не хотелось работать. (Смех)','now':'en'},
+{'en':'But now kids with degrees ','ru':'Сейчас же студенты сразу после выпуска ','now':'en'},
+{'en':'are often heading home to carry on playing video games, ','ru':'идут обратно домой играть в видеоигры,','now':'en'},
+{'en':'because you need an MA where the previous job required a BA, ','ru':'поскольку там, где раньше хватало среднего образования теперь требуют высшее,','now':'en'},
+{'en':'and now you need a PhD for the other. ','ru':'а где было высшее — теперь нужно быть кандидатом наук.','now':'en'},
+{'en':'It\'s a process of academic inflation. ','ru':'Инфляция образования','now':'en'},
+{'en':'And it indicates the whole structure of education ','ru':'признак того, что вся образовательная структура','now':'en'},
+{'en':'is shifting beneath our feet.','ru':'рушится у нас под ногами.','now':'en'},
+{'en':'We need to radically rethink our view of intelligence. ','ru':'Мы должны переосмыслить своё представление о разуме.','now':'en'},
+{'en':'We know three things about intelligence. ','ru':'Мы знаем о разуме три вещи:','now':'en'},
+{'en':'One, it\'s diverse. ','ru':'во-первых, он многообразен.','now':'en'},
+{'en':'We think about the world in all the ways that we experience it. ','ru':'Мы думаем так же, как воспринимаем,','now':'en'},
+{'en':'We think visually, we think in sound, we think kinesthetically. ','ru':'то есть зрительными образами, звуками и тактильными ощущениями;','now':'en'},
+{'en':'We think in abstract terms, we think in movement. ','ru':'мы размышляем абстрактно, размышляем в движении.','now':'en'},
+{'en':'Secondly, intelligence is dynamic. ','ru':'Во-вторых, разум изменчив.','now':'en'},
+{'en':'If you look at the interactions of a human brain, ','ru':'судя по обмену информацией внутри головного мозга,','now':'en'},
+{'en':'as we heard yesterday from a number of presentations, ','ru':'Как мы узнали вчера из ряда презентаций,','now':'en'},
+{'en':'intelligence is wonderfully interactive. ','ru':'разум чрезвычайно подвижен','now':'en'},
+{'en':'The brain isn\'t divided into compartments. ','ru':'мозг не разделён на независимые ящички.','now':'en'},
+{'en':'In fact, creativity - which I define as the process ','ru':'Акты творчества, которые я определяю как процесс','now':'en'},
+{'en':'of having original ideas that have value -- ','ru':'возникновения новых и продуктивных идей,','now':'en'},
+{'en':'more often than not comes about through the interaction ','ru':'возникают в результате взаимодействия','now':'en'},
+{'en':'of different disciplinary ways of seeing things. ','ru':'принципиально разных способов познания мира.','now':'en'},
+{'en':'By the way, there\'s a shaft of nerves that joins the two halves of the brain ','ru':'Кстати существует нервный узел, который объединяет два полушария мозга,','now':'en'},
+{'en':'called the corpus callosum. ','ru':'он называется мозолистым телом.','now':'en'},
+{'en':'It\'s thicker in women. ','ru':'У женщин он толще.','now':'en'},
+{'en':'Following off from Helen yesterday, ','ru':'Подбирая эстафетную палочку у Хелен,','now':'en'},
+{'en':'this is probably why women are better at multi-tasking. ','ru':'рискну предположить, что именно поэтому женщины лучше справляются с несколькими вещами одновременно.','now':'en'},
+{'en':'Because you are, aren\'t you? ','ru':'Так и есть, правда?','now':'en'},
+{'en':'There\'s a raft of research, but I know it from my personal life. ','ru':'Существует масса исследований, но я знаю это по себе:','now':'en'},
+{'en':'If my wife is cooking a meal at home -- which is not often, thankfully. ','ru':'если моя жена дома готовит обед, к счастью, это редкость','now':'en'},
+{'en':'(Laughter)','ru':'(Смех)','now':'en'},
+{'en':'No, she\'s good at some things, but if she\'s cooking, ','ru':'нет, с чем-то она справляется прекрасно —, но когда она готовит','now':'en'},
+{'en':'she\'s dealing with people on the phone, ','ru':'говорит с кем-то по телефону','now':'en'},
+{'en':'she\'s talking to the kids, she\'s painting the ceiling, ','ru':'разговаривает с детьми, красит потолок,','now':'en'},
+{'en':'she\'s doing open-heart surgery over here. ','ru':'делает операцию на открытом сердце...','now':'en'},
+{'en':'If I\'m cooking, the door is shut, the kids are out, ','ru':'Если я готовлю, дверь закрыта, дети вышли,','now':'en'},
+{'en':'the phone\'s on the hook, if she comes in I get annoyed. ','ru':'телефон молчит. Если заходит жена, я злюсь, ','now':'en'},
+{'en':'I say, "Terry, please, I\'m trying to fry an egg in here." ','ru':'говорю ей: «Терри, я вообще-то пытаюсь пожарить яичницу, может хватит отвлекать меня?»','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'"Give me a break." ','ru':'хватит нести чепуху','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'Actually, do you know that old philosophical thing, ','ru':'Вы же знаете это высказывание,','now':'en'},
+{'en':'if a tree falls in a forest and nobody hears it, did it happen? ','ru':'Про падающее дерево в лесу, Если никто не слышал звука, упало ли дерево на самом деле?','now':'en'},
+{'en':'Remember that old chestnut? ','ru':'Помните этот бородатый анекдот','now':'en'},
+{'en':'I saw a great t-shirt recently, which said, ','ru':'Недавно я увидел отличную футболкус надписью:','now':'en'},
+{'en':'"If a man speaks his mind in a forest, and no woman hears him, ','ru':'«Если мужчина разговаривает в лесу и его не слышит ни одна женщина,','now':'en'},
+{'en':'is he still wrong?" ','ru':'он всё ещё неправ?»','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'And the third thing about intelligence is, ','ru':'И третье, что я хочу сказать о разуме,','now':'en'},
+{'en':'it\'s distinct. ','ru':'у каждого он свой.','now':'en'},
+{'en':'I\'m doing a new book at the moment called "Epiphany," ','ru':'Я сейчас работаю над новой книгой под названием «Откровение».','now':'en'},
+{'en':'which is based on a series of interviews with people ','ru':'Она основана на серии интервью,','now':'en'},
+{'en':'about how they discovered their talent. ','ru':' посвящённой тому, как люди открывали в себе талант.','now':'en'},
+{'en':'I\'m fascinated by how people got to be there.','ru':'Я поражён тем, как люди проходят этот путь.','now':'en'},
+{'en':'It\'s really prompted by a conversation I had with a wonderful woman ','ru':'К книге меня подтолкнул разговор с чудесной женщиной,','now':'en'},
+{'en':'who maybe most people have never heard of, Gillian Lynne.','ru':'о которой большинство людей никогда не слышало, её зовут Джилиан Лин.','now':'en'},
+{'en':'Have you heard of her? Some have. ','ru':'Кто-то её знает.','now':'en'},
+{'en':'She\'s a choreographer, and everybody knows her work. ','ru':'Она хореограф, и каждый знает то, что она сделала.','now':'en'},
+{'en':'She did "Cats" and "Phantom of the Opera." ','ru':'Она поставила мюзиклы «Кошки» и «Призрак оперы».','now':'en'},
+{'en':'She\'s wonderful.','ru':'Она чудесна.','now':'en'},
+{'en':'I used to be on the board of The Royal Ballet, ','ru':'В Англии я был в труппе Королевского балета,','now':'en'},
+{'en':'as you can see. ','ru':'что, как мне кажется, очевидно.','now':'en'},
+{'en':'Anyway, Gillian and I had lunch one day and I said, ','ru':'Однажды за обедом я спросил у Джилиан','now':'en'},
+{'en':'"How did you get to be a dancer?" ','ru':'как она стала танцором.','now':'en'},
+{'en':'It was interesting. ','ru':'Интересная история.','now':'en'},
+{'en':'When she was at school, she was really hopeless. ','ru':'Она рассказала, что в школе её считали безнадёжной.','now':'en'},
+{'en':'And the school, in the \'30s, wrote to her parents and said, ','ru':'Кто-то из школы написал её родителям записку, в которой говорилось,','now':'en'},
+{'en':'"We think Gillian has a learning disorder." ','ru':'что у девочки были проблемы с обучаемостью.','now':'en'},
+{'en':'She couldn\'t concentrate; she was fidgeting. ','ru':'Она не могла сосредоточиться, вечно ёрзала.','now':'en'},
+{'en':'I think now they\'d say she had ADHD. Wouldn\'t you? ','ru':'Сейчас бы сказали, что у неё синдром дефицита внимания.','now':'en'},
+{'en':'But this was the 1930s, and ADHD hadn\'t been invented at this point. ','ru':'Но в 1930-х годах никто не знал о таком синдроме,','now':'en'},
+{'en':'It wasn\'t an available condition. ','ru':'такой болезни просто не было.','now':'en'},
+{'en':'(Laughter) ','ru':'(Смех)','now':'en'},
+{'en':'People weren\'t aware they could have that.','ru':'Никто не знал, что существует такой вид расстройства.','now':'en'},
+{'en':'(Laughter)','ru':'(Смех)','now':'en'},
+{'en':'Anyway, she went to see this specialist. ','ru':'Так вот, её отвели к врачу.','now':'en'},
+{'en':'So, this oak-paneled room, and she was there with her mother, ','ru':'Комната, отделённая дубовыми панелями, она пришла туда с матерью,','now':'en'},
+{'en':'and she was led and sat on this chair at the end, ','ru':'её посадили в кресло в дальнем конце комнаты,','now':'en'},
+{'en':'and she sat on her hands for 20 minutes while this man talked to her mother ','ru':'где она просидела, подложив ладошки под ноги целых двадцать минут, пока врач разговаривал','now':'en'},
+{'en':'about the problems Gillian was having at school. ','ru':'о её проблемах в школе.','now':'en'},
+{'en':'Because she was disturbing people; her homework was always late; and so on, ','ru':'Она всем мешала, невовремя сдавала домашнюю работу — и так далее.','now':'en'},
+{'en':'little kid of eight. ','ru':'восьмилетний ребёнок','now':'en'},
+{'en':'In the end, the doctor went and sat next to Gillian, and said, ','ru':'В конце концов, доктор сел рядом с Джилиан и сказал ей, ','now':'en'},
+{'en':'"I\'ve listened to all these things your mother\'s told me, ','ru':'что выслушал её маму, осознал все проблемы Джилиан,','now':'en'},
+{'en':'I need to speak to her privately. ','ru':'но теперь хотел бы поговорить с её мамой с глазу на глаз.','now':'en'},
+{'en':'Wait here. We\'ll be back; we won\'t be very long," ','ru':'Он попросил Джилиан подождать немного, ','now':'en'},
+{'en':'and they went and left her. ','ru':'и вышел вместе с мамой из комнаты.','now':'en'},
+{'en':'But as they went out of the room, ','ru':'До того как выйти,','now':'en'},
+{'en':'he turned on the radio that was sitting on his desk. ','ru':'он включил стоящее на столе радио.','now':'en'},
+{'en':'And when they got out, he said to her mother, "Just stand and watch her." ','ru':'Как только взрослые вышли, доктор попросил маму Джиллиан взглянуть на то, что делает дочь.','now':'en'},
+{'en':'And the minute they left the room, ','ru':'Она сразу же ','now':'en'},
+{'en':'she was on her feet, moving to the music. ','ru':'вскочила на ноги и начала двигаться в такт музыке.','now':'en'},
+{'en':'And they watched for a few minutes and he turned to her mother and said, ','ru':'Доктор и мама Джилиан посмотрели на это пару минут, потом доктор повернулся и сказал:','now':'en'},
+{'en':'"Mrs. Lynne, Gillian isn\'t sick; she\'s a dancer. ','ru':'«Миссис Лин, Джилиан не больна. Она танцовщица.','now':'en'},
+{'en':'Take her to a dance school." ','ru':'Отдайте её в хореографическую школу».','now':'en'},
+{'en':'I said, "What happened?" ','ru':'Я спросил, что было дальше.','now':'en'},
+{'en':'She said, "She did. I can\'t tell you how wonderful it was. ','ru':'Она рассказала, что мама последовала совету врача и что это было прекрасно.','now':'en'},
+{'en':'We walked in this room and it was full of people like me. ','ru':'Они вошли в комнату, где были похожие на Джилиан люди,','now':'en'},
+{'en':'People who couldn\'t sit still. ','ru':'непоседы,','now':'en'},
+{'en':'People who had to move to think." Who had to move to think. ','ru':'люди, которым чтобы думать, нужно было двигаться.','now':'en'},
+{'en':'They did ballet, they did tap, jazz; they did modern; they did contemporary. ','ru':'Они учились балету, степу, джазовому стилю, занимались модерном и современным танцем.','now':'en'},
+{'en':'She was eventually auditioned for the Royal Ballet School; ','ru':'Со временем её приняли в Королевскую балетную школу,','now':'en'},
+{'en':'she became a soloist; she had a wonderful career at the Royal Ballet. ','ru':'она стала солисткой, сделала замечательную карьеру в Королевской балетной труппе.','now':'en'},
+{'en':'She eventually graduated from the Royal Ballet School, ','ru':'В конце концов она закончила Королевскую балетную школу','now':'en'},
+{'en':'founded the Gillian Lynne Dance Company, ','ru':'и основала собственную компанию, Танцевальную компанию Джилиан Лин,','now':'en'},
+{'en':'met Andrew Lloyd Webber. ','ru':'и встретила Эндрю Ллойда Вебера.','now':'en'},
+{'en':'She\'s been responsible for ','ru':'Джилиан сделала','now':'en'},
+{'en':'some of the most successful musical theater productions in history, ','ru':'одни из самых известных музыкальных постановок в истории,','now':'en'},
+{'en':'she\'s given pleasure to millions, and she\'s a multi-millionaire. ','ru':'принесла радость миллионам людей, и стала мультимиллионером.','now':'en'},
+{'en':'Somebody else might have put her on medication and told her to calm down. ','ru':'А ведь другой врач мог бы посадить её на таблетки и заставить успокоиться.','now':'en'},
+{'en':'(Applause)','ru':'(Аплодисменты)','now':'en'},
+{'en':'What I think it comes to is this: ','ru':'Я думаю, все сводится к одной вещи','now':'en'},
+{'en':'Al Gore spoke the other night ','ru':'Эл Гор недавно читал лекцию','now':'en'},
+{'en':'about ecology and the revolution that was triggered by Rachel Carson. ','ru':'об экологии и революции, которая была спровоцирована Рейчел Карсон.','now':'en'},
+{'en':'I believe our only hope for the future ','ru':'Я полагаю, что наша единственная надежда на будущее','now':'en'},
+{'en':'is to adopt a new conception of human ecology, ','ru':'принять новую концепцию экологии человека,','now':'en'},
+{'en':'one in which we start to reconstitute our conception ','ru':'такую, внутри которой мы начали переосмысление','now':'en'},
+{'en':'of the richness of human capacity. ','ru':'богатства человеческих способностей.','now':'en'},
+{'en':'Our education system has mined our minds ','ru':'Наша образовательная система опустошала наши умы,','now':'en'},
+{'en':'in the way that we strip-mine the earth: for a particular commodity. ','ru':'как мы опустошаем недра Земли, преследуя определённые цели.','now':'en'},
+{'en':'And for the future, it won\'t serve us.','ru':'Но мы не можем пользоваться такой системой дальше.','now':'en'},
+{'en':'We have to rethink the fundamental principles ','ru':'Мы должны переосмыслить основные принципы','now':'en'},
+{'en':'on which we\'re educating our children. ','ru':'обучения наших детей.','now':'en'},
+{'en':'There was a wonderful quote by Jonas Salk, who said, ','ru':'Йонас Салк однажды сказал:','now':'en'},
+{'en':'"If all the insects were to disappear from the Earth, ','ru':'«Если все насекомые исчезнут с лица Земли,','now':'en'},
+{'en':'within 50 years all life on Earth would end. ','ru':'через 50 лет планета станет безжизненной.','now':'en'},
+{'en':'If all human beings disappeared from the Earth, ','ru':'Если все люди исчезнут с лица Земли,','now':'en'},
+{'en':'within 50 years all forms of life would flourish." ','ru':'через 50 лет все формы жизни будут процветать».','now':'en'},
+{'en':'And he\'s right.','ru':'И он прав.','now':'en'},
+{'en':'What TED celebrates is the gift of the human imagination. ','ru':'TED — это дань уважения человеческому воображению.','now':'en'},
+{'en':'We have to be careful now ','ru':'Мы должны стараться разумно','now':'en'},
+{'en':'that we use this gift wisely ','ru':'использовать этот дар','now':'en'},
+{'en':'and that we avert some of the scenarios that we\'ve talked about. ','ru':'чтобы избежать развития событий, о котором шла речь.','now':'en'},
+{'en':'And the only way we\'ll do it is by seeing our creative capacities for the richness they are ','ru':'Единственный выход для нас ценить разнообразие наших творческих способностей,','now':'en'},
+{'en':'and seeing our children for the hope that they are. ','ru':'и ценить наших детей, поскольку они — наша надежда.','now':'en'},
+{'en':'And our task is to educate their whole being, ','ru':'Мы должны учить их целостно,','now':'en'},
+{'en':'so they can face this future. ','ru':'только так у них получится существовать в будущем,','now':'en'},
+{'en':'By the way -- we may not see this future, ','ru':'которое, замечу, мы можем и не застать,','now':'en'},
+{'en':'but they will. ','ru':'но они застанут точно.','now':'en'},
+{'en':'And our job is to help them make something of it. ','ru':'А мы должны помочь им сформировать его.','now':'en'},
+{'en':'Thank you very much. ','ru':'Спасибо за внимание.','now':'en'},
+{'en':' (Applause) ','ru':'(Аплодисменты)','now':'en'}];
+
+$j = jQuery.noConflict();
+$j(document).ready(function(){
+	var vid, playbtn, seekslider, curtimetext, durtimetext;
+	function intializePlayer(){
+		// Set object references
+		vid = document.getElementById("my_video");
+		playbtn = document.getElementById("playpausebtn");
+		seekslider = document.getElementById("seekslider");
+		curtimetext = document.getElementById("curtimetext");
+		durtimetext = document.getElementById("durtimetext");
+		// Add event listeners
+		playbtn.addEventListener("click",playPause,false);
+		seekslider.addEventListener("change",vidSeek,false);
+		vid.addEventListener("timeupdate",seektimeupdate,false);
+	}
+	window.onload = intializePlayer;
+	function playPause(){
+		if(vid.paused){
+			vid.play();
+			playbtn.innerHTML = "Pause";
+		} else {
+			vid.pause();
+			playbtn.innerHTML = "Play";
+		}
+	}
+	function vidSeek(){
+		var seekto = vid.duration * (seekslider.value / 100);
+		vid.currentTime = seekto;
+		
+	}
+	
+	var prev = '#srerferf';
+	function seektimeupdate(){
+	var nt = vid.currentTime * (100 / vid.duration);
+	seekslider.value = nt;
+	 
+	var curmins = Math.floor(vid.currentTime / 60);
+	var cursecs = Math.floor(vid.currentTime - curmins * 60);
+	var durmins = Math.floor(vid.duration / 60);
+	var dursecs = Math.floor(vid.duration - durmins * 60);
+	if(cursecs < 10){ cursecs = "0"+cursecs; }
+	if(dursecs < 10){ dursecs = "0"+dursecs; }
+	if(curmins < 10){ curmins = "0"+curmins; }
+	if(durmins < 10){ durmins = "0"+durmins; }
+	curtimetext.innerHTML = curmins+":"+cursecs;
+	durtimetext.innerHTML = durmins+":"+dursecs;
+	var id = '#' + curmins + cursecs;
+		if(id != prev){ 	
+			if($j('span').is(id)){
+				$j(prev).removeClass();
+				console.log(id);
+				console.log(vid.currentTime);
+				$j(id).addClass('current');
+				prev = id;
+				
+			} 
+			
+		}
+	}
+	$j("span").click(function() {
+		// `this` is the DOM element that was clicked
+		var index = $j("span").index(this);
+		console.log(vid.currentTime);
+		console.log(languages[index].ru);
+		console.log(vid.duration);
+		console.log(index);
+		vid.currentTime = t[index];
+		$j("#my_video").click();
+	});
+	
+	$j("span").mouseenter(function() {
+		var index = $j("span").index(this);
+		$j("#translate").text(languages[index].ru);
+		$j("#translate").css('left', 0);
+		$j("#translate").css('top', 0);
+	
+	});
+	
+	$j("span").mouseleave(function() {
+		//$j("#translate").text('');
+	});
+	
+	
+	
+	
+	var flag = true;
+	$j("#my_video").click(function(){
+		if(flag){
+			flag=false;
+			vid.pause();
+		}else{
+			flag=true;
+			vid.play();
+		}
+		
+	});
+	
+	$j(".text").mouseleave(function(){
+		//vid.play();
+	});
+	
+});
+</script>
+</head>
+<body>
+<div id="box_box">
+  <video id="my_video" width="550" height="410" autoplay>
+    <source src="http://video.ted.com/talk/podcast/2006/None/SirKenRobinson_2006-480p.mp4">
+  </video>
+  <div id="translate" style="background: #e2e2e2; font-size: 16pt;">Перевод</div>
+  <div id="video_controls_bar" style="display: none;">
+    <button id="playpausebtn">Pause</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+    <div id="curtimetext">00:00</div> / <div id="durtimetext">00:00</div>
+  </div>
+
+</div>
+
+<div class="text">
+<span data-time="0013" id="0013">Good morning. How are you?</span>
+<span data-time="" id="0016">(Laughter)</span>
+<span data-time="0020" id="0018">It's been great, hasn't it?</span>
+<span data-time="8273" id="0020">I've been blown away by the whole thing.</span>
+<span data-time="10753" id="0022">In fact, I'm leaving.</span>
+<span data-time="12269" id="0024">(Laughter)</span>
+<span data-time="18015" id="0030">There have been three themes
+running through the conference</span>
+<span data-time="21246" id="0033">which are relevant
+to what I want to talk about.</span>
+<span data-time="23777" id="0035">One is the extraordinary
+evidence of human creativity</span>
+<span data-time="28491" id="0040">in all of the presentations that we've had</span>
+<span data-time="30928" id="0043">and in all of the people here.</span>
+<span data-time="32753" id="0045">Just the variety of it
+and the range of it.</span>
+<span data-time="36158" id="0048">The second is
+that it's put us in a place</span>
+<span data-time="38325" id="0050">where we have no idea
+what's going to happen, in terms of the future.</span>
+<span data-time="42261" id="0054">No idea how this may play out.</span>
+<span data-time="45000" id="0057">I have an interest in education.</span>
+<span data-time="46916" id="0059">Actually, what I find is everybody
+has an interest in education.</span>
+<span data-time="51072" id="0103">Don't you?</span>
+<span data-time="52234" id="0104">I find this very interesting.</span>
+<span data-time="53739" id="0105">If you're at a dinner party,</span>
+<span data-time="55596" id="0107">and you say you work in education --</span>
+<span data-time="57882" id="0110">Actually, you're not often
+at dinner parties, frankly.</span>
+<span data-time="60870" id="0112">(Laughter)</span>
+<span data-time="64690" id="0117">If you work in education,
+you're not asked.</span>
+<span data-time="67142" id="0119">(Laughter)</span>
+<span data-time="70257" id="0122">And you're never asked back, curiously.
+That's strange to me.</span>
+<span data-time="74000" id="0126">But if you are, and you say to somebody,</span>
+<span data-time="76499" id="0128">you know, they say, "What do you do?"</span>
+<span data-time="78300" id="0129">and you say you work in education,</span>
+<span data-time="80000" id="0131">you can see the blood run from their face.</span>
+<span data-time="82100" id="0133">They're like, "Oh my God,"
+you know, "Why me?"</span>
+<span data-time="84404" id="0135">(Laughter)</span>
+<span data-time="86065" id="0137">"My one night out all week."</span>
+<span data-time="87712" id="0139">(Laughter)</span>
+<span data-time="90346" id="0142">But if you ask about their education,
+they pin you to the wall.</span>
+<span data-time="93611" id="0145">Because it's one of those things
+that goes deep with people, am I right?</span>
+<span data-time="97194" id="0148">Like religion, and money and other things.</span>
+<span data-time="100559" id="0151">So I have a big interest in education,
+and I think we all do.</span>
+<span data-time="104935" id="0156">We have a huge vested interest in it,</span>
+<span data-time="106851" id="0158">partly because it's education
+that's meant to take us into this future</span>
+<span data-time="110195" id="0201">that we can't grasp.</span>
+<span data-time="111873" id="0203">If you think of it,
+children starting school this year</span>
+<span data-time="115396" id="0207">will be retiring in 2065.</span>
+<span data-time="120209" id="0212">Nobody has a clue,</span>
+<span data-time="121867" id="0213">despite all the expertise that's been
+on parade for the past four days,</span>
+<span data-time="125450" id="0217">what the world will look like
+in five years' time.</span>
+<span data-time="128000" id="0220">And yet we're meant
+to be educating them for it.</span>
+<span data-time="130318" id="0222">So the unpredictability,
+I think, is extraordinary.</span>
+<span data-time="132892" id="0225">And the third part of this</span>
+<span data-time="134283" id="0226">is that we've all agreed, nonetheless,</span>
+<span data-time="136344" id="0228">on the really extraordinary
+capacities that children have --</span>
+<span data-time="141673" id="0233">their capacities for innovation.</span>
+<span data-time="144031" id="0236">I mean, Sirena last night
+was a marvel, wasn't she?</span>
+<span data-time="146566" id="0239">Just seeing what she could do.</span>
+<span data-time="148200" id="0240">And she's exceptional, but I think
+she's not, so to speak,</span>
+<span data-time="153000" id="0246">exceptional in the whole of childhood.</span>
+<span data-time="156980" id="0249">What you have there is a person
+of extraordinary dedication</span>
+<span data-time="159800" id="0251">who found a talent.</span>
+<span data-time="161091" id="0252">And my contention is,
+all kids have tremendous talents.</span>
+<span data-time="163800" id="0255">And we squander them, pretty ruthlessly.</span>
+<span data-time="165800" id="0259">So I want to talk about education</span>
+<span data-time="168000" id="0300">and I want to talk about creativity.</span>
+<span data-time="169896" id="0302">My contention is that creativity now
+is as important in education as literacy,</span>
+<span data-time="175939" id="0308">and we should treat it
+with the same status.</span>
+<span data-time="178827" id="0311">(Applause) Thank you.</span>
+<span data-time="180822" id="0314">(Applause)</span>
+<span data-time="185485" id="0318">That was it, by the way.</span>
+<span data-time="186768" id="0319">Thank you very much.</span>
+<span data-time="187795" id="0320">(Laughter)</span>
+<span data-time="189934" id="0322">So, 15 minutes left.</span>
+<span data-time="191635" id="0323">(Laughter)</span>
+<span data-time="194595" id="0325">Well, I was born... no.</span>
+<span data-time="196511" id="0327">(Laughter)</span>
+<span data-time="199567" id="0331">I heard a great story recently
+-- I love telling it --</span>
+<span data-time="202336" id="0333">of a little girl
+who was in a drawing lesson.</span>
+<span data-time="205075" id="0337">She was six, and she was
+at the back, drawing,</span>
+<span data-time="207234" id="0338">and the teacher said this girl
+hardly ever paid attention,</span>
+<span data-time="210058" id="0342">and in this drawing lesson, she did.</span>
+<span data-time="211868" id="0343">The teacher was fascinated.</span>
+<span data-time="213232" id="0344">She went over to her,
+and she said, "What are you drawing?"</span>
+<span data-time="216018" id="0348">And the girl said, "I'm
+drawing a picture of God."</span>
+<span data-time="219642" id="0352">And the teacher said, "But nobody
+knows what God looks like."</span>
+<span data-time="222984" id="0355">And the girl said,
+"They will, in a minute."</span>
+<span data-time="225096" id="0357">(Laughter)</span>
+<span data-time="236662" id="0408">When my son was four in England --</span>
+<span data-time="239413" id="0411">Actually, he was four
+everywhere, to be honest.</span>
+<span data-time="241628" id="0412">(Laughter)</span>
+<span data-time="243404" id="0415">If we're being strict about it,
+wherever he went, he was four that year.</span>
+<span data-time="246815" id="0418">He was in the Nativity play.
+Do you remember the story?</span>
+<span data-time="249477" id="0420">(Laughter)</span>
+<span data-time="250720" id="0423">No, it was big, it was a big story.</span>
+<span data-time="252571" id="0425">Mel Gibson did the sequel,
+you may have seen it.</span>
+<span data-time="254900" id="0426">(Laughter)</span>
+<span data-time="256185" id="0428">"Nativity II."</span>
+<span data-time="257519" id="0430">But James got the part of Joseph,
+which we were thrilled about.</span>
+<span data-time="261678" id="0434">We considered this to be
+one of the lead parts.</span>
+<span data-time="264239" id="0436">We had the place crammed
+full of agents in T-shirts:</span>
+<span data-time="266740" id="0439">"James Robinson IS Joseph!" (Laughter)</span>
+<span data-time="269000" id="0441">He didn't have to speak,</span>
+<span data-time="270631" id="0442">but you know the bit
+where the three kings come in?</span>
+<span data-time="273093" id="0445">They come in bearing gifts,
+gold, frankincense and myrrh.</span>
+<span data-time="275848" id="0448">This really happened.</span>
+<span data-time="276986" id="0449">We were sitting there and I think
+they just went out of sequence,</span>
+<span data-time="280100" id="0451">because we talked to the little boy
+afterward and we said,</span>
+<span data-time="282900" id="0454">"You OK with that?" And he said,
+"Yeah, why? Was that wrong?"</span>
+<span data-time="285800" id="0456">They just switched.</span>
+<span data-time="286900" id="0457">The three boys came in,</span>
+<span data-time="288100" id="0459">four-year-olds with tea towels
+on their heads,</span>
+<span data-time="290311" id="0500">and they put these boxes down,</span>
+<span data-time="291826" id="0502">and the first boy said,
+"I bring you gold."</span>
+<span data-time="293899" id="0504">And the second boy said,
+"I bring you myrrh."</span>
+<span data-time="296061" id="0507">And the third boy said, "Frank sent this."</span>
+<span data-time="298089" id="0510">(Laughter)</span>
+<span data-time="310711" id="0521">What these things have in common
+is that kids will take a chance.</span>
+<span data-time="313825" id="0526">If they don't know, they'll have a go.</span>
+<span data-time="316457" id="0529">Am I right? They're not
+frightened of being wrong.</span>
+<span data-time="320893" id="0532">I don't mean to say that being wrong
+is the same thing as being creative.</span>
+<span data-time="324886" id="0537">What we do know is,
+if you're not prepared to be wrong,</span>
+<span data-time="328000" id="0540">you'll never come up
+with anything original --</span>
+<span data-time="330391" id="0542">if you're not prepared to be wrong.</span>
+<span data-time="332877" id="0545">And by the time they get to be adults,
+most kids have lost that capacity.</span>
+<span data-time="337406" id="0550">They have become
+frightened of being wrong.</span>
+<span data-time="339950" id="0552">And we run our companies like this.</span>
+<span data-time="341664" id="0553">We stigmatize mistakes.</span>
+<span data-time="343340" id="0555">And we're now running
+national education systems</span>
+<span data-time="345666" id="0557">where mistakes are the worst
+thing you can make.</span>
+<span data-time="348700" id="0600">And the result is that
+we are educating people</span>
+<span data-time="351932" id="0603">out of their creative capacities.</span>
+<span data-time="354247" id="0606">Picasso once said this, he said
+that all children are born artists.</span>
+<span data-time="358749" id="0611">The problem is to remain an artist
+as we grow up.</span>
+<span data-time="361995" id="0614">I believe this passionately,
+that we don't grow into creativity,</span>
+<span data-time="365100" id="0617">we grow out of it.</span>
+<span data-time="366980" id="0619">Or rather, we get educated out if it.</span>
+<span data-time="369247" id="0621">So why is this?</span>
+<span data-time="370826" id="0624">I lived in Stratford-on-Avon
+until about five years ago.</span>
+<span data-time="374931" id="0627">In fact, we moved
+from Stratford to Los Angeles.</span>
+<span data-time="377872" id="0630">So you can imagine
+what a seamless transition that was.</span>
+<span data-time="380560" id="0632">(Laughter)</span>
+<span data-time="382000" id="0633">Actually, we lived in a place
+called Snitterfield,</span>
+<span data-time="384400" id="0636">just outside Stratford,</span>
+<span data-time="385675" id="0637">which is where
+Shakespeare's father was born.</span>
+<span data-time="388082" id="0640">Are you struck by a new thought? I was.</span>
+<span data-time="390481" id="0642">You don't think of Shakespeare
+having a father, do you?</span>
+<span data-time="393100" id="0645">Do you? Because you don't think
+of Shakespeare being a child, do you?</span>
+<span data-time="397000" id="0648">Shakespeare being seven?</span>
+<span data-time="398591" id="0651">I never thought of it.</span>
+<span data-time="399864" id="0652">I mean, he was seven at some point.</span>
+<span data-time="401572" id="0653">He was in somebody's
+English class, wasn't he?</span>
+<span data-time="403906" id="0654">(Laughter)</span>
+<span data-time="410717" id="0702">How annoying would that be?</span>
+<span data-time="412070" id="0703">(Laughter)</span>
+<span data-time="419729" id="0711">"Must try harder."</span>
+<span data-time="420788" id="0712">(Laughter)</span>
+<span data-time="424712" id="0717">Being sent to bed by his dad, you know,
+to Shakespeare, "Go to bed, now!</span>
+<span data-time="428200" id="0722">And put the pencil down."</span>
+<span data-time="430652" id="0723">(Laughter)</span>
+<span data-time="431750" id="0724">"And stop speaking like that."</span>
+<span data-time="433329" id="0725">(Laughter)</span>
+<span data-time="437244" id="0729">"It's confusing everybody."</span>
+<span data-time="438592" id="0730">(Laughter)</span>
+<span data-time="443739" id="0735">Anyway, we moved
+from Stratford to Los Angeles,</span>
+<span data-time="449101" id="0741">and I just want to say a word
+about the transition.</span>
+<span data-time="451566" id="0742">My son didn't want to come.</span>
+<span data-time="453000" id="0743">I've got two kids;
+he's 21 now, my daughter's 16.</span>
+<span data-time="456000" id="0747">He didn't want to come to Los Angeles.</span>
+<span data-time="458068" id="0750">He loved it, but he had
+a girlfriend in England.</span>
+<span data-time="461048" id="0754">This was the love of his life, Sarah.</span>
+<span data-time="464761" id="0756">He'd known her for a month.</span>
+<span data-time="466160" id="0757">(Laughter)</span>
+<span data-time="467534" id="0800">Mind you, they'd had
+their fourth anniversary,</span>
+<span data-time="469814" id="0802">because it's a long time when you're 16.</span>
+<span data-time="472777" id="0804">He was really upset on the plane,</span>
+<span data-time="474462" id="0805">he said, "I'll never find
+another girl like Sarah."</span>
+<span data-time="476947" id="0808">And we were rather pleased
+about that, frankly --</span>
+<span data-time="479349" id="0809">(Laughter)</span>
+<span data-time="487395" id="0819">Because she was the main reason
+we were leaving the country.</span>
+<span data-time="490300" id="0820">(Laughter)</span>
+<span data-time="496059" id="0827">But something strikes you
+when you move to America</span>
+<span data-time="498425" id="0829">and travel around the world:</span>
+<span data-time="499815" id="0831">Every education system on Earth
+has the same hierarchy of subjects.</span>
+<span data-time="503537" id="0834">Every one. Doesn't matter where you go.</span>
+<span data-time="505516" id="0837">You'd think it would be
+otherwise, but it isn't.</span>
+<span data-time="507810" id="0838">At the top are mathematics and languages,</span>
+<span data-time="509800" id="0841">then the humanities,
+and at the bottom are the arts.</span>
+<span data-time="512258" id="0843">Everywhere on Earth.</span>
+<span data-time="513400" id="0844">And in pretty much every system too,
+there's a hierarchy within the arts.</span>
+<span data-time="517519" id="0849">Art and music are normally
+given a higher status in schools</span>
+<span data-time="520400" id="0852">than drama and dance.</span>
+<span data-time="521591" id="0854">There isn't an education
+system on the planet</span>
+<span data-time="523871" id="0856">that teaches dance everyday to children</span>
+<span data-time="525953" id="0857">the way we teach them mathematics. Why?</span>
+<span data-time="528524" id="0901">Why not? I think this is rather important.</span>
+<span data-time="531249" id="0902">I think math is very
+important, but so is dance.</span>
+<span data-time="533576" id="0905">Children dance all the time
+if they're allowed to, we all do.</span>
+<span data-time="536500" id="0908">We all have bodies, don't we?
+Did I miss a meeting?</span>
+<span data-time="539000" id="0912">(Laughter)</span>
+<span data-time="542510" id="0914">Truthfully, what happens is,
+as children grow up,</span>
+<span data-time="544869" id="0916">we start to educate them progressively
+from the waist up.</span>
+<span data-time="547661" id="0919">And then we focus on their heads.</span>
+<span data-time="549310" id="0921">And slightly to one side.</span>
+<span data-time="551319" id="0924">If you were to visit
+education, as an alien,</span>
+<span data-time="554000" id="0925">and say "What's it for, public education?"</span>
+<span data-time="557000" id="0929">I think you'd have to conclude,
+if you look at the output,</span>
+<span data-time="559800" id="0931">who really succeeds by this,</span>
+<span data-time="561200" id="0932">who does everything that they should,</span>
+<span data-time="563000" id="0934">who gets all the brownie
+points, who are the winners --</span>
+<span data-time="565755" id="0937">I think you'd have to conclude
+the whole purpose of public education</span>
+<span data-time="569118" id="0940">throughout the world</span>
+<span data-time="570239" id="0941">is to produce university professors.</span>
+<span data-time="572216" id="0945">Isn't it?</span>
+<span data-time="573551" id="0946">They're the people who come out the top.</span>
+<span data-time="575558" id="0947">And I used to be one, so there.</span>
+<span data-time="577761" id="0948">(Laughter)</span>
+<span data-time="580421" id="0953">And I like university
+professors, but you know,</span>
+<span data-time="583546" id="0956">we shouldn't hold them up</span>
+<span data-time="585045" id="0957">as the high-water mark
+of all human achievement.</span>
+<span data-time="588000" id="1000">They're just a form of life,</span>
+<span data-time="590000" id="1002">another form of life.</span>
+<span data-time="591584" id="1004">But they're rather curious, and I say this
+out of affection for them.</span>
+<span data-time="594906" id="1006">There's something curious
+about professors in my experience --</span>
+<span data-time="597900" id="1007">not all of them, but typically,
+they live in their heads.</span>
+<span data-time="600600" id="1012">They live up there,
+and slightly to one side.</span>
+<span data-time="603495" id="1015">They're disembodied, you know,
+in a kind of literal way.</span>
+<span data-time="606893" id="1018">They look upon their body as a form
+of transport for their heads.</span>
+<span data-time="610010" id="1021">(Laughter)</span>
+<span data-time="616200" id="1028">Don't they?</span>
+<span data-time="617240" id="1030">It's a way of getting
+their head to meetings.</span>
+<span data-time="619486" id="1031">(Laughter)</span>
+<span data-time="625022" id="1036">If you want real evidence
+of out-of-body experiences,</span>
+<span data-time="628876" id="1040">get yourself along to a residential
+conference of senior academics,</span>
+<span data-time="632386" id="1044">and pop into the discotheque
+on the final night.</span>
+<span data-time="634653" id="1046">(Laughter)</span>
+<span data-time="637478" id="1050">And there, you will see it.</span>
+<span data-time="638858" id="1051">Grown men and women
+writhing uncontrollably, off the beat.</span>
+<span data-time="643000" id="1054">(Laughter)</span>
+<span data-time="645891" id="1057">Waiting until it ends so they can
+go home and write a paper about it.</span>
+<span data-time="649240" id="1058">(Laughter)</span>
+<span data-time="651168" id="1103">Our education system is predicated
+on the idea of academic ability.</span>
+<span data-time="655035" id="1107">And there's a reason.</span>
+<span data-time="656300" id="1109">Around the world, there were
+no public systems of education,</span>
+<span data-time="659880" id="1111">really, before the 19th century.</span>
+<span data-time="662010" id="1114">They all came into being
+to meet the needs of industrialism.</span>
+<span data-time="665269" id="1117">So the hierarchy is rooted on two ideas.</span>
+<span data-time="667456" id="1120">Number one, that the most useful
+subjects for work are at the top.</span>
+<span data-time="672077" id="1124">So you were
+probably steered benignly away</span>
+<span data-time="674132" id="1125">from things at school when you
+were a kid, things you liked,</span>
+<span data-time="677090" id="1129">on the grounds that you would
+never get a job doing that. Is that right?</span>
+<span data-time="680500" id="1132">Don't do music, you're not
+going to be a musician;</span>
+<span data-time="682905" id="1133">don't do art, you won't be an artist.</span>
+<span data-time="684730" id="1136">Benign advice -- now, profoundly mistaken.</span>
+<span data-time="688174" id="1140">The whole world
+is engulfed in a revolution.</span>
+<span data-time="690343" id="1142">And the second is academic ability,</span>
+<span data-time="692464" id="1144">which has really come to dominate
+our view of intelligence,</span>
+<span data-time="695373" id="1146">because the universities designed
+the system in their image.</span>
+<span data-time="698300" id="1150">If you think of it, the whole system
+of public education around the world</span>
+<span data-time="701818" id="1152">is a protracted process
+of university entrance.</span>
+<span data-time="704068" id="1155">And the consequence
+is that many highly-talented,</span>
+<span data-time="706425" id="1158">brilliant, creative
+people think they're not,</span>
+<span data-time="708884" id="1201">because the thing
+they were good at at school</span>
+<span data-time="711046" id="1202">wasn't valued,
+or was actually stigmatized.</span>
+<span data-time="713383" id="1205">And I think we can't afford
+to go on that way.</span>
+<span data-time="715703" id="1208">In the next 30 years, according to UNESCO,</span>
+<span data-time="718191" id="1210">more people worldwide will be graduating</span>
+<span data-time="721025" id="1213">through education
+than since the beginning of history.</span>
+<span data-time="723595" id="1216">More people, and it's the combination
+of all the things we've talked about --</span>
+<span data-time="727300" id="1218">technology and its transformation
+effect on work, and demography</span>
+<span data-time="730372" id="1222">and the huge explosion in population.</span>
+<span data-time="732200" id="1224">Suddenly, degrees aren't worth anything.</span>
+<span data-time="735089" id="1227">Isn't that true?</span>
+<span data-time="736723" id="1229">When I was a student,
+if you had a degree, you had a job.</span>
+<span data-time="739500" id="1232">If you didn't have a job,
+it's because you didn't want one.</span>
+<span data-time="742300" id="1234">And I didn't want one, frankly. (Laughter)</span>
+<span data-time="745000" id="1239">But now kids with degrees</span>
+<span data-time="749098" id="1241">are often heading home
+to carry on playing video games,</span>
+<span data-time="752167" id="1244">because you need an MA where
+the previous job required a BA,</span>
+<span data-time="755389" id="1247">and now you need a PhD for the other.</span>
+<span data-time="757200" id="1249">It's a process of academic inflation.</span>
+<span data-time="759000" id="1250">And it indicates the whole
+structure of education</span>
+<span data-time="761400" id="1253">is shifting beneath our feet.</span>
+<span data-time="762857" id="1254">We need to radically rethink
+our view of intelligence.</span>
+<span data-time="765501" id="1256">We know three things about intelligence.</span>
+<span data-time="767520" id="1258">One, it's diverse.</span>
+<span data-time="768771" id="1300">We think about the world in all the ways
+that we experience it.</span>
+<span data-time="771800" id="1302">We think visually, we think in sound,
+we think kinesthetically.</span>
+<span data-time="774800" id="1306">We think in abstract terms,
+we think in movement.</span>
+<span data-time="777246" id="1308">Secondly, intelligence is dynamic.</span>
+<span data-time="779587" id="1312">If you look at the interactions
+of a human brain,</span>
+<span data-time="782000" id="1314">as we heard yesterday
+from a number of presentations,</span>
+<span data-time="785000" id="1317">intelligence is wonderfully interactive.</span>
+<span data-time="787000" id="1319">The brain isn't divided into compartments.</span>
+<span data-time="789873" id="1322">In fact, creativity --
+which I define as the process</span>
+<span data-time="793000" id="1325">of having original ideas
+that have value --</span>
+<span data-time="795349" id="1327">more often than not comes about
+through the interaction</span>
+<span data-time="798025" id="1330">of different disciplinary
+ways of seeing things.</span>
+<span data-time="802310" id="1334">By the way, there's a shaft of nerves
+that joins the two halves of the brain</span>
+<span data-time="806000" id="1338">called the corpus callosum.</span>
+<span data-time="807515" id="1339">It's thicker in women.</span>
+<span data-time="809088" id="1341">Following off from Helen yesterday,</span>
+<span data-time="810853" id="1343">this is probably why women
+are better at multi-tasking.</span>
+<span data-time="814000" id="1346">Because you are, aren't you?</span>
+<span data-time="815841" id="1348">There's a raft of research,
+but I know it from my personal life.</span>
+<span data-time="819738" id="1358">If my wife is cooking a meal at home --
+which is not often, thankfully.</span>
+<span data-time="825000" id="1359">(Laughter)</span>
+<span data-time="827878" id="1400">No, she's good at some things,
+but if she's cooking,</span>
+<span data-time="830400" id="1402">she's dealing with people on the phone,</span>
+<span data-time="832300" id="1404">she's talking to the kids,
+she's painting the ceiling,</span>
+<span data-time="834880" id="1406">she's doing open-heart surgery over here.</span>
+<span data-time="838000" id="1410">If I'm cooking, the door
+is shut, the kids are out,</span>
+<span data-time="841000" id="1413">the phone's on the hook,
+if she comes in I get annoyed.</span>
+<span data-time="844000" id="1416">I say, "Terry, please,
+I'm trying to fry an egg in here."</span>
+<span data-time="847095" id="1418">(Laughter)</span>
+<span data-time="854254" id="1426">"Give me a break."</span>
+<span data-time="855478" id="1427">(Laughter)</span>
+<span data-time="857222" id="1430">Actually, do you know
+that old philosophical thing,</span>
+<span data-time="859745" id="1432">if a tree falls in a forest
+and nobody hears it, did it happen?</span>
+<span data-time="863252" id="1435">Remember that old chestnut?</span>
+<span data-time="864605" id="1436">I saw a great t-shirt
+recently, which said,</span>
+<span data-time="867038" id="1439">"If a man speaks his mind
+in a forest, and no woman hears him,</span>
+<span data-time="871000" id="1443">is he still wrong?"</span>
+<span data-time="872420" id="1444">(Laughter)</span>
+<span data-time="879976" id="1452">And the third thing about intelligence is,</span>
+<span data-time="882000" id="1454">it's distinct.</span>
+<span data-time="883754" id="1456">I'm doing a new book at the moment
+called "Epiphany,"</span>
+<span data-time="886351" id="1458">which is based on a series
+of interviews with people</span>
+<span data-time="888849" id="1500">about how they discovered their talent.</span>
+<span data-time="890793" id="1502">I'm fascinated
+by how people got to be there.</span>
+<span data-time="892986" id="1504">It's really prompted by a conversation
+I had with a wonderful woman</span>
+<span data-time="896200" id="1507">who maybe most people
+have never heard of, Gillian Lynne.</span>
+<span data-time="898900" id="1510">Have you heard of her? Some have.</span>
+<span data-time="900554" id="1512">She's a choreographer,
+and everybody knows her work.</span>
+<span data-time="903100" id="1514">She did "Cats" and "Phantom of the Opera."</span>
+<span data-time="905125" id="1517">She's wonderful.</span>
+<span data-time="906127" id="1518">I used to be on the board of The Royal Ballet, in England</span>
+<span data-time="908297" id="1520">as you can see.</span>
+<span data-time="909522" id="1523">Anyway, Gillian and I had
+lunch one day and I said,</span>
+<span data-time="912047" id="1524">"How did you get to be a dancer?And she said "</span>
+<span data-time="913976" id="1526">It was interesting.</span>
+<span data-time="915000" id="1527">When she was at school,
+she was really hopeless.</span>
+<span data-time="917374" id="1529">And the school, in the '30s,
+wrote to her parents and said,</span>
+<span data-time="921000" id="1533">"We think Gillian
+has a learning disorder."</span>
+<span data-time="923024" id="1535">She couldn't concentrate;
+she was fidgeting.</span>
+<span data-time="925190" id="1536">I think now they'd say she had ADHD.
+Wouldn't you?</span>
+<span data-time="928504" id="1540">But this was the 1930s, and ADHD
+hadn't been invented at this point.</span>
+<span data-time="932587" id="1544">It wasn't an available condition.</span>
+<span data-time="935000" id="1545">(Laughter)</span>
+<span data-time="937761" id="1550">People weren't aware they could have that.</span>
+<span data-time="939845" id="1551">(Laughter)</span>
+<span data-time="942003" id="1555">Anyway, she went to see this specialist.</span>
+<span data-time="946305" id="1559">So, this oak-paneled room,
+and she was there with her mother,</span>
+<span data-time="950051" id="1601">and she was led and sat
+on this chair at the end,</span>
+<span data-time="952552" id="1604">and she sat on her hands for 20 minutes
+while this man talked to her mother</span>
+<span data-time="956215" id="1606">about the problems
+Gillian was having at school.</span>
+<span data-time="958567" id="1610">Because she was disturbing people;
+her homework was always late; and so on,</span>
+<span data-time="962268" id="1614">little kid of eight.</span>
+<span data-time="963388" id="1615">In the end, the doctor
+went and sat next to Gillian, and said,</span>
+<span data-time="966467" id="1618">"I've listened to all these
+things your mother's told me,</span>
+<span data-time="969196" id="1620">I need to speak to her privately.</span>
+<span data-time="970839" id="1623">Wait here. We'll be back;
+we won't be very long,"</span>
+<span data-time="973239" id="1627">and they went and left her.</span>
+<span data-time="975588" id="1628">But as they went out of the room,</span>
+<span data-time="977248" id="1629">he turned on the radio
+that was sitting on his desk.</span>
+<span data-time="980342" id="1632">And when they got out, he said to her
+mother, "Just stand and watch her."</span>
+<span data-time="984000" id="1636">And the minute they left the room,</span>
+<span data-time="987015" id="1639">she was on her feet, moving to the music.</span>
+<span data-time="989523" id="1642">And they watched for a few minutes
+and he turned to her mother and said,</span>
+<span data-time="993000" id="1644">"Mrs. Lynne, Gillian
+isn't sick; she's a dancer.</span>
+<span data-time="997000" id="1650">Take her to a dance school."</span>
+<span data-time="999000" id="1652">I said, "What happened?"</span>
+<span data-time="1001000" id="1653">She said, "She did. I can't tell you
+how wonderful it was.</span>
+<span data-time="1004000" id="1656">We walked in this room
+and it was full of people like me.</span>
+<span data-time="1006777" id="1659">People who couldn't sit still.</span>
+<span data-time="1009000" id="1701">People who had to move to think."
+Who had to move to think.</span>
+<span data-time="1013746" id="1706">They did ballet, they did tap, jazz;
+they did modern; they did contemporary.</span>
+<span data-time="1017400" id="1709">She was eventually auditioned
+for the Royal Ballet School;</span>
+<span data-time="1020244" id="1712">she became a soloist; she had
+a wonderful career at the Royal Ballet.</span>
+<span data-time="1023567" id="1715">She eventually graduated
+from the Royal Ballet School,</span>
+<span data-time="1026200" id="1717">founded the Gillian Lynne Dance Company,</span>
+<span data-time="1028200" id="1720">met Andrew Lloyd Webber.</span>
+<span data-time="1029568" id="1721">She's been responsible for</span>
+<span data-time="1031001" id="1722">some of the most successful
+musical theater productions in history,</span>
+<span data-time="1034172" id="1724">she's given pleasure to millions,
+and she's a multi-millionaire.</span>
+<span data-time="1037269" id="1728">Somebody else might have put her
+on medication and told her to calm down.</span>
+<span data-time="1041364" id="1732">(Applause)</span>
+<span data-time="1048575" id="1741">What I think it comes to is this:</span>
+<span data-time="1050200" id="1742">Al Gore spoke the other night</span>
+<span data-time="1052000" id="1743">about ecology and the revolution
+that was triggered by Rachel Carson.</span>
+<span data-time="1057111" id="1749">I believe our only hope for the future</span>
+<span data-time="1059301" id="1751">is to adopt a new conception
+of human ecology,</span>
+<span data-time="1063158" id="1755">one in which we start
+to reconstitute our conception</span>
+<span data-time="1066000" id="1758">of the richness of human capacity.</span>
+<span data-time="1068000" id="1800">Our education system has mined our minds</span>
+<span data-time="1071523" id="1803">in the way that we strip-mine the earth:
+for a particular commodity.</span>
+<span data-time="1075188" id="1807">And for the future, it won't serve us.</span>
+<span data-time="1077696" id="1810">We have to rethink
+the fundamental principles</span>
+<span data-time="1080000" id="1811">on which we're educating our children.</span>
+<span data-time="1082087" id="1814">There was a wonderful quote
+by Jonas Salk, who said,</span>
+<span data-time="1084785" id="1817">"If all the insects
+were to disappear from the Earth,</span>
+<span data-time="1089848" id="1822">within 50 years all life
+on Earth would end.</span>
+<span data-time="1093688" id="1826">If all human beings
+disappeared from the Earth,</span>
+<span data-time="1096784" id="1829">within 50 years all forms
+of life would flourish."</span>
+<span data-time="1100244" id="1832">And he's right.</span>
+<span data-time="1102291" id="1834">What TED celebrates is the gift
+of the human imagination.</span>
+<span data-time="1106417" id="1838">We have to be careful now</span>
+<span data-time="1108512" id="1841">that we use this gift wisely</span>
+<span data-time="1110791" id="1843">and that we avert some of the scenarios
+that we've talked about.</span>
+<span data-time="1114044" id="1846">And the only way we'll do it is by seeing 
+our creative capacities for the richness they are</span>
+
+<span data-time="1119634" id="1851">and seeing our children
+for the hope that they are.</span>
+<span data-time="1122840" id="1855">And our task is to educate
+their whole being,</span>
+<span data-time="1125262" id="1857">so they can face this future.</span>
+<span data-time="1126770" id="1858">By the way -- we may not see this future,</span>
+<span data-time="1129000" id="1901">but they will.</span>
+<span data-time="1130454" id="1903">And our job is to help them
+make something of it.</span>
+<span data-time="1133557" id="1906">Thank you very much.</span>
+<span data-time="1134581" id="1907">(Applause)</span>
+
+</div>
+</body>
+</html>
+
+ var t = [];
