@@ -1,0 +1,409 @@
+<span class="talk-transcript__fragment" data-time="0" id="12">When I was nine years old,</span>
+<span class="talk-transcript__fragment" data-time="2000" id="14">I went off to summer camp for the first time.</span>
+<span class="talk-transcript__fragment" data-time="4167" id="16">And my mother packed me a suitcase full of books,</span>
+<span class="talk-transcript__fragment" data-time="8000" id="20">which to me seemed like a perfectly natural thing to do.</span>
+<span class="talk-transcript__fragment" data-time="10691" id="22">Because in my family, reading was the primary group activity.</span>
+<span class="talk-transcript__fragment" data-time="15000" id="27">And this might sound antisocial to you,</span>
+<span class="talk-transcript__fragment" data-time="17000" id="29">but for us it was really just a different way of being social.</span>
+<span class="talk-transcript__fragment" data-time="20000" id="32">You have the animal warmth of your family sitting right next to you,</span>
+<span class="talk-transcript__fragment" data-time="24000" id="36">but you are also free to go roaming around the adventureland</span>
+<span class="talk-transcript__fragment" data-time="26882" id="38">inside your own mind.</span>
+<span class="talk-transcript__fragment" data-time="28000" id="40">And I had this idea</span>
+<span class="talk-transcript__fragment" data-time="30000" id="42">that camp was going to be just like this, but better.</span>
+<span class="talk-transcript__fragment" data-time="32548" id="44">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="35000" id="47">I had a vision of 10 girls sitting in a cabin</span>
+<span class="talk-transcript__fragment" data-time="38000" id="50">cozily reading books in their matching nightgowns.</span>
+<span class="talk-transcript__fragment" data-time="40405" id="52">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="42000" id="54">Camp was more like a keg party without any alcohol.</span>
+<span class="talk-transcript__fragment" data-time="45000" id="57">And on the very first day,</span>
+<span class="talk-transcript__fragment" data-time="48000" id="60">our counselor gathered us all together</span>
+<span class="talk-transcript__fragment" data-time="50000" id="62">and she taught us a cheer that she said we would be doing</span>
+<span class="talk-transcript__fragment" data-time="52700" id="64">every day for the rest of the summer to instill camp spirit.</span>
+<span class="talk-transcript__fragment" data-time="56000" id="68">And it went like this:</span>
+<span class="talk-transcript__fragment" data-time="58000" id="70">"R-O-W-D-I-E,</span>
+<span class="talk-transcript__fragment" data-time="60000" id="72">that's the way we spell rowdie.</span>
+<span class="talk-transcript__fragment" data-time="62000" id="74">Rowdie, rowdie, let's get rowdie."</span>
+<span class="talk-transcript__fragment" data-time="65417" id="77">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="67000" id="79">Yeah.</span>
+<span class="talk-transcript__fragment" data-time="69000" id="81">So I couldn't figure out for the life of me</span>
+<span class="talk-transcript__fragment" data-time="71072" id="83">why we were supposed to be so rowdy,</span>
+<span class="talk-transcript__fragment" data-time="73000" id="85">or why we had to spell this word incorrectly.</span>
+<span class="talk-transcript__fragment" data-time="76000" id="88">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="82000" id="94">But I recited a cheer. I recited a cheer along with everybody else.</span>
+<span class="talk-transcript__fragment" data-time="85215" id="97">I did my best.</span>
+<span class="talk-transcript__fragment" data-time="87000" id="99">And I just waited for the time that I could go off and read my books.</span>
+<span class="talk-transcript__fragment" data-time="92560" id="104">But the first time that I took my book out of my suitcase,</span>
+<span class="talk-transcript__fragment" data-time="95384" id="107">the coolest girl in the bunk came up to me</span>
+<span class="talk-transcript__fragment" data-time="97424" id="109">and she asked me, "Why are you being so mellow?" --</span>
+<span class="talk-transcript__fragment" data-time="99900" id="111">mellow, of course, being the exact opposite</span>
+<span class="talk-transcript__fragment" data-time="101972" id="113">of R-O-W-D-I-E.</span>
+<span class="talk-transcript__fragment" data-time="103899" id="115">And then the second time I tried it,</span>
+<span class="talk-transcript__fragment" data-time="105800" id="117">the counselor came up to me with a concerned expression on her face</span>
+<span class="talk-transcript__fragment" data-time="109000" id="121">and she repeated the point about camp spirit</span>
+<span class="talk-transcript__fragment" data-time="111120" id="123">and said we should all work very hard to be outgoing.</span>
+<span class="talk-transcript__fragment" data-time="114354" id="126">And so I put my books away,</span>
+<span class="talk-transcript__fragment" data-time="117000" id="129">back in their suitcase,</span>
+<span class="talk-transcript__fragment" data-time="120000" id="132">and I put them under my bed,</span>
+<span class="talk-transcript__fragment" data-time="124000" id="136">and there they stayed for the rest of the summer.</span>
+<span class="talk-transcript__fragment" data-time="126400" id="138">And I felt kind of guilty about this.</span>
+<span class="talk-transcript__fragment" data-time="128200" id="140">I felt as if the books needed me somehow,</span>
+<span class="talk-transcript__fragment" data-time="130200" id="142">and they were calling out to me and I was forsaking them.</span>
+<span class="talk-transcript__fragment" data-time="133000" id="145">But I did forsake them and I didn't open that suitcase again</span>
+<span class="talk-transcript__fragment" data-time="135900" id="147">until I was back home with my family at the end of the summer.</span>
+<span class="talk-transcript__fragment" data-time="139000" id="151">Now, I tell you this story about summer camp.</span>
+<span class="talk-transcript__fragment" data-time="142000" id="154">I could have told you 50 others just like it --</span>
+<span class="talk-transcript__fragment" data-time="145000" id="157">all the times that I got the message</span>
+<span class="talk-transcript__fragment" data-time="147000" id="159">that somehow my quiet and introverted style of being</span>
+<span class="talk-transcript__fragment" data-time="151000" id="163">was not necessarily the right way to go,</span>
+<span class="talk-transcript__fragment" data-time="153000" id="165">that I should be trying to pass as more of an extrovert.</span>
+<span class="talk-transcript__fragment" data-time="156000" id="168">And I always sensed deep down that this was wrong</span>
+<span class="talk-transcript__fragment" data-time="159000" id="171">and that introverts were pretty excellent just as they were.</span>
+<span class="talk-transcript__fragment" data-time="161882" id="173">But for years I denied this intuition,</span>
+<span class="talk-transcript__fragment" data-time="164000" id="176">and so I became a Wall Street lawyer, of all things,</span>
+<span class="talk-transcript__fragment" data-time="167000" id="179">instead of the writer that I had always longed to be --</span>
+<span class="talk-transcript__fragment" data-time="170000" id="182">partly because I needed to prove to myself that I could be bold and assertive too.</span>
+<span class="talk-transcript__fragment" data-time="174000" id="186">And I was always going off to crowded bars</span>
+<span class="talk-transcript__fragment" data-time="176101" id="188">when I really would have preferred to just have a nice dinner with friends.</span>
+<span class="talk-transcript__fragment" data-time="179697" id="191">And I made these self-negating choices so reflexively,</span>
+<span class="talk-transcript__fragment" data-time="184000" id="196">that I wasn't even aware that I was making them.</span>
+<span class="talk-transcript__fragment" data-time="187497" id="199">Now this is what many introverts do,</span>
+<span class="talk-transcript__fragment" data-time="189300" id="201">and it's our loss for sure,</span>
+<span class="talk-transcript__fragment" data-time="191000" id="203">but it is also our colleagues' loss</span>
+<span class="talk-transcript__fragment" data-time="193000" id="205">and our communities' loss.</span>
+<span class="talk-transcript__fragment" data-time="195000" id="207">And at the risk of sounding grandiose, it is the world's loss.</span>
+<span class="talk-transcript__fragment" data-time="198000" id="210">Because when it comes to creativity and to leadership,</span>
+<span class="talk-transcript__fragment" data-time="201000" id="213">we need introverts doing what they do best.</span>
+<span class="talk-transcript__fragment" data-time="204000" id="216">A third to a half of the population are introverts --</span>
+<span class="talk-transcript__fragment" data-time="206548" id="218">a third to a half.</span>
+<span class="talk-transcript__fragment" data-time="208000" id="220">So that's one out of every two or three people you know.</span>
+<span class="talk-transcript__fragment" data-time="211000" id="223">So even if you're an extrovert yourself,</span>
+<span class="talk-transcript__fragment" data-time="214000" id="226">I'm talking about your coworkers</span>
+<span class="talk-transcript__fragment" data-time="216000" id="228">and your spouses and your children</span>
+<span class="talk-transcript__fragment" data-time="218000" id="230">and the person sitting next to you right now --</span>
+<span class="talk-transcript__fragment" data-time="221000" id="233">all of them subject to this bias</span>
+<span class="talk-transcript__fragment" data-time="223000" id="235">that is pretty deep and real in our society.</span>
+<span class="talk-transcript__fragment" data-time="225120" id="237">We all internalize it from a very early age</span>
+<span class="talk-transcript__fragment" data-time="228000" id="240">without even having a language for what we're doing.</span>
+<span class="talk-transcript__fragment" data-time="231000" id="243">Now, to see the bias clearly,</span>
+<span class="talk-transcript__fragment" data-time="233000" id="245">you need to understand what introversion is.</span>
+<span class="talk-transcript__fragment" data-time="236000" id="248">It's different from being shy.</span>
+<span class="talk-transcript__fragment" data-time="238000" id="250">Shyness is about fear of social judgment.</span>
+<span class="talk-transcript__fragment" data-time="240000" id="252">Introversion is more about,</span>
+<span class="talk-transcript__fragment" data-time="242000" id="254">how do you respond to stimulation,</span>
+<span class="talk-transcript__fragment" data-time="244000" id="256">including social stimulation.</span>
+<span class="talk-transcript__fragment" data-time="246000" id="258">So extroverts really crave large amounts of stimulation,</span>
+<span class="talk-transcript__fragment" data-time="249000" id="261">whereas introverts feel at their most alive</span>
+<span class="talk-transcript__fragment" data-time="251101" id="263">and their most switched-on and their most capable</span>
+<span class="talk-transcript__fragment" data-time="253501" id="265">when they're in quieter, more low-key environments.</span>
+<span class="talk-transcript__fragment" data-time="255930" id="267">Not all the time -- these things aren't absolute --</span>
+<span class="talk-transcript__fragment" data-time="258383" id="270">but a lot of the time.</span>
+<span class="talk-transcript__fragment" data-time="259600" id="271">So the key then to maximizing our talents</span>
+<span class="talk-transcript__fragment" data-time="264000" id="276">is for us all to put ourselves</span>
+<span class="talk-transcript__fragment" data-time="266000" id="278">in the zone of stimulation that is right for us.</span>
+<span class="talk-transcript__fragment" data-time="269000" id="281">But now here's where the bias comes in.</span>
+<span class="talk-transcript__fragment" data-time="271000" id="283">Our most important institutions,</span>
+<span class="talk-transcript__fragment" data-time="273000" id="285">our schools and our workplaces,</span>
+<span class="talk-transcript__fragment" data-time="275000" id="287">they are designed mostly for extroverts</span>
+<span class="talk-transcript__fragment" data-time="277000" id="289">and for extroverts' need for lots of stimulation.</span>
+<span class="talk-transcript__fragment" data-time="280000" id="292">And also we have this belief system right now</span>
+<span class="talk-transcript__fragment" data-time="284000" id="296">that I call the new groupthink,</span>
+<span class="talk-transcript__fragment" data-time="286000" id="298">which holds that all creativity and all productivity</span>
+<span class="talk-transcript__fragment" data-time="289000" id="301">comes from a very oddly gregarious place.</span>
+<span class="talk-transcript__fragment" data-time="294000" id="306">So if you picture the typical classroom nowadays:</span>
+<span class="talk-transcript__fragment" data-time="296358" id="308">When I was going to school, we sat in rows.</span>
+<span class="talk-transcript__fragment" data-time="300000" id="312">We sat in rows of desks like this,</span>
+<span class="talk-transcript__fragment" data-time="302000" id="314">and we did most of our work pretty autonomously.</span>
+<span class="talk-transcript__fragment" data-time="304287" id="316">But nowadays, your typical classroom has pods of desks --</span>
+<span class="talk-transcript__fragment" data-time="308000" id="320">four or five or six or seven kids all facing each other.</span>
+<span class="talk-transcript__fragment" data-time="311000" id="323">And kids are working in countless group assignments.</span>
+<span class="talk-transcript__fragment" data-time="313501" id="325">Even in subjects like math and creative writing,</span>
+<span class="talk-transcript__fragment" data-time="316000" id="328">which you think would depend on solo flights of thought,</span>
+<span class="talk-transcript__fragment" data-time="319000" id="331">kids are now expected to act as committee members.</span>
+<span class="talk-transcript__fragment" data-time="323000" id="335">And for the kids who prefer to go off by themselves or just to work alone,</span>
+<span class="talk-transcript__fragment" data-time="327215" id="339">those kids are seen as outliers often</span>
+<span class="talk-transcript__fragment" data-time="329100" id="341">or, worse, as problem cases.</span>
+<span class="talk-transcript__fragment" data-time="333746" id="345">And the vast majority of teachers</span>
+<span class="talk-transcript__fragment" data-time="335646" id="347">reports believing that the ideal student is an extrovert</span>
+<span class="talk-transcript__fragment" data-time="338400" id="350">as opposed to an introvert,</span>
+<span class="talk-transcript__fragment" data-time="340000" id="352">even though introverts actually get better grades</span>
+<span class="talk-transcript__fragment" data-time="342358" id="354">and are more knowledgeable,</span>
+<span class="talk-transcript__fragment" data-time="344000" id="356">according to research.</span>
+<span class="talk-transcript__fragment" data-time="346000" id="358">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="348000" id="360">Okay, same thing is true in our workplaces.</span>
+<span class="talk-transcript__fragment" data-time="351000" id="363">Now, most of us work in open plan offices,</span>
+<span class="talk-transcript__fragment" data-time="354000" id="366">without walls,</span>
+<span class="talk-transcript__fragment" data-time="356000" id="368">where we are subject to the constant noise and gaze of our coworkers.</span>
+<span class="talk-transcript__fragment" data-time="360310" id="372">And when it comes to leadership,</span>
+<span class="talk-transcript__fragment" data-time="362000" id="374">introverts are routinely passed over for leadership positions,</span>
+<span class="talk-transcript__fragment" data-time="365000" id="377">even though introverts tend to be very careful,</span>
+<span class="talk-transcript__fragment" data-time="367240" id="379">much less likely to take outsize risks --</span>
+<span class="talk-transcript__fragment" data-time="369240" id="381">which is something we might all favor nowadays.</span>
+<span class="talk-transcript__fragment" data-time="372000" id="384">And interesting research by Adam Grant at the Wharton School</span>
+<span class="talk-transcript__fragment" data-time="375000" id="387">has found that introverted leaders</span>
+<span class="talk-transcript__fragment" data-time="377000" id="389">often deliver better outcomes than extroverts do,</span>
+<span class="talk-transcript__fragment" data-time="379358" id="391">because when they are managing proactive employees,</span>
+<span class="talk-transcript__fragment" data-time="382000" id="394">they're much more likely to let those employees run with their ideas,</span>
+<span class="talk-transcript__fragment" data-time="385287" id="397">whereas an extrovert can, quite unwittingly,</span>
+<span class="talk-transcript__fragment" data-time="387407" id="399">get so excited about things</span>
+<span class="talk-transcript__fragment" data-time="389000" id="401">that they're putting their own stamp on things,</span>
+<span class="talk-transcript__fragment" data-time="391240" id="403">and other people's ideas might not as easily then bubble up to the surface.</span>
+<span class="talk-transcript__fragment" data-time="396000" id="408">Now in fact, some of our transformative leaders in history have been introverts.</span>
+<span class="talk-transcript__fragment" data-time="399800" id="411">I'll give you some examples.</span>
+<span class="talk-transcript__fragment" data-time="401200" id="413">Eleanor Roosevelt, Rosa Parks, Gandhi --</span>
+<span class="talk-transcript__fragment" data-time="404000" id="416">all these peopled described themselves as quiet and soft-spoken and even shy.</span>
+<span class="talk-transcript__fragment" data-time="409000" id="421">And they all took the spotlight,</span>
+<span class="talk-transcript__fragment" data-time="411000" id="423">even though every bone in their bodies was telling them not to.</span>
+<span class="talk-transcript__fragment" data-time="416269" id="428">And this turns out to have a special power all its own,</span>
+<span class="talk-transcript__fragment" data-time="418900" id="430">because people could feel that these leaders were at the helm</span>
+<span class="talk-transcript__fragment" data-time="421900" id="433">not because they enjoyed directing others</span>
+<span class="talk-transcript__fragment" data-time="423900" id="435">and not out of the pleasure of being looked at;</span>
+<span class="talk-transcript__fragment" data-time="426200" id="438">they were there because they had no choice,</span>
+<span class="talk-transcript__fragment" data-time="428272" id="440">because they were driven to do what they thought was right.</span>
+<span class="talk-transcript__fragment" data-time="431468" id="443">Now I think at this point it's important for me to say</span>
+<span class="talk-transcript__fragment" data-time="434100" id="446">that I actually love extroverts.</span>
+<span class="talk-transcript__fragment" data-time="437000" id="449">I always like to say some of my best friends are extroverts,</span>
+<span class="talk-transcript__fragment" data-time="440000" id="452">including my beloved husband.</span>
+<span class="talk-transcript__fragment" data-time="444000" id="456">And we all fall at different points, of course,</span>
+<span class="talk-transcript__fragment" data-time="446263" id="458">along the introvert/extrovert spectrum.</span>
+<span class="talk-transcript__fragment" data-time="449000" id="461">Even Carl Jung, the psychologist who first popularized these terms,</span>
+<span class="talk-transcript__fragment" data-time="452430" id="464">said that there's no such thing as a pure introvert</span>
+<span class="talk-transcript__fragment" data-time="454845" id="466">or a pure extrovert.</span>
+<span class="talk-transcript__fragment" data-time="456200" id="468">He said that such a man would be in a lunatic asylum,</span>
+<span class="talk-transcript__fragment" data-time="458748" id="470">if he existed at all.</span>
+<span class="talk-transcript__fragment" data-time="461000" id="473">And some people fall smack in the middle of the introvert/extrovert spectrum,</span>
+<span class="talk-transcript__fragment" data-time="465000" id="477">and we call these people ambiverts.</span>
+<span class="talk-transcript__fragment" data-time="467000" id="479">And I often think that they have the best of all worlds.</span>
+<span class="talk-transcript__fragment" data-time="470999" id="482">But many of us do recognize ourselves as one type or the other.</span>
+<span class="talk-transcript__fragment" data-time="474000" id="486">And what I'm saying is that culturally, we need a much better balance.</span>
+<span class="talk-transcript__fragment" data-time="477310" id="489">We need more of a yin and yang between these two types.</span>
+<span class="talk-transcript__fragment" data-time="481000" id="493">This is especially important</span>
+<span class="talk-transcript__fragment" data-time="483000" id="495">when it comes to creativity and to productivity,</span>
+<span class="talk-transcript__fragment" data-time="485310" id="497">because when psychologists look at the lives of the most creative people,</span>
+<span class="talk-transcript__fragment" data-time="489000" id="501">what they find</span>
+<span class="talk-transcript__fragment" data-time="491000" id="503">are people who are very good at exchanging ideas</span>
+<span class="talk-transcript__fragment" data-time="493310" id="505">and advancing ideas,</span>
+<span class="talk-transcript__fragment" data-time="495000" id="507">but who also have a serious streak of introversion in them.</span>
+<span class="talk-transcript__fragment" data-time="498000" id="510">And this is because solitude</span>
+<span class="talk-transcript__fragment" data-time="500253" id="512">is a crucial ingredient often to creativity.</span>
+<span class="talk-transcript__fragment" data-time="502400" id="514">So Darwin,</span>
+<span class="talk-transcript__fragment" data-time="504000" id="516">he took long walks alone in the woods</span>
+<span class="talk-transcript__fragment" data-time="506000" id="518">and emphatically turned down dinner-party invitations.</span>
+<span class="talk-transcript__fragment" data-time="509000" id="521">Theodor Geisel, better known as Dr. Seuss,</span>
+<span class="talk-transcript__fragment" data-time="512000" id="524">he dreamed up many of his amazing creations</span>
+<span class="talk-transcript__fragment" data-time="514049" id="526">in a lonely bell tower office that he had</span>
+<span class="talk-transcript__fragment" data-time="516049" id="528">in the back of his house in La Jolla, California.</span>
+<span class="talk-transcript__fragment" data-time="519000" id="531">And he was actually afraid to meet the young children who read his books</span>
+<span class="talk-transcript__fragment" data-time="523000" id="535">for fear that they were expecting him this kind of jolly Santa Claus-like figure</span>
+<span class="talk-transcript__fragment" data-time="527024" id="539">and would be disappointed with his more reserved persona.</span>
+<span class="talk-transcript__fragment" data-time="531000" id="543">Steve Wozniak invented the first Apple computer</span>
+<span class="talk-transcript__fragment" data-time="533263" id="545">sitting alone in his cubicle in Hewlett-Packard</span>
+<span class="talk-transcript__fragment" data-time="536284" id="548">where he was working at the time.</span>
+<span class="talk-transcript__fragment" data-time="537945" id="549">And he says that he never would have become such an expert in the first place</span>
+<span class="talk-transcript__fragment" data-time="541644" id="553">had he not been too introverted to leave the house</span>
+<span class="talk-transcript__fragment" data-time="544100" id="556">when he was growing up.</span>
+<span class="talk-transcript__fragment" data-time="545808" id="557">Now, of course,</span>
+<span class="talk-transcript__fragment" data-time="548000" id="560">this does not mean that we should all stop collaborating --</span>
+<span class="talk-transcript__fragment" data-time="551000" id="563">and case in point, is Steve Wozniak famously coming together with Steve Jobs</span>
+<span class="talk-transcript__fragment" data-time="554644" id="566">to start Apple Computer --</span>
+<span class="talk-transcript__fragment" data-time="557000" id="569">but it does mean that solitude matters</span>
+<span class="talk-transcript__fragment" data-time="560000" id="572">and that for some people it is the air that they breathe.</span>
+<span class="talk-transcript__fragment" data-time="564000" id="576">And in fact, we have known for centuries about the transcendent power of solitude.</span>
+<span class="talk-transcript__fragment" data-time="570000" id="582">It's only recently that we've strangely begun to forget it.</span>
+<span class="talk-transcript__fragment" data-time="573000" id="585">If you look at most of the world's major religions,</span>
+<span class="talk-transcript__fragment" data-time="576000" id="588">you will find seekers --</span>
+<span class="talk-transcript__fragment" data-time="578000" id="590">Moses, Jesus, Buddha, Muhammad --</span>
+<span class="talk-transcript__fragment" data-time="581000" id="593">seekers who are going off by themselves alone to the wilderness,</span>
+<span class="talk-transcript__fragment" data-time="585000" id="597">where they then have profound epiphanies and revelations</span>
+<span class="talk-transcript__fragment" data-time="587700" id="599">that they then bring back to the rest of the community.</span>
+<span class="talk-transcript__fragment" data-time="590400" id="602">So, no wilderness, no revelations.</span>
+<span class="talk-transcript__fragment" data-time="594000" id="606">This is no surprise, though,</span>
+<span class="talk-transcript__fragment" data-time="596000" id="608">if you look at the insights of contemporary psychology.</span>
+<span class="talk-transcript__fragment" data-time="599000" id="611">It turns out that we can't even be in a group of people</span>
+<span class="talk-transcript__fragment" data-time="602000" id="614">without instinctively mirroring, mimicking their opinions.</span>
+<span class="talk-transcript__fragment" data-time="605000" id="617">Even about seemingly personal and visceral things</span>
+<span class="talk-transcript__fragment" data-time="607358" id="619">like who you're attracted to,</span>
+<span class="talk-transcript__fragment" data-time="609000" id="621">you will start aping the beliefs of the people around you</span>
+<span class="talk-transcript__fragment" data-time="612000" id="624">without even realizing that that's what you're doing.</span>
+<span class="talk-transcript__fragment" data-time="614548" id="626">And groups famously follow the opinions</span>
+<span class="talk-transcript__fragment" data-time="617000" id="629">of the most dominant or charismatic person in the room,</span>
+<span class="talk-transcript__fragment" data-time="619700" id="631">even though there's zero correlation</span>
+<span class="talk-transcript__fragment" data-time="621500" id="633">between being the best talker and having the best ideas --</span>
+<span class="talk-transcript__fragment" data-time="624300" id="636">I mean zero.</span>
+<span class="talk-transcript__fragment" data-time="626000" id="638">So --</span>
+<span class="talk-transcript__fragment" data-time="628000" id="640">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="630000" id="642">You might be following the person with the best ideas,</span>
+<span class="talk-transcript__fragment" data-time="633000" id="645">but you might not.</span>
+<span class="talk-transcript__fragment" data-time="635000" id="647">And do you really want to leave it up to chance?</span>
+<span class="talk-transcript__fragment" data-time="638000" id="650">Much better for everybody to go off by themselves,</span>
+<span class="talk-transcript__fragment" data-time="640405" id="652">generate their own ideas</span>
+<span class="talk-transcript__fragment" data-time="642000" id="654">freed from the distortions of group dynamics,</span>
+<span class="talk-transcript__fragment" data-time="644167" id="656">and then come together as a team</span>
+<span class="talk-transcript__fragment" data-time="646000" id="658">to talk them through in a well-managed environment</span>
+<span class="talk-transcript__fragment" data-time="649000" id="661">and take it from there.</span>
+<span class="talk-transcript__fragment" data-time="651000" id="663">Now if all this is true,</span>
+<span class="talk-transcript__fragment" data-time="653000" id="665">then why are we getting it so wrong?</span>
+<span class="talk-transcript__fragment" data-time="656000" id="668">Why are we setting up our schools this way, and our workplaces?</span>
+<span class="talk-transcript__fragment" data-time="659000" id="671">And why are we making these introverts feel so guilty</span>
+<span class="talk-transcript__fragment" data-time="661548" id="673">about wanting to just go off by themselves some of the time?</span>
+<span class="talk-transcript__fragment" data-time="664500" id="676">One answer lies deep in our cultural history.</span>
+<span class="talk-transcript__fragment" data-time="667000" id="679">Western societies,</span>
+<span class="talk-transcript__fragment" data-time="669000" id="681">and in particular the U.S.,</span>
+<span class="talk-transcript__fragment" data-time="671000" id="683">have always favored the man of action over the "man" of contemplation.</span>
+<span class="talk-transcript__fragment" data-time="679000" id="691">But in America's early days,</span>
+<span class="talk-transcript__fragment" data-time="682000" id="694">we lived in what historians call a culture of character,</span>
+<span class="talk-transcript__fragment" data-time="685000" id="697">where we still, at that point, valued people</span>
+<span class="talk-transcript__fragment" data-time="687120" id="699">for their inner selves and their moral rectitude.</span>
+<span class="talk-transcript__fragment" data-time="690000" id="702">And if you look at the self-help books from this era,</span>
+<span class="talk-transcript__fragment" data-time="692600" id="704">they all had titles with things like</span>
+<span class="talk-transcript__fragment" data-time="694400" id="706">"Character, the Grandest Thing in the World."</span>
+<span class="talk-transcript__fragment" data-time="697000" id="709">And they featured role models like Abraham Lincoln,</span>
+<span class="talk-transcript__fragment" data-time="700000" id="712">who was praised for being modest and unassuming.</span>
+<span class="talk-transcript__fragment" data-time="702310" id="714">Ralph Waldo Emerson called him</span>
+<span class="talk-transcript__fragment" data-time="704000" id="716">"A man who does not offend by superiority."</span>
+<span class="talk-transcript__fragment" data-time="707000" id="719">But then we hit the 20th century,</span>
+<span class="talk-transcript__fragment" data-time="710000" id="722">and we entered a new culture</span>
+<span class="talk-transcript__fragment" data-time="712000" id="724">that historians call the culture of personality.</span>
+<span class="talk-transcript__fragment" data-time="714287" id="726">What happened is we had evolved an agricultural economy</span>
+<span class="talk-transcript__fragment" data-time="716987" id="728">to a world of big business.</span>
+<span class="talk-transcript__fragment" data-time="718400" id="730">And so suddenly people are moving from small towns to the cities.</span>
+<span class="talk-transcript__fragment" data-time="722000" id="734">And instead of working alongside people they've known all their lives,</span>
+<span class="talk-transcript__fragment" data-time="725335" id="737">now they are having to prove themselves in a crowd of strangers.</span>
+<span class="talk-transcript__fragment" data-time="729000" id="741">So, quite understandably,</span>
+<span class="talk-transcript__fragment" data-time="731000" id="743">qualities like magnetism and charisma suddenly come to seem really important.</span>
+<span class="talk-transcript__fragment" data-time="735000" id="747">And sure enough, the self-help books change to meet these new needs</span>
+<span class="talk-transcript__fragment" data-time="738215" id="750">and they start to have names</span>
+<span class="talk-transcript__fragment" data-time="740000" id="752">like "How to Win Friends and Influence People."</span>
+<span class="talk-transcript__fragment" data-time="742240" id="754">And they feature as their role models really great salesmen.</span>
+<span class="talk-transcript__fragment" data-time="747000" id="759">So that's the world we're living in today.</span>
+<span class="talk-transcript__fragment" data-time="749024" id="761">That's our cultural inheritance.</span>
+<span class="talk-transcript__fragment" data-time="753000" id="765">Now none of this is to say that social skills are unimportant,</span>
+<span class="talk-transcript__fragment" data-time="758000" id="770">and I'm also not calling for the abolishing of teamwork at all.</span>
+<span class="talk-transcript__fragment" data-time="763000" id="775">The same religions who send their sages off to lonely mountain tops</span>
+<span class="talk-transcript__fragment" data-time="766215" id="778">also teach us love and trust.</span>
+<span class="talk-transcript__fragment" data-time="769000" id="781">And the problems that we are facing today</span>
+<span class="talk-transcript__fragment" data-time="771000" id="783">in fields like science and in economics</span>
+<span class="talk-transcript__fragment" data-time="773000" id="785">are so vast and so complex</span>
+<span class="talk-transcript__fragment" data-time="775000" id="787">that we are going to need armies of people coming together</span>
+<span class="talk-transcript__fragment" data-time="777800" id="789">to solve them working together.</span>
+<span class="talk-transcript__fragment" data-time="779400" id="791">But I am saying that the more freedom that we give introverts to be themselves,</span>
+<span class="talk-transcript__fragment" data-time="783200" id="795">the more likely that they are</span>
+<span class="talk-transcript__fragment" data-time="784700" id="796">to come up with their own unique solutions to these problems.</span>
+<span class="talk-transcript__fragment" data-time="789000" id="801">So now I'd like to share with you what's in my suitcase today.</span>
+<span class="talk-transcript__fragment" data-time="798000" id="810">Guess what?</span>
+<span class="talk-transcript__fragment" data-time="800000" id="812">Books.</span>
+<span class="talk-transcript__fragment" data-time="802000" id="814">I have a suitcase full of books.</span>
+<span class="talk-transcript__fragment" data-time="804000" id="816">Here's Margaret Atwood, "Cat's Eye."</span>
+<span class="talk-transcript__fragment" data-time="806000" id="818">Here's a novel by Milan Kundera.</span>
+<span class="talk-transcript__fragment" data-time="809000" id="821">And here's "The Guide for the Perplexed" by Maimonides.</span>
+<span class="talk-transcript__fragment" data-time="814000" id="826">But these are not exactly my books.</span>
+<span class="talk-transcript__fragment" data-time="817000" id="829">I brought these books with me</span>
+<span class="talk-transcript__fragment" data-time="819000" id="831">because they were written by my grandfather's favorite authors.</span>
+<span class="talk-transcript__fragment" data-time="823000" id="835">My grandfather was a rabbi</span>
+<span class="talk-transcript__fragment" data-time="825000" id="837">and he was a widower</span>
+<span class="talk-transcript__fragment" data-time="827000" id="839">who lived alone in a small apartment in Brooklyn</span>
+<span class="talk-transcript__fragment" data-time="830000" id="842">that was my favorite place in the world when I was growing up,</span>
+<span class="talk-transcript__fragment" data-time="833000" id="845">partly because it was filled with his very gentle, very courtly presence</span>
+<span class="talk-transcript__fragment" data-time="836453" id="848">and partly because it was filled with books.</span>
+<span class="talk-transcript__fragment" data-time="839000" id="851">I mean literally every table, every chair in this apartment</span>
+<span class="talk-transcript__fragment" data-time="842000" id="854">had yielded its original function</span>
+<span class="talk-transcript__fragment" data-time="844000" id="856">to now serve as a surface for swaying stacks of books.</span>
+<span class="talk-transcript__fragment" data-time="847000" id="859">Just like the rest of my family,</span>
+<span class="talk-transcript__fragment" data-time="849000" id="861">my grandfather's favorite thing to do in the whole world was to read.</span>
+<span class="talk-transcript__fragment" data-time="852310" id="864">But he also loved his congregation,</span>
+<span class="talk-transcript__fragment" data-time="855000" id="867">and you could feel this love in the sermons that he gave</span>
+<span class="talk-transcript__fragment" data-time="858000" id="870">every week for the 62 years that he was a rabbi.</span>
+<span class="talk-transcript__fragment" data-time="862000" id="874">He would takes the fruits of each week's reading</span>
+<span class="talk-transcript__fragment" data-time="865000" id="877">and he would weave</span>
+<span class="talk-transcript__fragment" data-time="866336" id="878">these intricate tapestries of ancient and humanist thought.</span>
+<span class="talk-transcript__fragment" data-time="869201" id="881">And people would come from all over to hear him speak.</span>
+<span class="talk-transcript__fragment" data-time="872703" id="884">But here's the thing about my grandfather.</span>
+<span class="talk-transcript__fragment" data-time="876067" id="888">Underneath this ceremonial role,</span>
+<span class="talk-transcript__fragment" data-time="877700" id="889">he was really modest and really introverted --</span>
+<span class="talk-transcript__fragment" data-time="880000" id="892">so much so that when he delivered these sermons,</span>
+<span class="talk-transcript__fragment" data-time="883000" id="895">he had trouble making eye contact</span>
+<span class="talk-transcript__fragment" data-time="885000" id="897">with the very same congregation that he had been speaking to for 62 years.</span>
+<span class="talk-transcript__fragment" data-time="889024" id="901">And even away from the podium,</span>
+<span class="talk-transcript__fragment" data-time="891000" id="903">when you called him to say hello,</span>
+<span class="talk-transcript__fragment" data-time="893000" id="905">he would often end the conversation prematurely</span>
+<span class="talk-transcript__fragment" data-time="895263" id="907">for fear that he was taking up too much of your time.</span>
+<span class="talk-transcript__fragment" data-time="899000" id="911">But when he died at the age of 94,</span>
+<span class="talk-transcript__fragment" data-time="902000" id="914">the police had to close down the streets of his neighborhood</span>
+<span class="talk-transcript__fragment" data-time="905000" id="917">to accommodate the crowd of people who came out to mourn him.</span>
+<span class="talk-transcript__fragment" data-time="911846" id="923">And so these days I try to learn from my grandfather's example</span>
+<span class="talk-transcript__fragment" data-time="914900" id="926">in my own way.</span>
+<span class="talk-transcript__fragment" data-time="916300" id="928">So I just published a book about introversion,</span>
+<span class="talk-transcript__fragment" data-time="919000" id="931">and it took me about seven years to write.</span>
+<span class="talk-transcript__fragment" data-time="921024" id="933">And for me, that seven years was like total bliss,</span>
+<span class="talk-transcript__fragment" data-time="924000" id="936">because I was reading, I was writing,</span>
+<span class="talk-transcript__fragment" data-time="927000" id="939">I was thinking, I was researching.</span>
+<span class="talk-transcript__fragment" data-time="929000" id="941">It was my version</span>
+<span class="talk-transcript__fragment" data-time="931000" id="943">of my grandfather's hours of the day alone in his library.</span>
+<span class="talk-transcript__fragment" data-time="934000" id="946">But now all of a sudden my job is very different,</span>
+<span class="talk-transcript__fragment" data-time="937000" id="949">and my job is to be out here talking about it,</span>
+<span class="talk-transcript__fragment" data-time="940000" id="952">talking about introversion.</span>
+<span class="talk-transcript__fragment" data-time="943000" id="955">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="947000" id="959">And that's a lot harder for me,</span>
+<span class="talk-transcript__fragment" data-time="949000" id="961">because as honored as I am to be here with all of you right now,</span>
+<span class="talk-transcript__fragment" data-time="953000" id="965">this is not my natural milieu.</span>
+<span class="talk-transcript__fragment" data-time="956000" id="968">So I prepared for moments like these as best I could.</span>
+<span class="talk-transcript__fragment" data-time="960000" id="972">I spent the last year practicing public speaking</span>
+<span class="talk-transcript__fragment" data-time="962310" id="974">every chance I could get.</span>
+<span class="talk-transcript__fragment" data-time="964000" id="976">And I call this my "year of speaking dangerously."</span>
+<span class="talk-transcript__fragment" data-time="967000" id="979">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="969000" id="981">And that actually helped a lot.</span>
+<span class="talk-transcript__fragment" data-time="971000" id="983">But I'll tell you, what helps even more</span>
+<span class="talk-transcript__fragment" data-time="973000" id="985">is my sense, my belief, my hope that when it comes to our attitudes</span>
+<span class="talk-transcript__fragment" data-time="978000" id="990">to introversion and to quiet and to solitude,</span>
+<span class="talk-transcript__fragment" data-time="980144" id="992">we truly are poised on the brink on dramatic change.</span>
+<span class="talk-transcript__fragment" data-time="982645" id="994">I mean, we are.</span>
+<span class="talk-transcript__fragment" data-time="984000" id="996">And so I am going to leave you now</span>
+<span class="talk-transcript__fragment" data-time="986000" id="998">with three calls for action for those who share this vision.</span>
+<span class="talk-transcript__fragment" data-time="990000" id="1002">Number one:</span>
+<span class="talk-transcript__fragment" data-time="992000" id="1004">Stop the madness for constant group work.</span>
+<span class="talk-transcript__fragment" data-time="994000" id="1006">Just stop it.</span>
+<span class="talk-transcript__fragment" data-time="996000" id="1008">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="999000" id="1011">Thank you.</span>
+<span class="talk-transcript__fragment" data-time="1001000" id="1013">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="1003000" id="1015">And I want to be clear about what I'm saying,</span>
+<span class="talk-transcript__fragment" data-time="1005167" id="1017">because I deeply believe our offices</span>
+<span class="talk-transcript__fragment" data-time="1007000" id="1019">should be encouraging casual, chatty cafe-style types of interactions --</span>
+<span class="talk-transcript__fragment" data-time="1011000" id="1023">you know, the kind where people come together</span>
+<span class="talk-transcript__fragment" data-time="1013144" id="1025">and serendipitously have an exchange of ideas.</span>
+<span class="talk-transcript__fragment" data-time="1015359" id="1027">That is great.</span>
+<span class="talk-transcript__fragment" data-time="1017000" id="1029">It's great for introverts and it's great for extroverts.</span>
+<span class="talk-transcript__fragment" data-time="1019700" id="1031">But we need much more privacy and much more freedom</span>
+<span class="talk-transcript__fragment" data-time="1022153" id="1034">and much more autonomy at work.</span>
+<span class="talk-transcript__fragment" data-time="1023700" id="1035">School, same thing.</span>
+<span class="talk-transcript__fragment" data-time="1025000" id="1037">We need to be teaching kids to work together, for sure,</span>
+<span class="talk-transcript__fragment" data-time="1028000" id="1040">but we also need to be teaching them how to work on their own.</span>
+<span class="talk-transcript__fragment" data-time="1031000" id="1043">This is especially important for extroverted children too.</span>
+<span class="talk-transcript__fragment" data-time="1033800" id="1045">They need to work on their own</span>
+<span class="talk-transcript__fragment" data-time="1035300" id="1047">because that is where deep thought comes from in part.</span>
+<span class="talk-transcript__fragment" data-time="1037896" id="1049">Okay, number two: Go to the wilderness.</span>
+<span class="talk-transcript__fragment" data-time="1040000" id="1052">Be like Buddha, have your own revelations.</span>
+<span class="talk-transcript__fragment" data-time="1043000" id="1055">I'm not saying</span>
+<span class="talk-transcript__fragment" data-time="1045000" id="1057">that we all have to now go off and build our own cabins in the woods</span>
+<span class="talk-transcript__fragment" data-time="1048263" id="1060">and never talk to each other again,</span>
+<span class="talk-transcript__fragment" data-time="1051000" id="1063">but I am saying that we could all stand to unplug</span>
+<span class="talk-transcript__fragment" data-time="1053358" id="1065">and get inside our own heads a little more often.</span>
+<span class="talk-transcript__fragment" data-time="1059000" id="1071">Number three:</span>
+<span class="talk-transcript__fragment" data-time="1062000" id="1074">Take a good look at what's inside your own suitcase</span>
+<span class="talk-transcript__fragment" data-time="1064453" id="1076">and why you put it there.</span>
+<span class="talk-transcript__fragment" data-time="1066000" id="1078">So extroverts,</span>
+<span class="talk-transcript__fragment" data-time="1068000" id="1080">maybe your suitcases are also full of books.</span>
+<span class="talk-transcript__fragment" data-time="1070097" id="1082">Or maybe they're full of champagne glasses or skydiving equipment.</span>
+<span class="talk-transcript__fragment" data-time="1075000" id="1087">Whatever it is, I hope you take these things out every chance you get</span>
+<span class="talk-transcript__fragment" data-time="1079000" id="1091">and grace us with your energy and your joy.</span>
+<span class="talk-transcript__fragment" data-time="1082000" id="1094">But introverts, you being you,</span>
+<span class="talk-transcript__fragment" data-time="1085000" id="1097">you probably have the impulse to guard very carefully</span>
+<span class="talk-transcript__fragment" data-time="1087578" id="1099">what's inside your own suitcase.</span>
+<span class="talk-transcript__fragment" data-time="1089478" id="1101">And that's okay.</span>
+<span class="talk-transcript__fragment" data-time="1091000" id="1103">But occasionally, just occasionally,</span>
+<span class="talk-transcript__fragment" data-time="1093000" id="1105">I hope you will open up your suitcases for other people to see,</span>
+<span class="talk-transcript__fragment" data-time="1096024" id="1108">because the world needs you and it needs the things you carry.</span>
+<span class="talk-transcript__fragment" data-time="1101000" id="1113">So I wish you the best of all possible journeys</span>
+<span class="talk-transcript__fragment" data-time="1103263" id="1115">and the courage to speak softly.</span>
+<span class="talk-transcript__fragment" data-time="1106000" id="1118">Thank you very much.</span>
+<span class="talk-transcript__fragment" data-time="1108000" id="1120">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="1112000" id="1124">Thank you. Thank you.</span>
+<span class="talk-transcript__fragment" data-time="1115000" id="1127">(Applause)</span>
