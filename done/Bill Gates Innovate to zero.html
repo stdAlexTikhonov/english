@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="JavaScript" src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+<style>
+* { margin: 0; padding: 0; }
+div#box_box{ width: 100%; background: black; height: 430px; position: fixed; top: 0px; text-align: center; }
+div#video_controls_bar{ background: #333; padding:10px; color:#CCC;}
+.text{ font-family: Tahoma; line-height: 1.5; font-size: 17px; max-width: 1000px; min-width: 600px; margin: 440px auto;}
+.current { background: yellow; text-decoration: underline; }
+
+span:hover{ color: green; }
+</style>
+<script>
+
+var languages = [{'en':'I\'m going to talk today about energy and climate.','ru':'Сегодня я буду говорить об энергии и климате.'},{'en':'And that might seem a bit surprising because','ru':' И это может показаться несколько удивительно,'},{'en':'my full-time work at the Foundation is mostly about vaccines and seeds,','ru':'потому что вся моя работа в фонде посвящена, по большей части, вакцинам и семенам,'},{'en':'about the things that we need to invent and deliver','ru':'тому, что надо изобрести и внедрить,'},{'en':'to help the poorest two billion live better lives.','ru':'чтобы улучшить жизнь беднейших двух миллиардов населения Земли.'},{'en':'But energy and climate are extremely important to these people --','ru':'Но дело в том, что энергия и климат для этого слоя исключительно важны.'},{'en':'in fact, more important than to anyone else on the planet.','ru':'Более того, для них это важнее, чем для всех остальных на планете.'},{'en':'The climate getting worse means that many years, their crops won\'t grow:','ru':'Ведь ухудшение климата для них означает, что урожая не будет несколько лет.'},{'en':'There will be too much rain, not enough rain,','ru':'Дождя будет либо слишком много, либо слишком мало,'},{'en':'things will change in ways','ru':'и их хрупкая среда окажется'},{'en':'that their fragile environment simply can\'t support.','ru':'просто не в состоянии справиться с изменениями.'},{'en':'And that leads to starvation, it leads to uncertainty, it leads to unrest.','ru':'Это приведёт к голоду, к неуверенности, к беспорядкам.'},{'en':'So, the climate changes will be terrible for them.','ru':'Значит, изменения климата для этих людей ужасно.'},{'en':'Also, the price of energy is very important to them.','ru':'Кроме этого, большое значение для них имеют цены на энергию.'},{'en':'In fact, if you could pick just one thing to lower the price of,','ru':'Вообще, если бы можно было снизить цену на что-то одно,'},{'en':'to reduce poverty, by far you would pick energy.','ru':' что смогло бы сократить бедность, то ответ, без всякого сомнения, это – цена на энергию.'},{'en':'Now, the price of energy has come down over time.','ru':' В течение длительного времени цена на энергию падала.'},{'en':'Really advanced civilization is based on advances in energy.','ru':'Более того, развитие самой цивилизации базируется на развитии форм энергетики.'},{'en':'The coal revolution fueled the Industrial Revolution,','ru':'Революция в угледобыче была основой промышленной революции.'},{'en':'and, even in the 1900s we\'ve seen a very rapid decline in the price of electricity,','ru':'Уже в 1900-х годах наблюдалось резкое падение цен на электричество,'},{'en':'and that\'s why we have refrigerators, air-conditioning,','ru':'благодаря чему появились холодильники, кондиционеры,'},{'en':'we can make modern materials and do so many things.','ru':'современные материалы и многое другое.'},{'en':'And so, we\'re in a wonderful situation with electricity in the rich world.','ru':'Таким образом, в мире достатка ситуация с электричеством замечательна.'},{'en':'But, as we make it cheaper -- and let\'s go for making it twice as cheap --','ru':'Но по мере её удешевления, – скажем, мы хотим снижения цены наполовину – '},{'en':'we need to meet a new constraint,','ru':'мы сталкиваемся с новыми ограничениями,'},{'en':'and that constraint has to do with CO2.','ru':'связанными с СО2:'},{'en':'CO2 is warming the planet,','ru':'углекислый газ вызывает глобальное потепление.'},{'en':'and the equation on CO2 is actually a very straightforward one.','ru':'Уравнение для СО2 очень недвусмысленно:'},{'en':'If you sum up the CO2 that gets emitted,','ru':'сумма выбрасываемого объёма СО2'},{'en':'that leads to a temperature increase,','ru':'ведёт к увеличению температуры,'},{'en':'and that temperature increase leads to some very negative effects:','ru':'что, в свою очередь, имеет очень негативные последствия: '},{'en':'the effects on the weather; perhaps worse, the indirect effects,','ru':'потепление влияет на погоду. Но возможно, даже хуже – это косвенно влияет'},{'en':'in that the natural ecosystems can\'t adjust to these rapid changes,','ru':'на природные экосистемы, неспособные приспособиться к быстрым изменениям,'},{'en':'and so you get ecosystem collapses.','ru':'что приводит к разрушению экосистем.'},{'en':'Now, the exact amount of how you map','ru':'Насчёт того, насколько именно'},{'en':'from a certain increase of CO2 to what temperature will be','ru':'увеличение объёма СО2 приведёт к какой именно температуре'},{'en':'and where the positive feedbacks are,','ru':'и где именно будет обратная связь,'},{'en':'there\'s some uncertainty there, but not very much.','ru':'такой расчёт содержит неопределённости, но их немного.'},{'en':'And there\'s certainly uncertainty about how bad those effects will be,','ru':'И есть, конечно же, неопределённость насчёт того, насколько плохие будут последствия,'},{'en':'but they will be extremely bad.','ru':' но ясно, что они будут исключительно плохие.'},{'en':'I asked the top scientists on this several times:','ru':' Я несколько раз спрашивал самых лучших ученых,'},{'en':'Do we really have to get down to near zero?','ru':'действительно ли нужно снизить объём выбросов до почти нуля?'},{'en':'Can\'t we just cut it in half or a quarter?','ru':'Нельзя ли сократить наполовину или до четверти?'},{'en':'And the answer is that until we get near to zero,','ru':'Ответ в том, что пока мы не дойдём до уровня, близкого к нулю,'},{'en':'the temperature will continue to rise.','ru':'температура будет продолжать расти.'},{'en':'And so that\'s a big challenge.','ru':'Значит, это большая проблема.'},{'en':'It\'s very different than saying "We\'re a twelve-foot-high truck trying to get under a ten-foot bridge,','ru':'Это совсем не то, чтобы нагруженный до высоты 3,5 метров грузовик хочет проскочить, под мостом высотой в 3 метра.'},{'en':'and we can just sort of squeeze under."','ru':', пытаясь аккуратно прижаться'},{'en':'This is something that has to get to zero.','ru':' Тут задача в том, чтобы достичь именно нуля.'},{'en':'Now, we put out a lot of carbon dioxide every year,','ru':'Каждый год выбрасывается огромный объём углекислого газа,'},{'en':'over 26 billion tons.','ru':'более 26 миллиардов тонн. '},{'en':'For each American, it\'s about 20 tons;','ru':'На каждого американца приходится 20 тонн.'},{'en':'for people in poor countries, it\'s less than one ton.','ru':'На жителей бедных стран – менее 1 тонны.'},{'en':'It\'s an average of about five tons for everyone on the planet.','ru':'В среднем на жителя планеты – по 5 тонн.'},{'en':'And, somehow, we have to make changes','ru':'Какими-то изменениями нужно добиться того,'},{'en':'that will bring that down to zero.','ru':'чтобы эта цифра свелась к нулю.'},{'en':'It\'s been constantly going up.','ru':'Но она всегда неуклонно движется вверх.'},{'en':'It\'s only various economic changes that have even flattened it at all,','ru':'Лишь определённые изменения в экономике могли приостановить рост,'},{'en':'so we have to go from rapidly rising','ru':'Значит, необходимо перейти от быстрорастущей кривой'},{'en':'to falling, and falling all the way to zero.','ru':' к падающей, причем падающей до нуля'},{'en':'This equation has four factors,','ru':'В этом уравнении четыре множителя.'},{'en':'a little bit of multiplication:','ru':'Вспомним операцию умножения.'},{'en':'So, you\'ve got a thing on the left, CO2, that you want to get to zero,','ru':'Итак, слева – объём выбросов СО2, и надо добиться, чтобы он был равен нулю.'},{'en':'and that\'s going to be based on the number of people,','ru':'Объём зависит от числа людей на планете,'},{'en':'the services each person\'s using on average,','ru':'среднего объёма услуг, которыми пользуется каждый из них,'},{'en':'the energy on average for each service,','ru':' среднего энергопотребления на услугу,'},{'en':'and the CO2 being put out per unit of energy.','ru':'и среднего объёма выброса СО2 на единицу произведённой энергии.'},{'en':'So, let\'s look at each one of these','ru':'Давайте по одному рассмотрим каждый множитель'},{'en':'and see how we can get this down to zero.','ru':' и посмотрим, как свести CO2 к нулю.'},{'en':'Probably, one of these numbers is going to have to get pretty near to zero.','ru':'Скорее всего, должен будет стать близким к нулю один из сомножителей'},{'en':'Now that\'s back from high school algebra,','ru':' – так нам говорит школьный курс математики.'},{'en':'but let\'s take a look.','ru':'Давайте взглянем.'},{'en':'First, we\'ve got population.','ru':'Первый сомножитель – население.'},{'en':'The world today has 6.8 billion people.','ru':'Сегодня в мире – 6,8 миллиардов людей,'},{'en':'That\'s headed up to about nine billion.','ru':'и эта цифра вырастет примерно до 9 миллиардов.'},{'en':'Now, if we do a really great job on new vaccines,','ru':'При условии крупных успехов в создании новых вакцин,'},{'en':'health care, reproductive health services,','ru':'в здравоохранении, в сфере охраны репродуктивного здоровья,'},{'en':'we could lower that by, perhaps, 10 or 15 percent,','ru':' рост может снизиться на 10-15%,'},{'en':'but there we see an increase of about 1.3.','ru':'но это всё равно прирост на примерно 1,3 миллиарда.'},{'en':'The second factor is the services we use.','ru':'Второй сомножитель – объём потребляемых услуг.'},{'en':'This encompasses everything:','ru':'Он охватывает всё:'},{'en':'the food we eat, clothing, TV, heating.','ru':' пищу, одежду, телевидение, отопление.'},{'en':'These are very good things:','ru':'Это всё – хорошие вещи,'},{'en':'getting rid of poverty means providing these services','ru':'а избавление от бедности означает как раз предоставление именно этих услуг'},{'en':'to almost everyone on the planet.','ru':'почти всем на планете.'},{'en':'And it\'s a great thing for this number to go up.','ru':'И если эта цифра растёт – так это же прекрасно!'},{'en':'In the rich world, perhaps the top one billion,','ru':'Для обеспеченной части населения, скажем, для верхнего 1 миллиарда,'},{'en':'we probably could cut back and use less,','ru':' вероятно, можно немного сократить потребление,'},{'en':'but every year, this number, on average, is going to go up,','ru':'но каждый год усреднённая цифра будет расти и,'},{'en':'and so, over all, that will more than double','ru':'в целом, услуги на одного жителя планеты более, чем удвоятся.'},{'en':'the services delivered per person.','ru':' услуги на одного жителя планеты'},{'en':'Here we have a very basic service:','ru':'Вот в чём смысл базовых услуг:'},{'en':'Do you have lighting in your house to be able to read your homework?','ru':' есть ли дома свет, чтобы сделать домашнее задание.'},{'en':'And, in fact, these kids don\'t, so they\'re going out','ru':'У ребят этого нет, вот они и сидят под фонарями,'},{'en':'and reading their school work under the street lamps.','ru':' читая школьные задания.'},{'en':'Now, efficiency, E, the energy for each service,','ru':'Дальше, множитель Е, энергопотребление на единицу услуг.'},{'en':'here finally we have some good news.','ru':'C ним, наконец, несколько легче:'},{'en':'We have something that\'s not going up.','ru':'этот параметр не растёт.'},{'en':'Through various inventions and new ways of doing lighting,','ru':'Открытия и изобретения, как например, новые способы освещения,'},{'en':'through different types of cars, different ways of building buildings --','ru':' разные типы автомобилей, разные спосбы строительства зданий, '},{'en':'there are a lot of services where you can bring','ru':' для большого спектра услуг привели'},{'en':'the energy for that service down quite substantially.','ru':'к значительному снижению энергопотребления'},{'en':'Some individual services even bring it down by 90 percent.','ru':' В некоторых случаях снижение составило даже 90%.'},{'en':'There are other services like how we make fertilizer,','ru':'В других областях, скажем, при производстве удобрений'},{'en':'or how we do air transport,','ru':'или в воздушном транспорте,'},{'en':'where the rooms for improvement are far, far less.','ru':'возможностей дальнейшего сокращения энергопотребления существенно меньше.'},{'en':'And so, overall here, if we\'re optimistic,','ru':'Значит, по самым оптимистичным ожиданиям,'},{'en':'we may get a reduction of a factor of three to even, perhaps, a factor of six.','ru':'данный параметр может сократиться раза в три, может, в шесть.'},{'en':'But for these first three factors now,','ru':'Но по первым трём множителям'},{'en':'we\'ve gone from 26 billion to, at best, maybe 13 billion tons,','ru':'вместе это будет означать снижение с 26 миллиардов до 13 миллиардов'},{'en':'and that just won\'t cut it.','ru':'в лучшем случае, а это не то, что нам надо.'},{'en':'So let\'s look at this fourth factor --','ru':'Давайте теперь рассмотрим 4-й множитель'},{'en':'this is going to be a key one --','ru':'– и он окажется ключевым –'},{'en':'and this is the amount of CO2 put out per each unit of energy.','ru':'объём выбросов СО2 на единицу произведённой энергии.'},{'en':'And so the question is: Can you actually get that to zero?','ru':'Вопрос в том, можно ли его свести к нулю?'},{'en':'If you burn coal, no.','ru':'Если использовать уголь – нет.'},{'en':'If you burn natural gas, no.','ru':'Если использовать газ – нет.'},{'en':'Almost every way we make electricity today,','ru':'Практически все сегодняшние способы производства электричества,'},{'en':'except for the emerging renewables and nuclear, puts out CO2.','ru':'за исключением недавно появившихся возобновляемых и ядерных источников, дают выбросы СО2.'},{'en':'And so, what we\'re going to have to do at a global scale,','ru':'Поэтому нам не остается ничего, другого, кроме как создавать новую систему в глобальном масштабе.'},{'en':'is create a new system.','ru':' <-'},{'en':'And so, we need energy miracles.','ru':'Нам нужно энергетическое чудо.'},{'en':'Now, when I use the term "miracle," I don\'t mean something that\'s impossible.','ru':'Под словом «чудо» я не имею в виду нечто невозможное.'},{'en':'The microprocessor is a miracle. The personal computer is a miracle.','ru':'Микропроцессор – это чудо. Персональный компьютер – чудо.'},{'en':'The Internet and its services are a miracle.','ru':' Интернет и интернет-услуги – чудо.'},{'en':'So, the people here have participated in the creation of many miracles.','ru':'Присутствующие в зале участвовали в создании многих чудес.'},{'en':'Usually, we don\'t have a deadline,','ru':'Обычно в этом случае нет крайнего срока,'},{'en':'where you have to get the miracle by a certain date.','ru':'нет даты, к которой необходимо сотворить чудо.'},{'en':'Usually, you just kind of stand by, and some come along, some don\'t.','ru':'Обычно жизнь приносит нам чудо или не приносит, а не мы за ним гонимся.'},{'en':'This is a case where we actually have to drive at full speed','ru':'Но этот как раз тот случай, когда гнаться надо, да ещё во всю мощь'},{'en':'and get a miracle in a pretty tight timeline.','ru':'и получить чудо в очень сжатые сроки'},{'en':'Now, I thought, "How could I really capture this?','ru':'Я думал, как можно увлечь вас этим.'},{'en':'Is there some kind of natural illustration,','ru':'Есть ли какие-то естественные,'},{'en':'some demonstration that would grab people\'s imagination here?"','ru':' наглядные примеры, способные вызвать живое воображение?'},{'en':'I thought back to a year ago when I brought mosquitos,','ru':'Я вспомнил, как год назад я привёз [на TED2009] комаров,'},{'en':'and somehow people enjoyed that.','ru':'и людям это почему-то понравилось. '},{'en':'(Laughter)','ru':'(Смех) '},{'en':'It really got them involved in the idea of,','ru':'Они живо прочувствовали,'},{'en':'you know, there are people who live with mosquitos.','ru':'каково тем, кто всё время живёт с комарами. '},{'en':'So, with energy, all I could come up with is this.','ru':'Насчёт энергетики, всё, что мне пришло в голову –'},{'en':'I decided that releasing fireflies','ru':' выпустить светлячков.'},{'en':'would be my contribution to the environment here this year.','ru':' Пусть это будет моим вкладом в охрану окружающей среды в этом году.'},{'en':'So here we have some natural fireflies.','ru':'Вот несколько светлячков.'},{'en':'I\'m told they don\'t bite; in fact, they might not even leave that jar.','ru':'Мне сказали, что они не кусают. Вообще-то, они даже из банки могут не вылететь'},{'en':'(Laughter)','ru':'(Смех)'},{'en':'Now, there\'s all sorts of gimmicky solutions like that one,','ru':'Так вот, надуманных трюков типа этого имеется масса,'},{'en':'but they don\'t really add up to much.','ru':'но от них нет никакой пользы.'},{'en':'We need solutions -- either one or several --','ru':'Нам необходимы решения, одно или несколько,'},{'en':'that have unbelievable scale','ru':'невероятного масштаба'},{'en':'and unbelievable reliability,','ru':'и невероятной надежности.'},{'en':'and, although there\'s many directions people are seeking,','ru':'Хотя исследования ведутся во многих областях,'},{'en':'I really only see five that can achieve the big numbers.','ru':'я вижу лишь пять направлений с перспективами крупномасштабного эффекта.'},{'en':'I\'ve left out tide, geothermal, fusion, biofuels.','ru':'Я не буду говорить о приливных станциях, геотермической энергии, ядерном синтезе и био-топливе.'},{'en':'Those may make some contribution,','ru':'Каждое из них способно сделать свой вклад,'},{'en':'and if they can do better than I expect, so much the better,','ru':'и если он окажется выше моих ожиданий, то тем лучше.'},{'en':'but my key point here','ru':' Но главное в том,'},{'en':'is that we\'re going to have to work on each of these five,','ru':' что по каждому из этих пяти направлений надо работать'},{'en':'and we can\'t give up any of them because they look daunting,','ru':' и не сдаваться лишь из-за того, что задача кажется непосильной,'},{'en':'because they all have significant challenges.','ru':' потому что каждая из этих задач очень серьезная.'},{'en':'Let\'s look first at the burning fossil fuels,','ru':'Давайте сначала посмотрим на сгорание ископаемого топлива,'},{'en':'either burning coal or burning natural gas.','ru':'либо угля, либо газа.'},{'en':'What you need to do there, seems like it might be simple, but it\'s not,','ru':'Казалось бы, здесь всё просто, но это не так.'},{'en':'and that\'s to take all the CO2, after you\'ve burned it, going out the flue,','ru':'Идея в том, чтобы собирать весь выходящий из трубы углекислый газ,'},{'en':'pressurize it, create a liquid, put it somewhere,','ru':'спрессовать его до жидкого состояния, куда-нибудь поместить'},{'en':'and hope it stays there.','ru':' и надеяться, что он никуда не денется.'},{'en':'Now we have some pilot things that do this at the 60 to 80 percent level,','ru':'Есть несколько пилотных проектов, улавливающих до 60-80 процентов СО2, '},{'en':'but getting up to that full percentage, that will be very tricky,','ru':'но подняться до уровня 100% будет очень трудно.'},{'en':'and agreeing on where these CO2 quantities should be put will be hard,','ru':'и найти место где хранить весь этот СО2 будет трудно, '},{'en':'but the toughest one here is this long-term issue.','ru':' Но самое сложное – вопросы долгосрочности хранения.'},{'en':'Who\'s going to be sure?','ru':'Как можно быть уверенным в нём?'},{'en':'Who\'s going to guarantee something that is literally billions of times larger','ru':'Кто может дать гарантию на объёмы, в миллиарды раз большие,'},{'en':'than any type of waste you think of in terms of nuclear or other things?','ru':'чем любой тип отходов, ядерных и прочих?'},{'en':'This is a lot of volume.','ru':'Это действительно большой объём.'},{'en':'So that\'s a tough one.','ru':'Итак, это сложная задача.'},{'en':'Next would be nuclear.','ru':'Следующее – ядерная энергетика.'},{'en':'It also has three big problems:','ru':'Здесь тоже имеются три большие проблемы.'},{'en':'Cost, particularly in highly regulated countries, is high;','ru':'Во-первых, велика себестоимость, особенно в странах со строгим регулированием этой деятельности.'},{'en':'the issue of the safety, really feeling good about nothing could go wrong,','ru':'Во-вторых, вопрос безопасности, чувство уверенности, что ничего не случится,'},{'en':'that, even though you have these human operators,','ru':'что даже при наличии человеческого фактора в эксплуатации станции,'},{'en':'that the fuel doesn\'t get used for weapons.','ru':' топливо не пойдёт на создание оружия.'},{'en':'And then what do you do with the waste?','ru':'И, наконец, что делать с отходами?'},{'en':'And, although it\'s not very large, there are a lot of concerns about that.','ru':'Хоть их и не так много, эта проблема вызывает немалую озабоченность.'},{'en':'People need to feel good about it.','ru':'Население должно чувствовать себя комфортно.'},{'en':'So three very tough problems that might be solvable,','ru':'Вот три очень трудные проблемы, которые в принципе решить можно,'},{'en':'and so, should be worked on.','ru':'а потому, следует работать над ними.'},{'en':'The last three of the five, I\'ve grouped together.','ru':'Последние три из пяти направлений я сгруппировал.'},{'en':'These are what people often refer to as the renewable sources.','ru':'Это так называемые «возобновляемые источники».'},{'en':'And they actually -- although it\'s great they don\'t require fuel --','ru':'Конечно, замечательно, что для них не требуется топлива,'},{'en':'they have some disadvantages.','ru':'но и они обладают недостатками.'},{'en':'One is that the density of energy gathered in these technologies','ru':'Первый – плотность энергии, аккумулируемой посредством этих технологий,'},{'en':'is dramatically less than a power plant.','ru':'существенно ниже, чем в электростанции.'},{'en':'This is energy farming, so you\'re talking about many square miles,','ru':'Это – энергетические угодья, речь идёт о площадях на много квадратных километров,'},{'en':'thousands of time more area than you think of as a normal energy plant.','ru':'в тысячи раз больше, чем занимает обычная электростанция.'},{'en':'Also, these are intermittent sources.','ru':'Кроме того, источник энергии неустойчив.'},{'en':'The sun doesn\'t shine all day, it doesn\'t shine every day,','ru':'Солнце светит не целый день, да и не каждый день,'},{'en':'and, likewise, the wind doesn\'t blow all the time.','ru':'равно как и ветер непостоянен.'},{'en':'And so, if you depend on these sources,','ru':'А потому, если мы зависим от этих источников,'},{'en':'you have to have some way of getting the energy','ru':'то надо придумать способ получения энергии'},{'en':'during those time periods that it\'s not available.','ru':'за время отсутствия её на источнике.'},{'en':'So, we\'ve got big cost challenges here,','ru':'Здесь огромные проблемы с себестоимостью.'},{'en':'we have transmission challenges:','ru':'Проблемы с передачей на расстояние.'},{'en':'for example, say this energy source is outside your country;','ru':'Например, если источник энергии находится за пределами вашей страны,'},{'en':'you not only need the technology,','ru':'то вам нужна не только технология,'},{'en':'but you have to deal with the risk of the energy coming from elsewhere.','ru':'но и защита от риска поступления энергии извне.'},{'en':'And, finally, this storage problem.','ru':'И, наконец, проблема хранения.'},{'en':'And, to dimensionalize this, I went through and looked at','ru':'Чтобы представить масштабы этой проблемы, я посчитал суммарную ёмкость'},{'en':'all the types of batteries that get made --','ru':'всех типов производимых сегодня батарей '},{'en':'for cars, for computers, for phones, for flashlights, for everything --','ru':'– для автомобилей, компьютеров, телефонов, фонариков, для всего '},{'en':'and compared that to the amount of electrical energy the world uses,','ru':'– и сравнил это с мировым объёмом используемой электроэнергии.'},{'en':'and what I found is that all the batteries we make now','ru':'Выяснилось, что всех производимых сейчас батарей'},{'en':'could store less than 10 minutes of all the energy.','ru':' хватит лишь на 10 минут мирового энергопотребления.'},{'en':'And so, in fact, we need a big breakthrough here,','ru':'Значит, здесь нужен революционный прорыв,'},{'en':'something that\'s going to be a factor of 100 better','ru':'нечто в сотни раз лучше,'},{'en':'than the approaches we have now.','ru':' чем то, что позволяют нынешние подходы.'},{'en':'It\'s not impossible, but it\'s not a very easy thing.','ru':'Это небезнадёжно, но и не так легко.'},{'en':'Now, this shows up when you try to get the intermittent source','ru':'Такая проблема возникает, если мы хотим производить от нестабильного источника'},{'en':'to be above, say, 20 to 30 percent of what you\'re using.','ru':'на 20-30% больше энергии, чем требуется для текущего потребления.'},{'en':'If you\'re counting on it for 100 percent,','ru':'Если мы полностью зависим от источника,'},{'en':'you need an incredible miracle battery.','ru':'то для этого потребуется невероятная чудо-батарея.'},{'en':'Now, how we\'re going to go forward on this -- what\'s the right approach?','ru':'Что же делать? Как подступиться к этой проблеме?'},{'en':'Is it a Manhattan Project? What\'s the thing that can get us there?','ru':'Новый проект Манхеттен [для атомной бомбы]? Как добиться цели?'},{'en':'Well, we need lots of companies working on this, hundreds.','ru':' Необходимо привлечь к этому много фирм: сотни.'},{'en':'In each of these five paths, we need at least a hundred people.','ru':'По каждому из этих пяти направлений нужно как минимум сто человек.'},{'en':'And a lot of them, you\'ll look at and say, "They\'re crazy." That\'s good.','ru':'Про многих из них можно будет подумать, что они сумасшедшие. И это – хорошо.'},{'en':'And, I think, here in the TED group,','ru':'Я думаю, что среди людей здесь, на TED,'},{'en':'we have many people who are already pursuing this.','ru':'многие уже этим занимаются.'},{'en':'Bill Gross has several companies, including one called eSolar','ru':'Билл Гросс имеет несколько компаний. Одна из них называется eSolar.'},{'en':'that has some great solar thermal technologies.','ru':'Она разработала прекрасную технологию по солнечной тепловой энергии.'},{'en':'Vinod Khosla\'s investing in dozens of companies','ru':'Винод Хосла инвестировал в десятки фирм.'},{'en':'that are doing great things and have interesting possibilities,','ru':'У них прекрасные результаты и интереснейшие перспективы,'},{'en':'and I\'m trying to help back that.','ru':'и я стараюсь им помочь.'},{'en':'Nathan Myhrvold and I actually are backing a company','ru':'Мы с Натаном Мирвольдом оказываем поддержку одной фирме,'},{'en':'that, perhaps surprisingly, is actually taking the nuclear approach.','ru':'которая, как бы это ни показалось странным, работает в направлении ядерной энергетики.'},{'en':'There are some innovations in nuclear: modular, liquid.','ru':'В ядерной энергетике несколько инноваций, например, модулярная и жидкая.'},{'en':'And innovation really stopped in this industry quite some ago,','ru':'Обновления в этом секторе прекратились достаточно давно,'},{'en':'so the idea that there\'s some good ideas laying around is not all that surprising.','ru':'а потому неудивительно, что тут много хороших и неиспользуемых идей.'},{'en':'The idea of TerraPower is that, instead of burning a part of uranium --','ru':'Идея работы Terrapower в том, чтобы вместо сгорания части урана,'},{'en':'the one percent, which is the U235 --','ru':' того самого 1%, который составляет уран-235,'},{'en':'we decided, "Let\'s burn the 99 percent, the U238."','ru':'добиться сгорания 99%, что есть урана-238.'},{'en':'It is kind of a crazy idea.','ru':'Эта идея кажется сумасшедшей,'},{'en':'In fact, people had talked about it for a long time,','ru':'но на самом деле она давно уже бродит в умах,'},{'en':'but they could never simulate properly whether it would work or not,','ru':'но для её проверки не было возможности создать полноценную симуляцию.'},{'en':'and so it\'s through the advent of modern supercomputers','ru':'И только теперь, благодаря современным суперкомпьютерам,'},{'en':'that now you can simulate and see that, yes,','ru':' удалось построить симуляцию и убедиться, что да,'},{'en':'with the right material\'s approach, this looks like it would work.','ru':'при нужном подходе к материалам, направление может оказаться эффективным.'},{'en':'And, because you\'re burning that 99 percent,','ru':'А поскольку сгорает уже все 99%,'},{'en':'you have greatly improved cost profile.','ru':'то себестоимость намного сокращается.'},{'en':'You actually burn up the waste, and you can actually use as fuel','ru':'Фактически сжигаются отходы, и, более того, можно использовать в качестве топлива'},{'en':'all the leftover waste from today\'s reactors.','ru':'все отходы сегодняшних реакторов.'},{'en':'So, instead of worrying about them, you just take that. It\'s a great thing.','ru':'Так что, не волноваться за их судьбу надо, а просто перерабатывать их.'},{'en':'It breathes this uranium as it goes along, so it\'s kind of like a candle.','ru':'Это потрясающе. Эта штука дышит ураном, пока горит. Это как свеча. '},{'en':'You can see it\'s a log there, often referred to as a traveling wave reactor.','ru':'Вы видите запись процесса, который часто называется реактором двигающейся волны.'},{'en':'In terms of fuel, this really solves the problem.','ru':'Проблема реально решена по части топлива.'},{'en':'I\'ve got a picture here of a place in Kentucky.','ru':'Вот фотография одного участка в штате Кентукки. '},{'en':'This is the leftover, the 99 percent,','ru':'Это – те самые отходы, 99%,'},{'en':'where they\'ve taken out the part they burn now,','ru':' из которых изъята сгораемая при нынешней технологии часть,'},{'en':'so it\'s called depleted uranium.','ru':'поэтому они называются обеднённым ураном.'},{'en':'That would power the U.S. for hundreds of years.','ru':'Его достаточно для обеспечения США энергией на сотни лет.'},{'en':'And, simply by filtering seawater in an inexpensive process,','ru':'А путём простой фильтрации морской воды недорогим процессом,'},{'en':'you\'d have enough fuel for the entire lifetime of the rest of the planet.','ru':' можно получить достаточно топлива на весь период жизни планеты Земля.'},{'en':'So, you know, it\'s got lots of challenges ahead,','ru':'Вы видите, что впереди много трудных задач,'},{'en':'but it is an example of the many hundreds and hundreds of ideas','ru':'но я вам привёл один пример из сотен и сотен идей,'},{'en':'that we need to move forward.','ru':'необходимых для продвижения вперёд.'},{'en':'So let\'s think: How should we measure ourselves?','ru':'Теперь подумаем, как следует измерять успешность наших действий.'},{'en':'What should our report card look like?','ru':'Как должна выглядеть наша зачётная ведомость? '},{'en':'Well, let\'s go out to where we really need to get,','ru':'Что ж, давайте перенесёмся туда, где мы хотим оказаться,'},{'en':'and then look at the intermediate.','ru':'и оттуда посмотрим на промежуточные этапы.'},{'en':'For 2050, you\'ve heard many people talk about this 80 percent reduction.','ru':'Сейчас много говорят о 80%-ном сокращении выбросов к 2050-му году.'},{'en':'That really is very important, that we get there.','ru':'Достичь этой цели очень важно.'},{'en':'And that 20 percent will be used up by things going on in poor countries,','ru':'Оставшиеся 20% будут производиться в бедных странах,'},{'en':'still some agriculture,','ru':'в сельском хозяйстве.'},{'en':'hopefully we will have cleaned up forestry, cement.','ru':'Надо надеяться, мы сможем очистить лесную и цементную промышленность.'},{'en':'So, to get to that 80 percent,','ru':'Итак, для достижения этих 80%-ов'},{'en':'the developed countries, including countries like China,','ru':'развитые страны, вместе с Китаем и другими,'},{'en':'will have had to switch their electricity generation altogether.','ru':' должны будут целиком переключиться на новые способы производства электричества.'},{'en':'So, the other grade is: Are we deploying this zero-emission technology,','ru':'Значит, одна оценка у нас будет за то, используем ли мы технологию 0%-ой эмиссии.'},{'en':'have we deployed it in all the developed countries','ru':'Применили ли её все развитые страны?'},{'en':'and we\'re in the process of getting it elsewhere?','ru':'Начался ли процесс передачи её дальше?'},{'en':'That\'s super important.','ru':'Это исключительно важно.'},{'en':'That\'s a key element of making that report card.','ru':'Вот – главная составляющая зачётной ведомости в 2050 году.'},{'en':'So, backing up from there, what should the 2020 report card look like?','ru':'Ну а теперь можно спросить, какая должна быть зачётка в 2020 году.'},{'en':'Well, again, it should have the two elements.','ru':'В ней, опять-таки, будут две составные части.'},{'en':'We should go through these efficiency measures to start getting reductions:','ru':'Для сокращения эмиссии надо провести все мероприятия по эффективности.'},{'en':'The less we emit, the less that sum will be of CO2,','ru':'Чем меньше эмиссии, тем меньше суммарный объём СО2'},{'en':'and, therefore, the less the temperature.','ru':'и, следовательно, тем меньше температура.'},{'en':'But in some ways, the grade we get there,','ru':'Но в каком-то смысле такая оценка за действия,'},{'en':'doing things that don\'t get us all the way to the big reductions,','ru':'не приводящие к крупному сокращению выбросов,'},{'en':'is only equally, or maybe even slightly less, important than the other,','ru':'важна настолько же, а скорее даже меньше, чем оценка за'},{'en':'which is the piece of innovation on these breakthroughs.','ru':' количество инноваций на основе прорывов, выдающихся разработок.'},{'en':'These breakthroughs, we need to move those at full speed,','ru':' С прорывами необходимо спешить, всеми силами стимулировать их.'},{'en':'and we can measure that in terms of companies,','ru':' Тут можно измерять числом фирм,'},{'en':'pilot projects, regulatory things that have been changed.','ru':' пилотных проектов, проведённых изменений в нормативной базе.'},{'en':'There\'s a lot of great books that have been written about this.','ru':'Об этом написано немало отличных книг.'},{'en':'The Al Gore book, "Our Choice"','ru':'Книга Эл Гора «Наш Выбор»,'},{'en':'and the David McKay book, "Sustainable Energy Without the Hot Air."','ru':'книга Дэвида МакКая «Устойчивая энергия без пустой болтовни» –'},{'en':'They really go through it and create a framework','ru':' в них подробно освещается и создаётся круг идей,'},{'en':'that this can be discussed broadly,','ru':' которые можно широко обсуждать '},{'en':'because we need broad backing for this.','ru':'– ведь нам необходима широкая поддержка.'},{'en':'There\'s a lot that has to come together.','ru':'Много факторов должно слиться воедино,'},{'en':'So this is a wish.','ru':'и вот моё пожелание.'},{'en':'It\'s a very concrete wish that we invent this technology.','ru':'Оно очень конкретно: изобрести эту технологию.'},{'en':'If you gave me only one wish for the next 50 years --','ru':'Если бы я мог загадать лишь одно желание на следующие 50 лет,'},{'en':'I could pick who\'s president,','ru':'мог бы загадать, кто будет президентом,'},{'en':'I could pick a vaccine, which is something I love,','ru':'загадать открытие новой вакцины, а эту тему я люблю,'},{'en':'or I could pick that this thing','ru':'или загадать изобретение такой штуки,'},{'en':'that\'s half the cost with no CO2 gets invented --','ru':'которая даёт энергию за полцены и без СО2,'},{'en':'this is the wish I would pick.','ru':'то я бы выбрал последнее.'},{'en':'This is the one with the greatest impact.','ru':'Оно имеет самые мощные последствия.'},{'en':'If we don\'t get this wish,','ru':'Если это желание не осуществится,'},{'en':'the division between the people who think short term and long term will be terrible,','ru':'будет ужасный раскол между мыслящими краткосрочно и долгосрочно,'},{'en':'between the U.S. and China, between poor countries and rich,','ru':'между США и Китаем, между бедными и богатыми странами,'},{'en':'and most of all the lives of those two billion will be far worse.','ru':'а самое главное, для беднейших 2 миллиардов населения жизнь станет намного хуже.'},{'en':'So, what do we have to do?','ru':'Что же мы обязаны предпринять?'},{'en':'What am I appealing to you to step forward and drive?','ru':'За какую цель я призываю вас выступать и бороться?'},{'en':'We need to go for more research funding.','ru':'Необходимо выделять больше субсидий на научные исследования.'},{'en':'When countries get together in places like Copenhagen,','ru':' На международных встречах в Копенгагене'},{'en':'they shouldn\'t just discuss the CO2.','ru':' должны обсуждаться не только вопросы СО2, '},{'en':'They should discuss this innovation agenda,','ru':' в повестке дня должны стоять инновации и обновления.'},{'en':'and you\'d be stunned at the ridiculously low levels of spending','ru':'Вы будете поражены смехотворно низким уровнем расходов'},{'en':'on these innovative approaches.','ru':'на новаторские подходы.'},{'en':'We do need the market incentives -- CO2 tax, cap and trade --','ru':'Остро необходимо рыночное стимулирование, налог на СО2, торговля эмиссионными квотами,'},{'en':'something that gets that price signal out there.','ru':' всё, что дает ценовой стимул к действию.'},{'en':'We need to get the message out.','ru':'Необходимо широкое понимание проблемы.'},{'en':'We need to have this dialogue be a more rational, more understandable dialogue,','ru':' Необходимо, чтобы диалог на эту тему был более разумный, более понятный,'},{'en':'including the steps that the government takes.','ru':'включая меры, предпринимаемые правительством.'},{'en':'This is an important wish, but it is one I think we can achieve.','ru':'Это важное пожелание, и я думаю, что мы сможем его осуществить.'},{'en':'Thank you.','ru':' Спасибо.'},{'en':'(Applause)','ru':' (Аплодисменты)'},{'en':'Thank you.','ru':' Спасибо.'},{'en':'Chris Anderson: Thank you. Thank you.','ru':' Крис Андерсон: Спасибо. Спасибо.'},{'en':'(Applause)','ru':' (Аплодисменты)'},{'en':'Thank you. So to understand more about TerraPower, right --','ru':' Спасибо. Я просто хотел кое-что прояснить себе насчёт Terrapower…'},{'en':'I mean, first of all, can you give a sense of what scale of investment this is?','ru':' Прежде всего, не могли бы Вы дать нам представление о размере инвестиций здесь?'},{'en':'Bil Gates: To actually do the software, buy the supercomputer,','ru':' Билл Гейтс: Написать программы, прогнать их на суперкомпьютере'},{'en':'hire all the great scientists, which we\'ve done,','ru':' и нанять всех учёных, что мы и сделали,'},{'en':'that\'s only tens of millions,','ru':' – это лишь десятки миллионов.'},{'en':'and even once we test our materials out in a Russian reactor','ru':' Даже после того, как мы протестируем материалы на российском реакторе,'},{'en':'to make sure that our materials work properly,','ru':' чтобы быть уверенными, что материалы функционируют как надо,'},{'en':'then you\'ll only be up in the hundreds of millions.','ru':' речь пойдет лишь о сотнях миллионов.'},{'en':'The tough thing is building the pilot reactor;','ru':' Вот что будет трудно, так это – построить пилотный реактор,'},{'en':'finding the several billion, finding the regulator, the location','ru':' найти несколько миллиардов, найти местность с юридической средой,'},{'en':'that will actually build the first one of these.','ru':' благоприятной для строительства первого реактора. '},{'en':'Once you get the first one built, if it works as advertised,','ru':'Как только первый реактор будет построен и при этом заработает как обещано,'},{'en':'then it\'s just clear as day, because the economics, the energy density,','ru':' то всё остальное ясно, как день, потому что экономичность и плотность энергии'},{'en':'are so different than nuclear as we know it.','ru':' радикально отличаются от обычной ядерной энергетики. '},{'en':'CA: And so, to understand it right, this involves building deep into the ground','ru':'К.А.: Если я правильно всё понимаю, это означает строительство глубоко в земле'},{'en':'almost like a vertical kind of column of nuclear fuel,','ru':' как бы вертикальной колонны из ядерного топлива,'},{'en':'of this sort of spent uranium,','ru':' из того самого отработанного урана,'},{'en':'and then the process starts at the top and kind of works down?','ru':' после чего процесс начинается на макушке и продолжается вниз. Правильно?'},{'en':'BG: That\'s right. Today, you\'re always refueling the reactor,','ru':' Б.Г.: Да, это так. Сегодня реакторы постоянно загружаются топливом,'},{'en':'so you have lots of people and lots of controls that can go wrong:','ru':' а потому нужно много людей и много звеньев управления, а ведь любой элемент системы может дать сбой,'},{'en':'that thing where you\'re opening it up and moving things in and out,','ru':' потому что надо эту штуку открывать, что-то помещать внутрь, что-то вынимать.'},{'en':'that\'s not good.','ru':' Это не к добру.'},{'en':'So, if you have very cheap fuel that you can put 60 years in --','ru':' Так вот, если есть дешёвое топливо, то можно загрузить его на 60 лет вперёд'},{'en':'just think of it as a log --','ru':' – считайте, это как [горящее] бревно '},{'en':'put it down and not have those same complexities.','ru':'– закопать вглубь и избавиться от сложностей,'},{'en':'And it just sits there and burns for the 60 years, and then it\'s done.','ru':' и оно горит там себе 60 лет, пока не сгорит, и на этом всё.'},{'en':'CA: It\'s a nuclear power plant that is its own waste disposal solution.','ru':' К.А.: Это – ядерная электростанция, которая сама решает свою проблему отходов.'},{'en':'BG: Yeah. Well, what happens with the waste,','ru':' Б.Г.: Ну да. А насчёт отходов – они просто остаются там,'},{'en':'you can let it sit there -- there\'s a lot less waste under this approach --','ru':' и образуется их при этом способе гораздо меньше.'},{'en':'then you can actually take that,','ru':' Затем можно их собрать'},{'en':'and put it into another one and burn that.','ru':' перенести в другую установку и сжечь.'},{'en':'And we start off actually by taking the waste that exists today,','ru':' Фактически мы начинаем с существующих сейчас отходов,'},{'en':'that\'s sitting in these cooling pools or dry casking by reactors --','ru':' которые размещены в охлаждающих резервуарах или в сухотарных бочках.'},{'en':'that\'s our fuel to begin with.','ru':' С этого топлива мы и начинаем.'},{'en':'So, the thing that\'s been a problem from those reactors','ru':' Значит, то, что для других реакторов было проблемой,'},{'en':'is actually what gets fed into ours,','ru':' для нас становится питанием,'},{'en':'and you\'re reducing the volume of the waste quite dramatically','ru':' и объём отходов значительно сокращается'},{'en':'as you\'re going through this process.','ru':' по мере продвижения этого процесса.'},{'en':'CA: I mean, you\'re talking to different people around the world','ru':' К.А.: В ваших беседах с разными людьми по всему миру'},{'en':'about the possibilities here.','ru':' о возможностях в этом направлении,'},{'en':'Where is there most interest in actually doing something with this?','ru':' где была проявлена наибольшая заинтересованность?'},{'en':'BG: Well, we haven\'t picked a particular place,','ru':' Б.Г.: Конкретного места мы не выбрали.'},{'en':'and there\'s all these interesting disclosure rules about anything that\'s called "nuclear,"','ru':' Помимо прочего, имеется масса разных правил неразглашения обо всём, что называется «ядерным».'},{'en':'so we\'ve got a lot of interest,','ru':' Наши работы вызывают интерес,'},{'en':'that people from the company have been in Russia, India, China --','ru':' представители нашей фирмы были в России, Индии, Китае.'},{'en':'I\'ve been back seeing the secretary of energy here,','ru':' Сам я беседовал с министром энергетики нашей страны'},{'en':'talking about how this fits into the energy agenda.','ru':' о том, как наши работы вписываются в его задачи.'},{'en':'So I\'m optimistic. You know, the French and Japanese have done some work.','ru':' Я с оптимизмом смотрю на это. Определённую работу проделали французы и японцы.'},{'en':'This is a variant on something that has been done.','ru':' Вот вариант того, что уже сделано.'},{'en':'It\'s an important advance, but it\'s like a fast reactor,','ru':' Это важное продвижение, но это как быстрый реактор,'},{'en':'and a lot of countries have built them,','ru':' и много стран построили их.'},{'en':'so anybody who\'s done a fast reactor is a candidate to be where the first one gets built.','ru':' Так что, любое место, где строился быстрый реактор – кандидат на первое установку нового реактора.'},{'en':'CA: So, in your mind, timescale and likelihood','ru':' К.А.: Ваша оценка времени и вероятности '},{'en':'of actually taking something like this live?','ru':'превратить это в реальность? '},{'en':'BG: Well, we need -- for one of these high-scale, electro-generation things','ru':'Б.Г.: Касательно крупномасштабного изменения в производстве электричества,'},{'en':'that\'s very cheap,','ru':' причем очень дешёвого,'},{'en':'we have 20 years to invent and then 20 years to deploy.','ru':' у нас впереди запас в 20 лет на изобретение и 20 лет на внедрение.'},{'en':'That\'s sort of the deadline that the environmental models','ru':' Это – крайние сроки, '},{'en':'have shown us that we have to meet.','ru':'которые нам диктуют разработанные модели изменения окружающей среды'},{'en':'And, you know, TerraPower, if things go well -- which is wishing for a lot --','ru':' Про Terrapower скажу, что в случае, если всё пойдёт хорошо – что само по себе не так просто '},{'en':'could easily meet that.','ru':'– то фирма с лёгкостью уложится в сроки.'},{'en':'And there are, fortunately now, dozens of companies --','ru':'К счастью, уже есть десятки фирм '},{'en':'we need it to be hundreds --','ru':'– а нам нужны сотни '},{'en':'who, likewise, if their science goes well,','ru':'– которые, если они добьются успеха в научных разработках'},{'en':'if the funding for their pilot plants goes well,','ru':' и финансировании пилотных станций,'},{'en':'that they can compete for this.','ru':' смогут вполне конкурировать в этом деле.'},{'en':'And it\'s best if multiple succeed,','ru':' Лучше, если будет несколько успехов '},{'en':'because then you could use a mix of these things.','ru':'– тогда можно использовать их комбинацию.'},{'en':'We certainly need one to succeed.','ru':' Но один крупный успех нам определённо нужен.'},{'en':'CA: In terms of big-scale possible game changes,','ru':' К.А.: Если говорить о крупномасштабных изменениях в жизни людей,'},{'en':'is this the biggest that you\'re aware of out there?','ru':' это – самое крупное из всего известного Вам? '},{'en':'BG: An energy breakthrough is the most important thing.','ru':'Б.Г.: Достижение прорыва в энергетике – важнейшее дело.'},{'en':'It would have been, even without the environmental constraint,','ru':' Оно было бы таковым в любом случае, но при наличии экологических ограничений, '},{'en':'but the environmental constraint just makes it so much greater.','ru':'становится еще важнее.'},{'en':'In the nuclear space, there are other innovators.','ru':'В ядерной области есть другие новаторы.'},{'en':'You know, we don\'t know their work as well as we know this one,','ru':' Мы не знаем их работы настолько же хорошо, как эту,'},{'en':'but the modular people, that\'s a different approach.','ru':' но кое-кто работает в модульном направлении, это другой подход.'},{'en':'There\'s a liquid-type reactor, which seems a little hard,','ru':' Есть реакторы жидкого типа, которые, по-видимому, тяжелее реализовать'},{'en':'but maybe they say that about us.','ru':' – хотя, может быть, их разработчики говорят то же про нас.'},{'en':'And so, there are different ones,','ru':' Так что, есть разные варианты,'},{'en':'but the beauty of this is a molecule of uranium','ru':' но вся красота в том, что молекула урана'},{'en':'has a million times as much energy as a molecule of, say, coal,','ru':' содержит в миллионы раз больше энергии, чем скажем, молекула углерода.'},{'en':'and so -- if you can deal with the negatives,','ru':' А потому, если удастся справиться с негативными сторонами,'},{'en':'which are essentially the radiation --','ru':' в основном, с радиацией,'},{'en':'the footprint and cost, the potential,','ru':' остатки и себестоимость, то [позитивный ] потенциал'},{'en':'in terms of effect on land and various things,','ru':' в смысле воздействия на землю и прочие вещи,'},{'en':'is almost in a class of its own.','ru':' настолько велик, что он просто ни с чем не сравним.'},{'en':'CA: If this doesn\'t work, then what?','ru':' К.А.: Если не получится, то – что?'},{'en':'Do we have to start taking emergency measures','ru':'Надо будет принимать чрезвычайные меры'},{'en':'to try and keep the temperature of the earth stable?','ru':' для удержания температуры земли на стабильном уровне?'},{'en':'BG: If you get into that situation,','ru':' Б.Г.: Такая ситуация похожа то,'},{'en':'it\'s like if you\'ve been over-eating, and you\'re about to have a heart attack:','ru':' как если постоянно переедать, а потом оказаться на пороге сердечного приступа.'},{'en':'Then where do you go? You may need heart surgery or something.','ru':' Куда обратиться? Нужна операция на сердце или нечто подобное.'},{'en':'There is a line of research on what\'s called geoengineering,','ru':' Это направление исследований называется геоинженерия,'},{'en':'which are various techniques that would delay the heating','ru':' она охватывает разнообразные методы задержки потепления атмосферы'},{'en':'to buy us 20 or 30 years to get our act together.','ru':' лет на 20-30 с тем, чтобы мы успели начать нужные действия.'},{'en':'Now, that\'s just an insurance policy.','ru':' Так вот, этим мы просто покупаем страховой полис.'},{'en':'You hope you don\'t need to do that.','ru':' Надо надеяться, что этого не придётся делать.'},{'en':'Some people say you shouldn\'t even work on the insurance policy','ru':' Некоторые считают, что о страховом полисе и думать не следует, '},{'en':'because it might make you lazy,','ru':'потому что это разлагает и ведёт к лени.'},{'en':'that you\'ll keep eating because you know heart surgery will be there to save you.','ru':' Человек будет продолжать переедать, зная, что операция на сердце его всегда спасёт.'},{'en':'I\'m not sure that\'s wise, given the importance of the problem,','ru':'Не уверен, что это здравый подход к проблеме, с учётом её серьёзности.'},{'en':'but there\'s now the geoengineering discussion','ru':' Сейчас вокруг геоинженерии идут дискуссии о том,'},{'en':'about -- should that be in the back pocket in case things happen faster,','ru':' надо ли это держать это про запас, если изменения ускорятся,'},{'en':'or this innovation goes a lot slower than we expect?','ru':' или инновации и обновления окажутся намного медленнее ожидаемого.'},{'en':'CA: Climate skeptics: If you had a sentence or two to say to them,','ru':' К.А.: Есть скептики по поводу проблематики изменения климата. Смогли бы Вы в двух словах убедить их,'},{'en':'how might you persuade them that they\'re wrong?','ru':' что они неправы?'},{'en':'BG: Well, unfortunately, the skeptics come in different camps.','ru':' Б.Г.: К сожалению, позиции скептиков очень сильно разнятся.'},{'en':'The ones who make scientific arguments are very few.','ru':' Научные аргументы выдвигает очень мало кто.'},{'en':'Are they saying that there\'s negative feedback effects','ru':' Ведутся разговоры о негативных обратных связях,'},{'en':'that have to do with clouds that offset things?','ru':' типа того, что облака имеют обратный эффект.'},{'en':'There are very, very few things that they can even say','ru':' По этому поводу скептикам вообще почти нечего сказать, '},{'en':'there\'s a chance in a million of those things.','ru':'ну, один шанс из миллиона, что они правы.'},{'en':'The main problem we have here, it\'s kind of like AIDS.','ru':' Тут проблема похожа на ситуацию со СПИДом.'},{'en':'You make the mistake now, and you pay for it a lot later.','ru':' Это когда за сегодняшнюю ошибку надо расплачиваться намного позже.'},{'en':'And so, when you have all sorts of urgent problems,','ru':' Если вокруг сплошные проблемы, требующие срочного решения,'},{'en':'the idea of taking pain now that has to do with a gain later,','ru':' то мысль о том, что чем-то надо сейчас поступиться, чтобы потом было лучше… '},{'en':'and a somewhat uncertain pain thing --','ru':'да и чем поступиться не совсем ясно… '},{'en':'in fact, the IPCC report, that\'s not necessarily the worst case,','ru':'В обеспеченных странах кто-то читает доклады IPCC [Межправительственная группа экспертов по изменению климата], где описывается совсем не худший вариант,'},{'en':'and there are people in the rich world who look at IPCC','ru':' и считает, что проблема'},{'en':'and say, "OK, that isn\'t that big of a deal."','ru':' не ахти какая.'},{'en':'The fact is it\'s that uncertain part that should move us towards this.','ru':' Но ведь именно неопределённость должна толкать нас на действия.'},{'en':'But my dream here is that, if you can make it economic,','ru':'У меня вот какая мечта: если удастся создать нечто, что будет оправданно экономически'},{'en':'and meet the CO2 constraints,','ru':' и удовлетворять отграничениям на выброс СО2,'},{'en':'then the skeptics say, "OK,','ru':'то тогда скептики скажут: «Ну ладно,'},{'en':'I don\'t care that it doesn\'t put out CO2,','ru':' мне всё равно СО2 выбрасывается или нет,'},{'en':'I kind of wish it did put out CO2,','ru':' я может даже и хочу выбросов СО2,'},{'en':'but I guess I\'ll accept it because it\'s cheaper than what\'s come before."','ru':' но я перехожу на новую технологию, потому что она дешевле старой».'},{'en':'(Applause)','ru':' (Аплодисменты)'},{'en':'CA: And so, that would be your response to the Bjorn Lomborg argument,','ru':' К.А.: Значит это будет Ваш ответ на аргументы Бьёрн Ломборга о том,'},{'en':'that basically if you spend all this energy trying to solve the CO2 problem,','ru':' что такие затраты на решение проблемы с СО2 '},{'en':'it\'s going to take away all your other goals','ru':'отвлекают ресурсы от прочих целей, '},{'en':'of trying to rid the world of poverty and malaria and so forth,','ru':' связанных с сокращением бедности, малярии и прочее,'},{'en':'it\'s a stupid waste of the Earth\'s resources to put money towards that','ru':' о том, что глупо растрачивать ресурсы планеты на такие цели,'},{'en':'when there are better things we can do.','ru':' когда их можно направить на более полезные дела. '},{'en':'BG: Well, the actual spending on the R&D piece --','ru':'Б.Г.: Фактические расходы на НИОКР [научные исследования]…'},{'en':'say the U.S. should spend 10 billion a year more than it is right now --','ru':' скажем, в США, надо будет тратить на 10 миллиардов в год больше, чем сейчас'},{'en':'it\'s not that dramatic.','ru':' – это совсем не критическая сумма,'},{'en':'It shouldn\'t take away from other things.','ru':' она не должна будет отвлечь от прочих дел.'},{'en':'The thing you get into big money on, and this, reasonable people can disagree,','ru':' Большие суммы начинаются тогда, когда – допускаю, что разумные люди могут не согласиться,'},{'en':'is when you have something that\'s non-economic and you\'re trying to fund that --','ru':' – когда начинается субсидирование чего-то неэкономичного.'},{'en':'that, to me, mostly is a waste.','ru':' Для меня это – по большей части, пустая растрата. '},{'en':'Unless you\'re very close and you\'re just funding the learning curve','ru':'Исключением является ситуация, когда открытие близко, затраты идут на приобретение опыта,'},{'en':'and it\'s going to get very cheap,','ru':' а открытие даст очень дешёвую [энергию]'},{'en':'I believe we should try more things that have a potential','ru':'Я уверен, что надо испробовать побольше разных вариантов, где есть потенциал'},{'en':'to be far less expensive.','ru':' выдать намного более дешёвую энергию.'},{'en':'If the trade-off you get into is, "Let\'s make energy super expensive,"','ru':' Если альтернативой является сверхдорогая энергия, '},{'en':'then the rich can afford that.','ru':'то богатые смогут себе это позволить.'},{'en':'I mean, all of us here could pay five times as much for our energy','ru':' Скажу, что каждый в этом зале может платить за энергию в 5 раз больше'},{'en':'and not change our lifestyle.','ru':' без ущерба для своего образа жизни.'},{'en':'The disaster is for that two billion.','ru':' Но для тех самых 2 миллиардов это будет катастрофа.'},{'en':'And even Lomborg has changed.','ru':' Ведь даже Ломборг изменился.'},{'en':'His shtick now is, "Why isn\'t the R&D getting more discussed?"','ru':' Его очередной номер теперь – восклицать «Почему НИОКР так мало обсуждается?»'},{'en':'He\'s still, because of his earlier stuff,','ru':' Ввиду прошлых публикаций, его всё ещё относят '},{'en':'still associated with the skeptic camp,','ru':'к лагерю скептиков,'},{'en':'but he\'s realized that\'s a pretty lonely camp,','ru':' но он понял, что в этом лагере довольно одиноко,'},{'en':'and so, he\'s making the R&D point.','ru':' и вот он выдвигает заботу о НИОКР.'},{'en':'And so there is a thread of something that I think is appropriate.','ru':' Аргумент в пользу НИОКР, я считаю, совершенно уместен.'},{'en':'The R&D piece, it\'s crazy how little it\'s funded.','ru':' Трудно даже представить, как мало выделяется на НИОКР.'},{'en':'CA: Well Bill, I suspect I speak on the behalf of most people here','ru':' К.А.: Что ж, думаю, что выражу мнение большинства,'},{'en':'to say I really hope your wish comes true. Thank you so much.','ru':' если искренне пожелаю исполнения Вашего желания. Огромное спасибо.'},{'en':'BG: Thank you.','ru':' Б.Г.: Благодарю.'},{'en':'(Applause)','ru':' (Аплодисменты)'}];
+$j = jQuery.noConflict();
+$j(document).ready(function(){
+	var vid, playbtn, seekslider, curtimetext, durtimetext;
+	function intializePlayer(){
+		// Set object references
+		vid = document.getElementById("my_video");
+		playbtn = document.getElementById("playpausebtn");
+		seekslider = document.getElementById("seekslider");
+		curtimetext = document.getElementById("curtimetext");
+		durtimetext = document.getElementById("durtimetext");
+		// Add event listeners
+		playbtn.addEventListener("click",playPause,false);
+		seekslider.addEventListener("change",vidSeek,false);
+		vid.addEventListener("timeupdate",seektimeupdate,false);
+	}
+	window.onload = intializePlayer;
+	function playPause(){
+		if(vid.paused){
+			vid.play();
+			playbtn.innerHTML = "Pause";
+		} else {
+			vid.pause();
+			playbtn.innerHTML = "Play";
+		}
+	}
+	function vidSeek(){
+		var seekto = vid.duration * (seekslider.value / 100);
+		vid.currentTime = seekto;
+		
+	}
+	
+	var prev = '#srerferf';
+	function seektimeupdate(){
+	var nt = vid.currentTime * (100 / vid.duration);
+	seekslider.value = nt;
+	 
+	var curmins = Math.floor(vid.currentTime);
+	var cursecs = Math.floor(vid.currentTime - curmins * 60);
+	var durmins = Math.floor(vid.duration / 60);
+	var dursecs = Math.floor(vid.duration - durmins * 60);
+	if(cursecs < 10){ cursecs = "0"+cursecs; }
+	if(dursecs < 10){ dursecs = "0"+dursecs; }
+	if(curmins < 10){ curmins = "0"+curmins; }
+	if(durmins < 10){ durmins = "0"+durmins; }
+	curtimetext.innerHTML = curmins+":"+cursecs;
+	durtimetext.innerHTML = durmins+":"+dursecs;
+	//console.log(vid.currentTime);
+	var id = '#' + curmins;
+		if(id != prev){ 	
+			if($j('span').is(id)){
+				$j(prev).removeClass();
+				$j(id).addClass('current');
+				prev = id;
+				
+			} 
+			
+		}
+	}
+	$j("span").click(function() {
+		// `this` is the DOM element that was clicked
+		var contentPanelId = jQuery(this).attr("id");
+		vid.currentTime = contentPanelId;
+		
+		$j("#my_video").click();
+	});
+	
+	$j("span").mouseenter(function() {
+		var index = $j("span").index(this);
+		//console.log(index);
+		$j("#translate").text(languages[index].ru);
+		$j("#translate").css('left', 0);
+		$j("#translate").css('top', 0);
+	
+	});
+	
+	
+	var flag = true;
+	$j("#my_video").click(function(){
+		if(flag){
+			flag=false;
+			vid.pause();
+		}else{
+			flag=true;
+			vid.play();
+		}
+		
+	});
+	
+	
+});
+</script>
+</head>
+<body>
+<div id="box_box">
+<div id="video_controls_bar" style="position: fixed; display: none;">
+    <button id="playpausebtn">Pause</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+    <div id="curtimetext">00:00</div> / <div id="durtimetext">00:00</div>
+  </div>
+  <video id="my_video" width="550" height="410" autoplay>
+    <source src="BillGates_2010-480p.mp4">
+  </video>
+  <div id="translate" style="background: #e2e2e2; font-size: 16pt;">Перевод</div>
+  
+
+</div>
+<div class="text">
+<span class="talk-transcript__fragment" data-time="1000" id="13">I'm going to talk today about energy and climate.</span>
+<span class="talk-transcript__fragment" data-time="5000" id="17">And that might seem a bit surprising because</span>
+<span class="talk-transcript__fragment" data-time="7000" id="19">my full-time work at the Foundation is mostly about vaccines and seeds,</span>
+<span class="talk-transcript__fragment" data-time="12000" id="24">about the things that we need to invent and deliver</span>
+<span class="talk-transcript__fragment" data-time="15000" id="27">to help the poorest two billion live better lives.</span>
+<span class="talk-transcript__fragment" data-time="20000" id="32">But energy and climate are extremely important to these people --</span>
+<span class="talk-transcript__fragment" data-time="25000" id="37">in fact, more important than to anyone else on the planet.</span>
+<span class="talk-transcript__fragment" data-time="30000" id="42">The climate getting worse means that many years, their crops won't grow:</span>
+<span class="talk-transcript__fragment" data-time="35000" id="47">There will be too much rain, not enough rain,</span>
+<span class="talk-transcript__fragment" data-time="38000" id="50">things will change in ways</span>
+<span class="talk-transcript__fragment" data-time="40000" id="52">that their fragile environment simply can't support.</span>
+<span class="talk-transcript__fragment" data-time="44000" id="56">And that leads to starvation, it leads to uncertainty, it leads to unrest.</span>
+<span class="talk-transcript__fragment" data-time="49000" id="61">So, the climate changes will be terrible for them.</span>
+<span class="talk-transcript__fragment" data-time="53000" id="65">Also, the price of energy is very important to them.</span>
+<span class="talk-transcript__fragment" data-time="56000" id="68">In fact, if you could pick just one thing to lower the price of,</span>
+<span class="talk-transcript__fragment" data-time="59000" id="71">to reduce poverty, by far you would pick energy.</span>
+<span class="talk-transcript__fragment" data-time="63000" id="75">Now, the price of energy has come down over time.</span>
+<span class="talk-transcript__fragment" data-time="67000" id="79">Really advanced civilization is based on advances in energy.</span>
+<span class="talk-transcript__fragment" data-time="73000" id="85">The coal revolution fueled the Industrial Revolution,</span>
+<span class="talk-transcript__fragment" data-time="77000" id="89">and, even in the 1900s we've seen a very rapid decline in the price of electricity,</span>
+<span class="talk-transcript__fragment" data-time="83000" id="95">and that's why we have refrigerators, air-conditioning,</span>
+<span class="talk-transcript__fragment" data-time="86000" id="98">we can make modern materials and do so many things.</span>
+<span class="talk-transcript__fragment" data-time="90000" id="102">And so, we're in a wonderful situation with electricity in the rich world.</span>
+<span class="talk-transcript__fragment" data-time="97000" id="109">But, as we make it cheaper -- and let's go for making it twice as cheap --</span>
+<span class="talk-transcript__fragment" data-time="104000" id="116">we need to meet a new constraint,</span>
+<span class="talk-transcript__fragment" data-time="106000" id="118">and that constraint has to do with CO2.</span>
+<span class="talk-transcript__fragment" data-time="110000" id="122">CO2 is warming the planet,</span>
+<span class="talk-transcript__fragment" data-time="113000" id="125">and the equation on CO2 is actually a very straightforward one.</span>
+<span class="talk-transcript__fragment" data-time="119000" id="131">If you sum up the CO2 that gets emitted,</span>
+<span class="talk-transcript__fragment" data-time="123000" id="135">that leads to a temperature increase,</span>
+<span class="talk-transcript__fragment" data-time="126000" id="138">and that temperature increase leads to some very negative effects:</span>
+<span class="talk-transcript__fragment" data-time="130000" id="142">the effects on the weather; perhaps worse, the indirect effects,</span>
+<span class="talk-transcript__fragment" data-time="133000" id="145">in that the natural ecosystems can't adjust to these rapid changes,</span>
+<span class="talk-transcript__fragment" data-time="138000" id="150">and so you get ecosystem collapses.</span>
+<span class="talk-transcript__fragment" data-time="141000" id="153">Now, the exact amount of how you map</span>
+<span class="talk-transcript__fragment" data-time="144000" id="156">from a certain increase of CO2 to what temperature will be</span>
+<span class="talk-transcript__fragment" data-time="148000" id="160">and where the positive feedbacks are,</span>
+<span class="talk-transcript__fragment" data-time="150000" id="162">there's some uncertainty there, but not very much.</span>
+<span class="talk-transcript__fragment" data-time="153000" id="165">And there's certainly uncertainty about how bad those effects will be,</span>
+<span class="talk-transcript__fragment" data-time="156000" id="168">but they will be extremely bad.</span>
+<span class="talk-transcript__fragment" data-time="159000" id="171">I asked the top scientists on this several times:</span>
+<span class="talk-transcript__fragment" data-time="161000" id="173">Do we really have to get down to near zero?</span>
+<span class="talk-transcript__fragment" data-time="164000" id="176">Can't we just cut it in half or a quarter?</span>
+<span class="talk-transcript__fragment" data-time="167000" id="179">And the answer is that until we get near to zero,</span>
+<span class="talk-transcript__fragment" data-time="171000" id="183">the temperature will continue to rise.</span>
+<span class="talk-transcript__fragment" data-time="173000" id="185">And so that's a big challenge.</span>
+<span class="talk-transcript__fragment" data-time="175000" id="187">It's very different than saying "We're a twelve-foot-high truck trying to get under a ten-foot bridge,</span>
+<span class="talk-transcript__fragment" data-time="180000" id="192">and we can just sort of squeeze under."</span>
+<span class="talk-transcript__fragment" data-time="183000" id="195">This is something that has to get to zero.</span>
+<span class="talk-transcript__fragment" data-time="187000" id="199">Now, we put out a lot of carbon dioxide every year,</span>
+<span class="talk-transcript__fragment" data-time="191000" id="203">over 26 billion tons.</span>
+<span class="talk-transcript__fragment" data-time="193000" id="205">For each American, it's about 20 tons;</span>
+<span class="talk-transcript__fragment" data-time="197000" id="209">for people in poor countries, it's less than one ton.</span>
+<span class="talk-transcript__fragment" data-time="200000" id="212">It's an average of about five tons for everyone on the planet.</span>
+<span class="talk-transcript__fragment" data-time="204000" id="216">And, somehow, we have to make changes</span>
+<span class="talk-transcript__fragment" data-time="206000" id="218">that will bring that down to zero.</span>
+<span class="talk-transcript__fragment" data-time="209000" id="221">It's been constantly going up.</span>
+<span class="talk-transcript__fragment" data-time="211000" id="223">It's only various economic changes that have even flattened it at all,</span>
+<span class="talk-transcript__fragment" data-time="216000" id="228">so we have to go from rapidly rising</span>
+<span class="talk-transcript__fragment" data-time="219000" id="231">to falling, and falling all the way to zero.</span>
+<span class="talk-transcript__fragment" data-time="222000" id="234">This equation has four factors,</span>
+<span class="talk-transcript__fragment" data-time="224000" id="236">a little bit of multiplication:</span>
+<span class="talk-transcript__fragment" data-time="226000" id="238">So, you've got a thing on the left, CO2, that you want to get to zero,</span>
+<span class="talk-transcript__fragment" data-time="229000" id="241">and that's going to be based on the number of people,</span>
+<span class="talk-transcript__fragment" data-time="233000" id="245">the services each person's using on average,</span>
+<span class="talk-transcript__fragment" data-time="236000" id="248">the energy on average for each service,</span>
+<span class="talk-transcript__fragment" data-time="239000" id="251">and the CO2 being put out per unit of energy.</span>
+<span class="talk-transcript__fragment" data-time="243000" id="255">So, let's look at each one of these</span>
+<span class="talk-transcript__fragment" data-time="245000" id="257">and see how we can get this down to zero.</span>
+<span class="talk-transcript__fragment" data-time="249000" id="261">Probably, one of these numbers is going to have to get pretty near to zero.</span>
+<span class="talk-transcript__fragment" data-time="253000" id="265">Now that's back from high school algebra,</span>
+<span class="talk-transcript__fragment" data-time="256000" id="268">but let's take a look.</span>
+<span class="talk-transcript__fragment" data-time="258000" id="270">First, we've got population.</span>
+<span class="talk-transcript__fragment" data-time="260000" id="272">The world today has 6.8 billion people.</span>
+<span class="talk-transcript__fragment" data-time="263000" id="275">That's headed up to about nine billion.</span>
+<span class="talk-transcript__fragment" data-time="265000" id="277">Now, if we do a really great job on new vaccines,</span>
+<span class="talk-transcript__fragment" data-time="269000" id="281">health care, reproductive health services,</span>
+<span class="talk-transcript__fragment" data-time="271000" id="283">we could lower that by, perhaps, 10 or 15 percent,</span>
+<span class="talk-transcript__fragment" data-time="275000" id="287">but there we see an increase of about 1.3.</span>
+<span class="talk-transcript__fragment" data-time="279000" id="291">The second factor is the services we use.</span>
+<span class="talk-transcript__fragment" data-time="282000" id="294">This encompasses everything:</span>
+<span class="talk-transcript__fragment" data-time="284000" id="296">the food we eat, clothing, TV, heating.</span>
+<span class="talk-transcript__fragment" data-time="288000" id="300">These are very good things:</span>
+<span class="talk-transcript__fragment" data-time="291000" id="303">getting rid of poverty means providing these services</span>
+<span class="talk-transcript__fragment" data-time="294000" id="306">to almost everyone on the planet.</span>
+<span class="talk-transcript__fragment" data-time="296000" id="308">And it's a great thing for this number to go up.</span>
+<span class="talk-transcript__fragment" data-time="300000" id="312">In the rich world, perhaps the top one billion,</span>
+<span class="talk-transcript__fragment" data-time="302000" id="314">we probably could cut back and use less,</span>
+<span class="talk-transcript__fragment" data-time="304000" id="316">but every year, this number, on average, is going to go up,</span>
+<span class="talk-transcript__fragment" data-time="308000" id="320">and so, over all, that will more than double</span>
+<span class="talk-transcript__fragment" data-time="312000" id="324">the services delivered per person.</span>
+<span class="talk-transcript__fragment" data-time="315000" id="327">Here we have a very basic service:</span>
+<span class="talk-transcript__fragment" data-time="317000" id="329">Do you have lighting in your house to be able to read your homework?</span>
+<span class="talk-transcript__fragment" data-time="320000" id="332">And, in fact, these kids don't, so they're going out</span>
+<span class="talk-transcript__fragment" data-time="322000" id="334">and reading their school work under the street lamps.</span>
+<span class="talk-transcript__fragment" data-time="327000" id="339">Now, efficiency, E, the energy for each service,</span>
+<span class="talk-transcript__fragment" data-time="331000" id="343">here finally we have some good news.</span>
+<span class="talk-transcript__fragment" data-time="333000" id="345">We have something that's not going up.</span>
+<span class="talk-transcript__fragment" data-time="335000" id="347">Through various inventions and new ways of doing lighting,</span>
+<span class="talk-transcript__fragment" data-time="338000" id="350">through different types of cars, different ways of building buildings --</span>
+<span class="talk-transcript__fragment" data-time="343000" id="355">there are a lot of services where you can bring</span>
+<span class="talk-transcript__fragment" data-time="346000" id="358">the energy for that service down quite substantially.</span>
+<span class="talk-transcript__fragment" data-time="350000" id="362">Some individual services even bring it down by 90 percent.</span>
+<span class="talk-transcript__fragment" data-time="353000" id="365">There are other services like how we make fertilizer,</span>
+<span class="talk-transcript__fragment" data-time="356000" id="368">or how we do air transport,</span>
+<span class="talk-transcript__fragment" data-time="358000" id="370">where the rooms for improvement are far, far less.</span>
+<span class="talk-transcript__fragment" data-time="362000" id="374">And so, overall here, if we're optimistic,</span>
+<span class="talk-transcript__fragment" data-time="364000" id="376">we may get a reduction of a factor of three to even, perhaps, a factor of six.</span>
+<span class="talk-transcript__fragment" data-time="371000" id="383">But for these first three factors now,</span>
+<span class="talk-transcript__fragment" data-time="374000" id="386">we've gone from 26 billion to, at best, maybe 13 billion tons,</span>
+<span class="talk-transcript__fragment" data-time="379000" id="391">and that just won't cut it.</span>
+<span class="talk-transcript__fragment" data-time="381000" id="393">So let's look at this fourth factor --</span>
+<span class="talk-transcript__fragment" data-time="383000" id="395">this is going to be a key one --</span>
+<span class="talk-transcript__fragment" data-time="385000" id="397">and this is the amount of CO2 put out per each unit of energy.</span>
+<span class="talk-transcript__fragment" data-time="391000" id="403">And so the question is: Can you actually get that to zero?</span>
+<span class="talk-transcript__fragment" data-time="395000" id="407">If you burn coal, no.</span>
+<span class="talk-transcript__fragment" data-time="397000" id="409">If you burn natural gas, no.</span>
+<span class="talk-transcript__fragment" data-time="399000" id="411">Almost every way we make electricity today,</span>
+<span class="talk-transcript__fragment" data-time="402000" id="414">except for the emerging renewables and nuclear, puts out CO2.</span>
+<span class="talk-transcript__fragment" data-time="408000" id="420">And so, what we're going to have to do at a global scale,</span>
+<span class="talk-transcript__fragment" data-time="411000" id="423">is create a new system.</span>
+<span class="talk-transcript__fragment" data-time="414000" id="426">And so, we need energy miracles.</span>
+<span class="talk-transcript__fragment" data-time="416000" id="428">Now, when I use the term "miracle," I don't mean something that's impossible.</span>
+<span class="talk-transcript__fragment" data-time="420000" id="432">The microprocessor is a miracle. The personal computer is a miracle.</span>
+<span class="talk-transcript__fragment" data-time="425000" id="437">The Internet and its services are a miracle.</span>
+<span class="talk-transcript__fragment" data-time="428000" id="440">So, the people here have participated in the creation of many miracles.</span>
+<span class="talk-transcript__fragment" data-time="433000" id="445">Usually, we don't have a deadline,</span>
+<span class="talk-transcript__fragment" data-time="435000" id="447">where you have to get the miracle by a certain date.</span>
+<span class="talk-transcript__fragment" data-time="437000" id="449">Usually, you just kind of stand by, and some come along, some don't.</span>
+<span class="talk-transcript__fragment" data-time="441000" id="453">This is a case where we actually have to drive at full speed</span>
+<span class="talk-transcript__fragment" data-time="445000" id="457">and get a miracle in a pretty tight timeline.</span>
+<span class="talk-transcript__fragment" data-time="450000" id="462">Now, I thought, "How could I really capture this?</span>
+<span class="talk-transcript__fragment" data-time="453000" id="465">Is there some kind of natural illustration,</span>
+<span class="talk-transcript__fragment" data-time="455000" id="467">some demonstration that would grab people's imagination here?"</span>
+<span class="talk-transcript__fragment" data-time="460000" id="472">I thought back to a year ago when I brought mosquitos,</span>
+<span class="talk-transcript__fragment" data-time="464000" id="476">and somehow people enjoyed that.</span>
+<span class="talk-transcript__fragment" data-time="466000" id="478">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="468000" id="480">It really got them involved in the idea of,</span>
+<span class="talk-transcript__fragment" data-time="471000" id="483">you know, there are people who live with mosquitos.</span>
+<span class="talk-transcript__fragment" data-time="474000" id="486">So, with energy, all I could come up with is this.</span>
+<span class="talk-transcript__fragment" data-time="479000" id="491">I decided that releasing fireflies</span>
+<span class="talk-transcript__fragment" data-time="482000" id="494">would be my contribution to the environment here this year.</span>
+<span class="talk-transcript__fragment" data-time="486000" id="498">So here we have some natural fireflies.</span>
+<span class="talk-transcript__fragment" data-time="489000" id="501">I'm told they don't bite; in fact, they might not even leave that jar.</span>
+<span class="talk-transcript__fragment" data-time="492000" id="504">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="495000" id="507">Now, there's all sorts of gimmicky solutions like that one,</span>
+<span class="talk-transcript__fragment" data-time="500000" id="512">but they don't really add up to much.</span>
+<span class="talk-transcript__fragment" data-time="502000" id="514">We need solutions -- either one or several --</span>
+<span class="talk-transcript__fragment" data-time="506000" id="518">that have unbelievable scale</span>
+<span class="talk-transcript__fragment" data-time="510000" id="522">and unbelievable reliability,</span>
+<span class="talk-transcript__fragment" data-time="512000" id="524">and, although there's many directions people are seeking,</span>
+<span class="talk-transcript__fragment" data-time="515000" id="527">I really only see five that can achieve the big numbers.</span>
+<span class="talk-transcript__fragment" data-time="519000" id="531">I've left out tide, geothermal, fusion, biofuels.</span>
+<span class="talk-transcript__fragment" data-time="524000" id="536">Those may make some contribution,</span>
+<span class="talk-transcript__fragment" data-time="526000" id="538">and if they can do better than I expect, so much the better,</span>
+<span class="talk-transcript__fragment" data-time="528000" id="540">but my key point here</span>
+<span class="talk-transcript__fragment" data-time="530000" id="542">is that we're going to have to work on each of these five,</span>
+<span class="talk-transcript__fragment" data-time="534000" id="546">and we can't give up any of them because they look daunting,</span>
+<span class="talk-transcript__fragment" data-time="538000" id="550">because they all have significant challenges.</span>
+<span class="talk-transcript__fragment" data-time="542000" id="554">Let's look first at the burning fossil fuels,</span>
+<span class="talk-transcript__fragment" data-time="544000" id="556">either burning coal or burning natural gas.</span>
+<span class="talk-transcript__fragment" data-time="548000" id="560">What you need to do there, seems like it might be simple, but it's not,</span>
+<span class="talk-transcript__fragment" data-time="551000" id="563">and that's to take all the CO2, after you've burned it, going out the flue,</span>
+<span class="talk-transcript__fragment" data-time="557000" id="569">pressurize it, create a liquid, put it somewhere,</span>
+<span class="talk-transcript__fragment" data-time="560000" id="572">and hope it stays there.</span>
+<span class="talk-transcript__fragment" data-time="562000" id="574">Now we have some pilot things that do this at the 60 to 80 percent level,</span>
+<span class="talk-transcript__fragment" data-time="566000" id="578">but getting up to that full percentage, that will be very tricky,</span>
+<span class="talk-transcript__fragment" data-time="570000" id="582">and agreeing on where these CO2 quantities should be put will be hard,</span>
+<span class="talk-transcript__fragment" data-time="576000" id="588">but the toughest one here is this long-term issue.</span>
+<span class="talk-transcript__fragment" data-time="579000" id="591">Who's going to be sure?</span>
+<span class="talk-transcript__fragment" data-time="581000" id="593">Who's going to guarantee something that is literally billions of times larger</span>
+<span class="talk-transcript__fragment" data-time="585000" id="597">than any type of waste you think of in terms of nuclear or other things?</span>
+<span class="talk-transcript__fragment" data-time="589000" id="601">This is a lot of volume.</span>
+<span class="talk-transcript__fragment" data-time="592000" id="604">So that's a tough one.</span>
+<span class="talk-transcript__fragment" data-time="594000" id="606">Next would be nuclear.</span>
+<span class="talk-transcript__fragment" data-time="596000" id="608">It also has three big problems:</span>
+<span class="talk-transcript__fragment" data-time="599000" id="611">Cost, particularly in highly regulated countries, is high;</span>
+<span class="talk-transcript__fragment" data-time="603000" id="615">the issue of the safety, really feeling good about nothing could go wrong,</span>
+<span class="talk-transcript__fragment" data-time="607000" id="619">that, even though you have these human operators,</span>
+<span class="talk-transcript__fragment" data-time="610000" id="622">that the fuel doesn't get used for weapons.</span>
+<span class="talk-transcript__fragment" data-time="613000" id="625">And then what do you do with the waste?</span>
+<span class="talk-transcript__fragment" data-time="615000" id="627">And, although it's not very large, there are a lot of concerns about that.</span>
+<span class="talk-transcript__fragment" data-time="618000" id="630">People need to feel good about it.</span>
+<span class="talk-transcript__fragment" data-time="620000" id="632">So three very tough problems that might be solvable,</span>
+<span class="talk-transcript__fragment" data-time="625000" id="637">and so, should be worked on.</span>
+<span class="talk-transcript__fragment" data-time="627000" id="639">The last three of the five, I've grouped together.</span>
+<span class="talk-transcript__fragment" data-time="630000" id="642">These are what people often refer to as the renewable sources.</span>
+<span class="talk-transcript__fragment" data-time="634000" id="646">And they actually -- although it's great they don't require fuel --</span>
+<span class="talk-transcript__fragment" data-time="638000" id="650">they have some disadvantages.</span>
+<span class="talk-transcript__fragment" data-time="640000" id="652">One is that the density of energy gathered in these technologies</span>
+<span class="talk-transcript__fragment" data-time="646000" id="658">is dramatically less than a power plant.</span>
+<span class="talk-transcript__fragment" data-time="648000" id="660">This is energy farming, so you're talking about many square miles,</span>
+<span class="talk-transcript__fragment" data-time="652000" id="664">thousands of time more area than you think of as a normal energy plant.</span>
+<span class="talk-transcript__fragment" data-time="657000" id="669">Also, these are intermittent sources.</span>
+<span class="talk-transcript__fragment" data-time="660000" id="672">The sun doesn't shine all day, it doesn't shine every day,</span>
+<span class="talk-transcript__fragment" data-time="663000" id="675">and, likewise, the wind doesn't blow all the time.</span>
+<span class="talk-transcript__fragment" data-time="666000" id="678">And so, if you depend on these sources,</span>
+<span class="talk-transcript__fragment" data-time="668000" id="680">you have to have some way of getting the energy</span>
+<span class="talk-transcript__fragment" data-time="671000" id="683">during those time periods that it's not available.</span>
+<span class="talk-transcript__fragment" data-time="674000" id="686">So, we've got big cost challenges here,</span>
+<span class="talk-transcript__fragment" data-time="677000" id="689">we have transmission challenges:</span>
+<span class="talk-transcript__fragment" data-time="679000" id="691">for example, say this energy source is outside your country;</span>
+<span class="talk-transcript__fragment" data-time="682000" id="694">you not only need the technology,</span>
+<span class="talk-transcript__fragment" data-time="684000" id="696">but you have to deal with the risk of the energy coming from elsewhere.</span>
+<span class="talk-transcript__fragment" data-time="689000" id="701">And, finally, this storage problem.</span>
+<span class="talk-transcript__fragment" data-time="691000" id="703">And, to dimensionalize this, I went through and looked at</span>
+<span class="talk-transcript__fragment" data-time="694000" id="706">all the types of batteries that get made --</span>
+<span class="talk-transcript__fragment" data-time="697000" id="709">for cars, for computers, for phones, for flashlights, for everything --</span>
+<span class="talk-transcript__fragment" data-time="701000" id="713">and compared that to the amount of electrical energy the world uses,</span>
+<span class="talk-transcript__fragment" data-time="706000" id="718">and what I found is that all the batteries we make now</span>
+<span class="talk-transcript__fragment" data-time="710000" id="722">could store less than 10 minutes of all the energy.</span>
+<span class="talk-transcript__fragment" data-time="714000" id="726">And so, in fact, we need a big breakthrough here,</span>
+<span class="talk-transcript__fragment" data-time="717000" id="729">something that's going to be a factor of 100 better</span>
+<span class="talk-transcript__fragment" data-time="721000" id="733">than the approaches we have now.</span>
+<span class="talk-transcript__fragment" data-time="723000" id="735">It's not impossible, but it's not a very easy thing.</span>
+<span class="talk-transcript__fragment" data-time="727000" id="739">Now, this shows up when you try to get the intermittent source</span>
+<span class="talk-transcript__fragment" data-time="731000" id="743">to be above, say, 20 to 30 percent of what you're using.</span>
+<span class="talk-transcript__fragment" data-time="735000" id="747">If you're counting on it for 100 percent,</span>
+<span class="talk-transcript__fragment" data-time="737000" id="749">you need an incredible miracle battery.</span>
+<span class="talk-transcript__fragment" data-time="743000" id="755">Now, how we're going to go forward on this -- what's the right approach?</span>
+<span class="talk-transcript__fragment" data-time="746000" id="758">Is it a Manhattan Project? What's the thing that can get us there?</span>
+<span class="talk-transcript__fragment" data-time="750000" id="762">Well, we need lots of companies working on this, hundreds.</span>
+<span class="talk-transcript__fragment" data-time="755000" id="767">In each of these five paths, we need at least a hundred people.</span>
+<span class="talk-transcript__fragment" data-time="758000" id="770">And a lot of them, you'll look at and say, "They're crazy." That's good.</span>
+<span class="talk-transcript__fragment" data-time="762000" id="774">And, I think, here in the TED group,</span>
+<span class="talk-transcript__fragment" data-time="765000" id="777">we have many people who are already pursuing this.</span>
+<span class="talk-transcript__fragment" data-time="769000" id="781">Bill Gross has several companies, including one called eSolar</span>
+<span class="talk-transcript__fragment" data-time="773000" id="785">that has some great solar thermal technologies.</span>
+<span class="talk-transcript__fragment" data-time="775000" id="787">Vinod Khosla's investing in dozens of companies</span>
+<span class="talk-transcript__fragment" data-time="779000" id="791">that are doing great things and have interesting possibilities,</span>
+<span class="talk-transcript__fragment" data-time="783000" id="795">and I'm trying to help back that.</span>
+<span class="talk-transcript__fragment" data-time="785000" id="797">Nathan Myhrvold and I actually are backing a company</span>
+<span class="talk-transcript__fragment" data-time="789000" id="801">that, perhaps surprisingly, is actually taking the nuclear approach.</span>
+<span class="talk-transcript__fragment" data-time="793000" id="805">There are some innovations in nuclear: modular, liquid.</span>
+<span class="talk-transcript__fragment" data-time="797000" id="809">And innovation really stopped in this industry quite some ago,</span>
+<span class="talk-transcript__fragment" data-time="801000" id="813">so the idea that there's some good ideas laying around is not all that surprising.</span>
+<span class="talk-transcript__fragment" data-time="806000" id="818">The idea of TerraPower is that, instead of burning a part of uranium --</span>
+<span class="talk-transcript__fragment" data-time="812000" id="824">the one percent, which is the U235 --</span>
+<span class="talk-transcript__fragment" data-time="815000" id="827">we decided, "Let's burn the 99 percent, the U238."</span>
+<span class="talk-transcript__fragment" data-time="820000" id="832">It is kind of a crazy idea.</span>
+<span class="talk-transcript__fragment" data-time="822000" id="834">In fact, people had talked about it for a long time,</span>
+<span class="talk-transcript__fragment" data-time="825000" id="837">but they could never simulate properly whether it would work or not,</span>
+<span class="talk-transcript__fragment" data-time="829000" id="841">and so it's through the advent of modern supercomputers</span>
+<span class="talk-transcript__fragment" data-time="832000" id="844">that now you can simulate and see that, yes,</span>
+<span class="talk-transcript__fragment" data-time="834000" id="846">with the right material's approach, this looks like it would work.</span>
+<span class="talk-transcript__fragment" data-time="840000" id="852">And, because you're burning that 99 percent,</span>
+<span class="talk-transcript__fragment" data-time="843000" id="855">you have greatly improved cost profile.</span>
+<span class="talk-transcript__fragment" data-time="847000" id="859">You actually burn up the waste, and you can actually use as fuel</span>
+<span class="talk-transcript__fragment" data-time="851000" id="863">all the leftover waste from today's reactors.</span>
+<span class="talk-transcript__fragment" data-time="854000" id="866">So, instead of worrying about them, you just take that. It's a great thing.</span>
+<span class="talk-transcript__fragment" data-time="859000" id="871">It breathes this uranium as it goes along, so it's kind of like a candle.</span>
+<span class="talk-transcript__fragment" data-time="863000" id="875">You can see it's a log there, often referred to as a traveling wave reactor.</span>
+<span class="talk-transcript__fragment" data-time="867000" id="879">In terms of fuel, this really solves the problem.</span>
+<span class="talk-transcript__fragment" data-time="871000" id="883">I've got a picture here of a place in Kentucky.</span>
+<span class="talk-transcript__fragment" data-time="874000" id="886">This is the leftover, the 99 percent,</span>
+<span class="talk-transcript__fragment" data-time="876000" id="888">where they've taken out the part they burn now,</span>
+<span class="talk-transcript__fragment" data-time="878000" id="890">so it's called depleted uranium.</span>
+<span class="talk-transcript__fragment" data-time="880000" id="892">That would power the U.S. for hundreds of years.</span>
+<span class="talk-transcript__fragment" data-time="883000" id="895">And, simply by filtering seawater in an inexpensive process,</span>
+<span class="talk-transcript__fragment" data-time="886000" id="898">you'd have enough fuel for the entire lifetime of the rest of the planet.</span>
+<span class="talk-transcript__fragment" data-time="891000" id="903">So, you know, it's got lots of challenges ahead,</span>
+<span class="talk-transcript__fragment" data-time="895000" id="907">but it is an example of the many hundreds and hundreds of ideas</span>
+<span class="talk-transcript__fragment" data-time="900000" id="912">that we need to move forward.</span>
+<span class="talk-transcript__fragment" data-time="903000" id="915">So let's think: How should we measure ourselves?</span>
+<span class="talk-transcript__fragment" data-time="906000" id="918">What should our report card look like?</span>
+<span class="talk-transcript__fragment" data-time="909000" id="921">Well, let's go out to where we really need to get,</span>
+<span class="talk-transcript__fragment" data-time="912000" id="924">and then look at the intermediate.</span>
+<span class="talk-transcript__fragment" data-time="914000" id="926">For 2050, you've heard many people talk about this 80 percent reduction.</span>
+<span class="talk-transcript__fragment" data-time="919000" id="931">That really is very important, that we get there.</span>
+<span class="talk-transcript__fragment" data-time="923000" id="935">And that 20 percent will be used up by things going on in poor countries,</span>
+<span class="talk-transcript__fragment" data-time="927000" id="939">still some agriculture,</span>
+<span class="talk-transcript__fragment" data-time="929000" id="941">hopefully we will have cleaned up forestry, cement.</span>
+<span class="talk-transcript__fragment" data-time="933000" id="945">So, to get to that 80 percent,</span>
+<span class="talk-transcript__fragment" data-time="936000" id="948">the developed countries, including countries like China,</span>
+<span class="talk-transcript__fragment" data-time="940000" id="952">will have had to switch their electricity generation altogether.</span>
+<span class="talk-transcript__fragment" data-time="945000" id="957">So, the other grade is: Are we deploying this zero-emission technology,</span>
+<span class="talk-transcript__fragment" data-time="951000" id="963">have we deployed it in all the developed countries</span>
+<span class="talk-transcript__fragment" data-time="953000" id="965">and we're in the process of getting it elsewhere?</span>
+<span class="talk-transcript__fragment" data-time="956000" id="968">That's super important.</span>
+<span class="talk-transcript__fragment" data-time="958000" id="970">That's a key element of making that report card.</span>
+<span class="talk-transcript__fragment" data-time="962000" id="974">So, backing up from there, what should the 2020 report card look like?</span>
+<span class="talk-transcript__fragment" data-time="967000" id="979">Well, again, it should have the two elements.</span>
+<span class="talk-transcript__fragment" data-time="969000" id="981">We should go through these efficiency measures to start getting reductions:</span>
+<span class="talk-transcript__fragment" data-time="973000" id="985">The less we emit, the less that sum will be of CO2,</span>
+<span class="talk-transcript__fragment" data-time="976000" id="988">and, therefore, the less the temperature.</span>
+<span class="talk-transcript__fragment" data-time="978000" id="990">But in some ways, the grade we get there,</span>
+<span class="talk-transcript__fragment" data-time="981000" id="993">doing things that don't get us all the way to the big reductions,</span>
+<span class="talk-transcript__fragment" data-time="985000" id="997">is only equally, or maybe even slightly less, important than the other,</span>
+<span class="talk-transcript__fragment" data-time="989000" id="1001">which is the piece of innovation on these breakthroughs.</span>
+<span class="talk-transcript__fragment" data-time="993000" id="1005">These breakthroughs, we need to move those at full speed,</span>
+<span class="talk-transcript__fragment" data-time="996000" id="1008">and we can measure that in terms of companies,</span>
+<span class="talk-transcript__fragment" data-time="999000" id="1011">pilot projects, regulatory things that have been changed.</span>
+<span class="talk-transcript__fragment" data-time="1002000" id="1014">There's a lot of great books that have been written about this.</span>
+<span class="talk-transcript__fragment" data-time="1005000" id="1017">The Al Gore book, "Our Choice"</span>
+<span class="talk-transcript__fragment" data-time="1008000" id="1020">and the David McKay book, "Sustainable Energy Without the Hot Air."</span>
+<span class="talk-transcript__fragment" data-time="1011000" id="1023">They really go through it and create a framework</span>
+<span class="talk-transcript__fragment" data-time="1014000" id="1026">that this can be discussed broadly,</span>
+<span class="talk-transcript__fragment" data-time="1016000" id="1028">because we need broad backing for this.</span>
+<span class="talk-transcript__fragment" data-time="1019000" id="1031">There's a lot that has to come together.</span>
+<span class="talk-transcript__fragment" data-time="1021000" id="1033">So this is a wish.</span>
+<span class="talk-transcript__fragment" data-time="1023000" id="1035">It's a very concrete wish that we invent this technology.</span>
+<span class="talk-transcript__fragment" data-time="1027000" id="1039">If you gave me only one wish for the next 50 years --</span>
+<span class="talk-transcript__fragment" data-time="1030000" id="1042">I could pick who's president,</span>
+<span class="talk-transcript__fragment" data-time="1032000" id="1044">I could pick a vaccine, which is something I love,</span>
+<span class="talk-transcript__fragment" data-time="1035000" id="1047">or I could pick that this thing</span>
+<span class="talk-transcript__fragment" data-time="1037000" id="1049">that's half the cost with no CO2 gets invented --</span>
+<span class="talk-transcript__fragment" data-time="1041000" id="1053">this is the wish I would pick.</span>
+<span class="talk-transcript__fragment" data-time="1043000" id="1055">This is the one with the greatest impact.</span>
+<span class="talk-transcript__fragment" data-time="1045000" id="1057">If we don't get this wish,</span>
+<span class="talk-transcript__fragment" data-time="1047000" id="1059">the division between the people who think short term and long term will be terrible,</span>
+<span class="talk-transcript__fragment" data-time="1051000" id="1063">between the U.S. and China, between poor countries and rich,</span>
+<span class="talk-transcript__fragment" data-time="1054000" id="1066">and most of all the lives of those two billion will be far worse.</span>
+<span class="talk-transcript__fragment" data-time="1059000" id="1071">So, what do we have to do?</span>
+<span class="talk-transcript__fragment" data-time="1061000" id="1073">What am I appealing to you to step forward and drive?</span>
+<span class="talk-transcript__fragment" data-time="1066000" id="1078">We need to go for more research funding.</span>
+<span class="talk-transcript__fragment" data-time="1069000" id="1081">When countries get together in places like Copenhagen,</span>
+<span class="talk-transcript__fragment" data-time="1071000" id="1083">they shouldn't just discuss the CO2.</span>
+<span class="talk-transcript__fragment" data-time="1074000" id="1086">They should discuss this innovation agenda,</span>
+<span class="talk-transcript__fragment" data-time="1076000" id="1088">and you'd be stunned at the ridiculously low levels of spending</span>
+<span class="talk-transcript__fragment" data-time="1081000" id="1093">on these innovative approaches.</span>
+<span class="talk-transcript__fragment" data-time="1083000" id="1095">We do need the market incentives -- CO2 tax, cap and trade --</span>
+<span class="talk-transcript__fragment" data-time="1087000" id="1099">something that gets that price signal out there.</span>
+<span class="talk-transcript__fragment" data-time="1090000" id="1102">We need to get the message out.</span>
+<span class="talk-transcript__fragment" data-time="1092000" id="1104">We need to have this dialogue be a more rational, more understandable dialogue,</span>
+<span class="talk-transcript__fragment" data-time="1095000" id="1107">including the steps that the government takes.</span>
+<span class="talk-transcript__fragment" data-time="1098000" id="1110">This is an important wish, but it is one I think we can achieve.</span>
+<span class="talk-transcript__fragment" data-time="1102000" id="1114">Thank you.</span>
+<span class="talk-transcript__fragment" data-time="1104000" id="1116">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="1115000" id="1127">Thank you.</span>
+<span class="talk-transcript__fragment" data-time="1117000" id="1129">Chris Anderson: Thank you. Thank you.</span>
+<span class="talk-transcript__fragment" data-time="1119000" id="1131">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="1124000" id="1136">Thank you. So to understand more about TerraPower, right --</span>
+<span class="talk-transcript__fragment" data-time="1130000" id="1142">I mean, first of all, can you give a sense of what scale of investment this is?</span>
+<span class="talk-transcript__fragment" data-time="1135000" id="1147">Bil Gates: To actually do the software, buy the supercomputer,</span>
+<span class="talk-transcript__fragment" data-time="1139000" id="1151">hire all the great scientists, which we've done,</span>
+<span class="talk-transcript__fragment" data-time="1141000" id="1153">that's only tens of millions,</span>
+<span class="talk-transcript__fragment" data-time="1144000" id="1156">and even once we test our materials out in a Russian reactor</span>
+<span class="talk-transcript__fragment" data-time="1147000" id="1159">to make sure that our materials work properly,</span>
+<span class="talk-transcript__fragment" data-time="1151000" id="1163">then you'll only be up in the hundreds of millions.</span>
+<span class="talk-transcript__fragment" data-time="1153000" id="1165">The tough thing is building the pilot reactor;</span>
+<span class="talk-transcript__fragment" data-time="1156000" id="1168">finding the several billion, finding the regulator, the location</span>
+<span class="talk-transcript__fragment" data-time="1161000" id="1173">that will actually build the first one of these.</span>
+<span class="talk-transcript__fragment" data-time="1163000" id="1175">Once you get the first one built, if it works as advertised,</span>
+<span class="talk-transcript__fragment" data-time="1167000" id="1179">then it's just clear as day, because the economics, the energy density,</span>
+<span class="talk-transcript__fragment" data-time="1171000" id="1183">are so different than nuclear as we know it.</span>
+<span class="talk-transcript__fragment" data-time="1173000" id="1185">CA: And so, to understand it right, this involves building deep into the ground</span>
+<span class="talk-transcript__fragment" data-time="1177000" id="1189">almost like a vertical kind of column of nuclear fuel,</span>
+<span class="talk-transcript__fragment" data-time="1181000" id="1193">of this sort of spent uranium,</span>
+<span class="talk-transcript__fragment" data-time="1183000" id="1195">and then the process starts at the top and kind of works down?</span>
+<span class="talk-transcript__fragment" data-time="1186000" id="1198">BG: That's right. Today, you're always refueling the reactor,</span>
+<span class="talk-transcript__fragment" data-time="1189000" id="1201">so you have lots of people and lots of controls that can go wrong:</span>
+<span class="talk-transcript__fragment" data-time="1192000" id="1204">that thing where you're opening it up and moving things in and out,</span>
+<span class="talk-transcript__fragment" data-time="1195000" id="1207">that's not good.</span>
+<span class="talk-transcript__fragment" data-time="1197000" id="1209">So, if you have very cheap fuel that you can put 60 years in --</span>
+<span class="talk-transcript__fragment" data-time="1202000" id="1214">just think of it as a log --</span>
+<span class="talk-transcript__fragment" data-time="1204000" id="1216">put it down and not have those same complexities.</span>
+<span class="talk-transcript__fragment" data-time="1207000" id="1219">And it just sits there and burns for the 60 years, and then it's done.</span>
+<span class="talk-transcript__fragment" data-time="1212000" id="1224">CA: It's a nuclear power plant that is its own waste disposal solution.</span>
+<span class="talk-transcript__fragment" data-time="1216000" id="1228">BG: Yeah. Well, what happens with the waste,</span>
+<span class="talk-transcript__fragment" data-time="1218000" id="1230">you can let it sit there -- there's a lot less waste under this approach --</span>
+<span class="talk-transcript__fragment" data-time="1223000" id="1235">then you can actually take that,</span>
+<span class="talk-transcript__fragment" data-time="1225000" id="1237">and put it into another one and burn that.</span>
+<span class="talk-transcript__fragment" data-time="1228000" id="1240">And we start off actually by taking the waste that exists today,</span>
+<span class="talk-transcript__fragment" data-time="1232000" id="1244">that's sitting in these cooling pools or dry casking by reactors --</span>
+<span class="talk-transcript__fragment" data-time="1236000" id="1248">that's our fuel to begin with.</span>
+<span class="talk-transcript__fragment" data-time="1238000" id="1250">So, the thing that's been a problem from those reactors</span>
+<span class="talk-transcript__fragment" data-time="1241000" id="1253">is actually what gets fed into ours,</span>
+<span class="talk-transcript__fragment" data-time="1243000" id="1255">and you're reducing the volume of the waste quite dramatically</span>
+<span class="talk-transcript__fragment" data-time="1246000" id="1258">as you're going through this process.</span>
+<span class="talk-transcript__fragment" data-time="1248000" id="1260">CA: I mean, you're talking to different people around the world</span>
+<span class="talk-transcript__fragment" data-time="1250000" id="1262">about the possibilities here.</span>
+<span class="talk-transcript__fragment" data-time="1252000" id="1264">Where is there most interest in actually doing something with this?</span>
+<span class="talk-transcript__fragment" data-time="1255000" id="1267">BG: Well, we haven't picked a particular place,</span>
+<span class="talk-transcript__fragment" data-time="1258000" id="1270">and there's all these interesting disclosure rules about anything that's called "nuclear,"</span>
+<span class="talk-transcript__fragment" data-time="1266000" id="1278">so we've got a lot of interest,</span>
+<span class="talk-transcript__fragment" data-time="1268000" id="1280">that people from the company have been in Russia, India, China --</span>
+<span class="talk-transcript__fragment" data-time="1272000" id="1284">I've been back seeing the secretary of energy here,</span>
+<span class="talk-transcript__fragment" data-time="1274000" id="1286">talking about how this fits into the energy agenda.</span>
+<span class="talk-transcript__fragment" data-time="1278000" id="1290">So I'm optimistic. You know, the French and Japanese have done some work.</span>
+<span class="talk-transcript__fragment" data-time="1281000" id="1293">This is a variant on something that has been done.</span>
+<span class="talk-transcript__fragment" data-time="1285000" id="1297">It's an important advance, but it's like a fast reactor,</span>
+<span class="talk-transcript__fragment" data-time="1289000" id="1301">and a lot of countries have built them,</span>
+<span class="talk-transcript__fragment" data-time="1291000" id="1303">so anybody who's done a fast reactor is a candidate to be where the first one gets built.</span>
+<span class="talk-transcript__fragment" data-time="1296000" id="1308">CA: So, in your mind, timescale and likelihood</span>
+<span class="talk-transcript__fragment" data-time="1301000" id="1313">of actually taking something like this live?</span>
+<span class="talk-transcript__fragment" data-time="1304000" id="1316">BG: Well, we need -- for one of these high-scale, electro-generation things</span>
+<span class="talk-transcript__fragment" data-time="1309000" id="1321">that's very cheap,</span>
+<span class="talk-transcript__fragment" data-time="1311000" id="1323">we have 20 years to invent and then 20 years to deploy.</span>
+<span class="talk-transcript__fragment" data-time="1315000" id="1327">That's sort of the deadline that the environmental models</span>
+<span class="talk-transcript__fragment" data-time="1320000" id="1332">have shown us that we have to meet.</span>
+<span class="talk-transcript__fragment" data-time="1322000" id="1334">And, you know, TerraPower, if things go well -- which is wishing for a lot --</span>
+<span class="talk-transcript__fragment" data-time="1327000" id="1339">could easily meet that.</span>
+<span class="talk-transcript__fragment" data-time="1329000" id="1341">And there are, fortunately now, dozens of companies --</span>
+<span class="talk-transcript__fragment" data-time="1332000" id="1344">we need it to be hundreds --</span>
+<span class="talk-transcript__fragment" data-time="1334000" id="1346">who, likewise, if their science goes well,</span>
+<span class="talk-transcript__fragment" data-time="1336000" id="1348">if the funding for their pilot plants goes well,</span>
+<span class="talk-transcript__fragment" data-time="1339000" id="1351">that they can compete for this.</span>
+<span class="talk-transcript__fragment" data-time="1341000" id="1353">And it's best if multiple succeed,</span>
+<span class="talk-transcript__fragment" data-time="1343000" id="1355">because then you could use a mix of these things.</span>
+<span class="talk-transcript__fragment" data-time="1346000" id="1358">We certainly need one to succeed.</span>
+<span class="talk-transcript__fragment" data-time="1348000" id="1360">CA: In terms of big-scale possible game changes,</span>
+<span class="talk-transcript__fragment" data-time="1351000" id="1363">is this the biggest that you're aware of out there?</span>
+<span class="talk-transcript__fragment" data-time="1354000" id="1366">BG: An energy breakthrough is the most important thing.</span>
+<span class="talk-transcript__fragment" data-time="1358000" id="1370">It would have been, even without the environmental constraint,</span>
+<span class="talk-transcript__fragment" data-time="1360000" id="1372">but the environmental constraint just makes it so much greater.</span>
+<span class="talk-transcript__fragment" data-time="1365000" id="1377">In the nuclear space, there are other innovators.</span>
+<span class="talk-transcript__fragment" data-time="1368000" id="1380">You know, we don't know their work as well as we know this one,</span>
+<span class="talk-transcript__fragment" data-time="1371000" id="1383">but the modular people, that's a different approach.</span>
+<span class="talk-transcript__fragment" data-time="1374000" id="1386">There's a liquid-type reactor, which seems a little hard,</span>
+<span class="talk-transcript__fragment" data-time="1378000" id="1390">but maybe they say that about us.</span>
+<span class="talk-transcript__fragment" data-time="1380000" id="1392">And so, there are different ones,</span>
+<span class="talk-transcript__fragment" data-time="1383000" id="1395">but the beauty of this is a molecule of uranium</span>
+<span class="talk-transcript__fragment" data-time="1386000" id="1398">has a million times as much energy as a molecule of, say, coal,</span>
+<span class="talk-transcript__fragment" data-time="1390000" id="1402">and so -- if you can deal with the negatives,</span>
+<span class="talk-transcript__fragment" data-time="1393000" id="1405">which are essentially the radiation --</span>
+<span class="talk-transcript__fragment" data-time="1396000" id="1408">the footprint and cost, the potential,</span>
+<span class="talk-transcript__fragment" data-time="1399000" id="1411">in terms of effect on land and various things,</span>
+<span class="talk-transcript__fragment" data-time="1401000" id="1413">is almost in a class of its own.</span>
+<span class="talk-transcript__fragment" data-time="1405000" id="1417">CA: If this doesn't work, then what?</span>
+<span class="talk-transcript__fragment" data-time="1409000" id="1421">Do we have to start taking emergency measures</span>
+<span class="talk-transcript__fragment" data-time="1413000" id="1425">to try and keep the temperature of the earth stable?</span>
+<span class="talk-transcript__fragment" data-time="1416000" id="1428">BG: If you get into that situation,</span>
+<span class="talk-transcript__fragment" data-time="1418000" id="1430">it's like if you've been over-eating, and you're about to have a heart attack:</span>
+<span class="talk-transcript__fragment" data-time="1423000" id="1435">Then where do you go? You may need heart surgery or something.</span>
+<span class="talk-transcript__fragment" data-time="1427000" id="1439">There is a line of research on what's called geoengineering,</span>
+<span class="talk-transcript__fragment" data-time="1431000" id="1443">which are various techniques that would delay the heating</span>
+<span class="talk-transcript__fragment" data-time="1434000" id="1446">to buy us 20 or 30 years to get our act together.</span>
+<span class="talk-transcript__fragment" data-time="1437000" id="1449">Now, that's just an insurance policy.</span>
+<span class="talk-transcript__fragment" data-time="1439000" id="1451">You hope you don't need to do that.</span>
+<span class="talk-transcript__fragment" data-time="1441000" id="1453">Some people say you shouldn't even work on the insurance policy</span>
+<span class="talk-transcript__fragment" data-time="1443000" id="1455">because it might make you lazy,</span>
+<span class="talk-transcript__fragment" data-time="1445000" id="1457">that you'll keep eating because you know heart surgery will be there to save you.</span>
+<span class="talk-transcript__fragment" data-time="1449000" id="1461">I'm not sure that's wise, given the importance of the problem,</span>
+<span class="talk-transcript__fragment" data-time="1452000" id="1464">but there's now the geoengineering discussion</span>
+<span class="talk-transcript__fragment" data-time="1456000" id="1468">about -- should that be in the back pocket in case things happen faster,</span>
+<span class="talk-transcript__fragment" data-time="1460000" id="1472">or this innovation goes a lot slower than we expect?</span>
+<span class="talk-transcript__fragment" data-time="1465000" id="1477">CA: Climate skeptics: If you had a sentence or two to say to them,</span>
+<span class="talk-transcript__fragment" data-time="1470000" id="1482">how might you persuade them that they're wrong?</span>
+<span class="talk-transcript__fragment" data-time="1475000" id="1487">BG: Well, unfortunately, the skeptics come in different camps.</span>
+<span class="talk-transcript__fragment" data-time="1479000" id="1491">The ones who make scientific arguments are very few.</span>
+<span class="talk-transcript__fragment" data-time="1483000" id="1495">Are they saying that there's negative feedback effects</span>
+<span class="talk-transcript__fragment" data-time="1486000" id="1498">that have to do with clouds that offset things?</span>
+<span class="talk-transcript__fragment" data-time="1488000" id="1500">There are very, very few things that they can even say</span>
+<span class="talk-transcript__fragment" data-time="1491000" id="1503">there's a chance in a million of those things.</span>
+<span class="talk-transcript__fragment" data-time="1494000" id="1506">The main problem we have here, it's kind of like AIDS.</span>
+<span class="talk-transcript__fragment" data-time="1497000" id="1509">You make the mistake now, and you pay for it a lot later.</span>
+<span class="talk-transcript__fragment" data-time="1501000" id="1513">And so, when you have all sorts of urgent problems,</span>
+<span class="talk-transcript__fragment" data-time="1505000" id="1517">the idea of taking pain now that has to do with a gain later,</span>
+<span class="talk-transcript__fragment" data-time="1508000" id="1520">and a somewhat uncertain pain thing --</span>
+<span class="talk-transcript__fragment" data-time="1511000" id="1523">in fact, the IPCC report, that's not necessarily the worst case,</span>
+<span class="talk-transcript__fragment" data-time="1517000" id="1529">and there are people in the rich world who look at IPCC</span>
+<span class="talk-transcript__fragment" data-time="1519000" id="1531">and say, "OK, that isn't that big of a deal."</span>
+<span class="talk-transcript__fragment" data-time="1523000" id="1535">The fact is it's that uncertain part that should move us towards this.</span>
+<span class="talk-transcript__fragment" data-time="1527000" id="1539">But my dream here is that, if you can make it economic,</span>
+<span class="talk-transcript__fragment" data-time="1530000" id="1542">and meet the CO2 constraints,</span>
+<span class="talk-transcript__fragment" data-time="1532000" id="1544">then the skeptics say, "OK,</span>
+<span class="talk-transcript__fragment" data-time="1534000" id="1546">I don't care that it doesn't put out CO2,</span>
+<span class="talk-transcript__fragment" data-time="1536000" id="1548">I kind of wish it did put out CO2,</span>
+<span class="talk-transcript__fragment" data-time="1538000" id="1550">but I guess I'll accept it because it's cheaper than what's come before."</span>
+<span class="talk-transcript__fragment" data-time="1542000" id="1554">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="1546000" id="1558">CA: And so, that would be your response to the Bjorn Lomborg argument,</span>
+<span class="talk-transcript__fragment" data-time="1550000" id="1562">that basically if you spend all this energy trying to solve the CO2 problem,</span>
+<span class="talk-transcript__fragment" data-time="1554000" id="1566">it's going to take away all your other goals</span>
+<span class="talk-transcript__fragment" data-time="1556000" id="1568">of trying to rid the world of poverty and malaria and so forth,</span>
+<span class="talk-transcript__fragment" data-time="1559000" id="1571">it's a stupid waste of the Earth's resources to put money towards that</span>
+<span class="talk-transcript__fragment" data-time="1563000" id="1575">when there are better things we can do.</span>
+<span class="talk-transcript__fragment" data-time="1565000" id="1577">BG: Well, the actual spending on the R&amp;D piece --</span>
+<span class="talk-transcript__fragment" data-time="1568000" id="1580">say the U.S. should spend 10 billion a year more than it is right now --</span>
+<span class="talk-transcript__fragment" data-time="1572000" id="1584">it's not that dramatic.</span>
+<span class="talk-transcript__fragment" data-time="1574000" id="1586">It shouldn't take away from other things.</span>
+<span class="talk-transcript__fragment" data-time="1576000" id="1588">The thing you get into big money on, and this, reasonable people can disagree,</span>
+<span class="talk-transcript__fragment" data-time="1579000" id="1591">is when you have something that's non-economic and you're trying to fund that --</span>
+<span class="talk-transcript__fragment" data-time="1582000" id="1594">that, to me, mostly is a waste.</span>
+<span class="talk-transcript__fragment" data-time="1585000" id="1597">Unless you're very close and you're just funding the learning curve</span>
+<span class="talk-transcript__fragment" data-time="1588000" id="1600">and it's going to get very cheap,</span>
+<span class="talk-transcript__fragment" data-time="1590000" id="1602">I believe we should try more things that have a potential</span>
+<span class="talk-transcript__fragment" data-time="1594000" id="1606">to be far less expensive.</span>
+<span class="talk-transcript__fragment" data-time="1596000" id="1608">If the trade-off you get into is, "Let's make energy super expensive,"</span>
+<span class="talk-transcript__fragment" data-time="1601000" id="1613">then the rich can afford that.</span>
+<span class="talk-transcript__fragment" data-time="1603000" id="1615">I mean, all of us here could pay five times as much for our energy</span>
+<span class="talk-transcript__fragment" data-time="1606000" id="1618">and not change our lifestyle.</span>
+<span class="talk-transcript__fragment" data-time="1608000" id="1620">The disaster is for that two billion.</span>
+<span class="talk-transcript__fragment" data-time="1610000" id="1622">And even Lomborg has changed.</span>
+<span class="talk-transcript__fragment" data-time="1612000" id="1624">His shtick now is, "Why isn't the R&amp;D getting more discussed?"</span>
+<span class="talk-transcript__fragment" data-time="1617000" id="1629">He's still, because of his earlier stuff,</span>
+<span class="talk-transcript__fragment" data-time="1619000" id="1631">still associated with the skeptic camp,</span>
+<span class="talk-transcript__fragment" data-time="1621000" id="1633">but he's realized that's a pretty lonely camp,</span>
+<span class="talk-transcript__fragment" data-time="1624000" id="1636">and so, he's making the R&amp;D point.</span>
+<span class="talk-transcript__fragment" data-time="1627000" id="1639">And so there is a thread of something that I think is appropriate.</span>
+<span class="talk-transcript__fragment" data-time="1632000" id="1644">The R&amp;D piece, it's crazy how little it's funded.</span>
+<span class="talk-transcript__fragment" data-time="1635000" id="1647">CA: Well Bill, I suspect I speak on the behalf of most people here</span>
+<span class="talk-transcript__fragment" data-time="1638000" id="1650">to say I really hope your wish comes true. Thank you so much.</span>
+<span class="talk-transcript__fragment" data-time="1641000" id="1653">BG: Thank you.</span>
+<span class="talk-transcript__fragment" data-time="1643000" id="1655">(Applause)</span>
+
+
+</div>
+</body>
+</html>
+

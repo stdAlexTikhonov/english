@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="JavaScript" src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+<style>
+* { margin: 0; padding: 0; }
+div#box_box{ width: 100%; background: black; height: 430px; position: fixed; top: 0px; text-align: center; }
+div#video_controls_bar{ background: #333; padding:10px; color:#CCC;}
+.text{ font-family: Tahoma; line-height: 1.5; font-size: 17px; max-width: 1000px; min-width: 600px; margin: 440px auto;}
+.current { background: yellow; text-decoration: underline; }
+
+span:hover{ color: green; }
+</style>
+<script>
+
+var languages = [{'en':'Puzzles','ru':'Головоломки'},{'en':'and magic.','ru':'и иллюзионизм.'},{'en':'I work in what most people think','ru':'Я занимаюсь тем, что большинство людей считает'},{'en':'are two distinct fields,','ru':'двумя отдельными областями,'},{'en':'but I believe they are the same.','ru':'но я считаю, что они очень схожи.'},{'en':'I am both a magician and','ru':'Я и иллюзионист'},{'en':'a New York Times crossword puzzle constructor,','ru':'и составитель кроссвордов в «Нью-Йорк таймс»,'},{'en':'which basically means I\'ve taken','ru':'я, по сути, увлёкся'},{'en':'the world\'s two nerdiest hobbies','ru':'двумя хобби заядлых ботаников'},{'en':'and combined them into one career.','ru':'и соединил их в одну карьеру.'},{'en':'And I believe that magic and puzzles are the same','ru':'Я считаю, что иллюзионизм и головоломки одинаковы по природе,'},{'en':'because they both key into one of','ru':'потому что они задевают'},{'en':'the most important human drives:','ru':'один из самых важных человеческих импульсов —'},{'en':'the urge to solve.','ru':'желание решать задачи.'},{'en':'Human beings are wired to solve,','ru':'Люди запрограммированы решать задачи,'},{'en':'to make order out of chaos.','ru':'приводить хаос в порядок.'},{'en':'It\'s certainly true for me.','ru':'Я-то — точно.'},{'en':'I\'ve been solving my whole life.','ru':'Я решаю задачи всю свою жизнь.'},{'en':'High school consisted of epic Scrabble matches in the cafeteria','ru':'Старшие классы прошли, в эпических матчах в «Эрудит» в кафе,'},{'en':'and not really talking to girls,','ru':'а не с девочками,'},{'en':'and then at about that time','ru':'и примерно в то же время'},{'en':'I started learning magic tricks','ru':'я стал учиться фокусам'},{'en':'and definitely not talking to girls.','ru':'и определённо не ухаживанию.'},{'en':'There\'s nothing like starting a conversation with,','ru':'Ни с чем не сравнить, такое начало разговора:'},{'en':'"Hey, did you know that \'prestidigitation\' is worth','ru':'«Слушай, а ты знала, что словом «престидижитация»'},{'en':'20 points in Scrabble?"','ru':'можно набрать 20 очков в «Эрудит»?»'},{'en':'But back then, I noticed an intersection','ru':'Но тогда я заметил общее'},{'en':'between puzzles and illusion.','ru':'между головоломками и иллюзионизмом.'},{'en':'When you do the crossword puzzle','ru':' Когда вы решаете кроссворд,'},{'en':'or when you watch a magic show,','ru':'или когда смотрите фокусы,'},{'en':'you become a solver,','ru':'вы начинаете решать задачу,'},{'en':'and your goal is to try to find the order in the chaos,','ru':'и вашей целью становится попытка, найти порядок в этом хаосе,'},{'en':'the chaos of, say, a black-and-white puzzle grid,','ru':'хаосе, скажем, черно-белой сетки кроссворда,'},{'en':'a mixed-up bag of Scrabble tiles,','ru':'перемешанных букв в мешочке Эрудит'},{'en':'or a shuffled pack of playing cards.','ru':' или перетасованной, колоде игральных карт.'},{'en':'And today, as a cruciverbalist —','ru':'И сегодня, как кроссвордист, —'},{'en':'23 points —','ru':'23 очка —'},{'en':'and an illusion designer, I create that chaos.','ru':'и создатель иллюзий, я создаю хаос.'},{'en':'I test your ability to solve.','ru':'Я проверяю вашу способность, решать задачи.'},{'en':'Now, it turns out research tells us','ru':' Научные исследования показали,'},{'en':'that solving is as primal as eating and sleeping.','ru':' что решение задач, так же первостепенно, как еда и сон.'},{'en':'From birth, we are wired to solve.','ru':' С рождения мы запрограммированы решать задачи.'},{'en':'In one UCLA study, newborns still in the hospital','ru':'В одном из исследований Калифорнийского университета новорождённым в роддоме'},{'en':'were shown patterns, patterns like this:','ru':'показывали систематический набор образов, например,'},{'en':'circle, cross, circle, cross.','ru':'круг, крест, круг, крест.'},{'en':'And then the pattern was changed: triangle, square.','ru':'Потом его меняли: треугольник, квадрат.'},{'en':'And by tracking an infant\'s gaze,','ru':'И при исследовании взгляда ребёнка'},{'en':'we know that newborns as young as a day old','ru':'выяснилось, что новорождённые уже в первый день жизни'},{'en':'can notice and respond to disruptions in order.','ru':'могут замечать и реагировать на изменения в порядке.'},{'en':'It\'s remarkable.','ru':'Это поразительно.'},{'en':'So from infancy through old age,','ru':'С младенчества до самой старости'},{'en':'the urge to solve unites us all,','ru':'желание решать задачи объединяет нас всех,'},{'en':'and I even found this photo on Instagram','ru':'я даже нашёл вот это фото в Инстаграм'},{'en':'of pop star Katy Perry solving a crossword puzzle','ru':'поп-звезды Кэти Пэрри, где она решает кроссворд'},{'en':'with her morning coffee.','ru':'за утренним кофе.'},{'en':'Like.','ru':'Мне нравится.'},{'en':'(Laughter)','ru':'(Смех)'},{'en':'Now, solving exists across all cultures.','ru':'Задачи решают во всех культурах.'},{'en':'The American invention is the crossword puzzle,','ru':'Кроссворд — американское изобретение,'},{'en':'and this year we are celebrating','ru':'и в этом году мы отмечаем'},{'en':'the 100th anniversary of the crossword puzzle,','ru':'100-летие со дня публикации'},{'en':'first published in The New York World.','ru':'первого кроссворда в газете The New York World.'},{'en':'But many other cultures have their signature puzzles as well.','ru':'Но и у многих других культур есть свои головоломки.'},{'en':'China gives us tangrams,','ru':'В Китае — танграмы,'},{'en':'which would test solvers\' abilities','ru':'которые проверяют умение'},{'en':'to form shapes from the jumbled pieces.','ru':'формировать образы, из разбросанных кусочков.'},{'en':'Chaos. Order.','ru':'Хаос. Порядок.'},{'en':'Order.','ru':'Порядок.'},{'en':'And order.','ru':'И ещё раз порядок.'},{'en':'That one\'s my favorite, let\'s hear it again.','ru':'Этот — мой любимый, давайте ещё раз послушаем.'},{'en':'Okay.','ru':'Хорошо.'},{'en':'And how about this puzzle','ru':'Или как насчёт такой головоломки,'},{'en':'invented in 18th-century England:','ru':'созданной в 18-м веке в Англии:'},{'en':'the jigsaw puzzle.','ru':'мозаика.'},{'en':'Is this not making order out of chaos?','ru':'Не приведение ли это хаоса в порядок?'},{'en':'So as you can see,','ru':'Так что, как видите,'},{'en':'we are always solving.','ru':'мы всегда решаем задачи.'},{'en':'We are always trying to decode our world.','ru':'Мы постоянно пытаемся, расшифровать наш мир.'},{'en':'It\'s an eternal quest.','ru':'Это бесконечное приключение.'},{'en':'It\'s just like the one Cervantes wrote about','ru':'Такое же, о котором писал Сервантес'},{'en':'in "Don Quixote,"','ru':'в «Дон Кихоте»,'},{'en':'which by the way is the root of the word "quixotry,"','ru':'кстати отсюда происходит слово, «донкихотство»,'},{'en':'the highest-scoring Scrabble word of all time,','ru':'самое ценное слово в Эрудит, за всю историю,'},{'en':'365 points.','ru':'365 очков.'},{'en':'But anyway, "Don Quixote" is an important book.','ru':'Как бы то ни было, «Дон Кихот» — важная книга.'},{'en':'You guys have read "Don Quixote," yes?','ru':'Вы ведь читали «Дон Кихота»?'},{'en':'I\'m seeing some heads nod.','ru':'Вижу несколько кивков.'},{'en':'Come on guys, really?','ru':'Серьёзно, ребят, ну правда?'},{'en':'Who\'s read "Don Quixote?" Let\'s do this. Raise your hands if you\'ve read "Don Quixote."','ru':'Кто читал «Дон Кихота»? Давайте., Поднимите руки, кто читал.'},{'en':'There we go. Smart audience.','ru':'Отлично. Умная аудитория.'},{'en':'Who\'s read "Don Quixote?" Get them up.','ru':'Кто читал «Дон Кихота»? Поднимайте.'},{'en':'Okay, good, because I need somebody smart here','ru':'Хорошо, потому что мне нужен, кто-нибудь умный,'},{'en':'because now I\'m going to demonstrate','ru':'чтобы продемонстрировать'},{'en':'with the help of one of you','ru':'с помощью кого-нибудь из вас'},{'en':'just how deeply rooted your urge to solve is,','ru':'насколько глубоко в нас находится, желание решать,'},{'en':'just how wired to solve all of you really are,','ru':'насколько вы все запрограммированы решать задачи,'},{'en':'so I\'m going to come into the audience','ru':'поэтому я сейчас спущусь в зал'},{'en':'and find somebody to help me.','ru':'и найду себе помощника.'},{'en':'Let\'s see.','ru':'Посмотрим.'},{'en':'Everybody\'s looking away all of a sudden.','ru':'Все внезапно глядят в стороны.'},{'en':'Can I? Would you? What is your name? Gwen.','ru':'Можно? Вы не могли бы? Как вас зовут? Гвен.'},{'en':'I\'m not a mind reader, I can see your name tag.','ru':'Я не читаю мысли, я вижу ваш пропуск.'},{'en':'Come with me, Gwen. Everyone give her a round of applause, make her feel welcome.','ru':'Пойдёмте со мной, Гвен. Похлопайте ей, поприветствуйте её.'},{'en':'Gwen, after you.','ru':'После вас, Гвен.'},{'en':'(Applause)','ru':'(Аплодисменты)'},{'en':'Are you so excited?','ru':'Вы взволнованы?'},{'en':'Did you know that your name is worth','ru':'Вы знали, что ваше имя'},{'en':'eight points in Scrabble?','ru':'принесёт 8 очков в Эрудит?'},{'en':'Okay, stand right here, Gwen, right here.','ru':'Хорошо, стойте здесь, Гвен, вот здесь.'},{'en':'Now, Gwen, before we begin,','ru':'Теперь, Гвен, прежде чем мы начнём,'},{'en':'I\'d like to point out a piece of the puzzle,','ru':'я бы хотел обратить внимание, на часть головоломки'},{'en':'which is here in this envelope,','ru':'в этом конверте,'},{'en':'and I will not go near it. Okay?','ru':'и я не буду к ней подходить. Хорошо?'},{'en':'And over here we have a drawing of some farm animals.','ru':'А здесь у нас рисунки некоторых животных.'},{'en':'You can see we have an owl, we have a horse,','ru':'У нас тут сова, лошадь,'},{'en':'a donkey, a rooster, an ox, and a sheep,','ru':'осёл, петух, бык и овца,'},{'en':'and then here, Gwen, we have','ru':'а вот здесь, Гвен,'},{'en':'some fancy art store markers,','ru':'у нас классные маркеры, из художественного салона,'},{'en':'colors like, can you see that word right there?','ru':'такие цвета, как, вы можете видеть слово вот здесь?'},{'en':'Gwen: Cobalt. David Kwong: Cobalt, yes. Cobalt.','ru':'Гвен: «Кобальт». Дэвид Квонг: «Кобальт, да».'},{'en':'But we have a silver, a red, an emerald,','ru':'Но у нас есть и серебряный, красный, изумрудный,'},{'en':'and an amber marker,','ru':'и янтарный маркеры,'},{'en':'and Gwen, you are going to color this drawing','ru':'и, Гвен, вы будете закрашивать эти картинки,'},{'en':'just like you were five years old,','ru':'также, как когда вам было 5,'},{'en':'one marker at a time.','ru':'один маркер за раз.'},{'en':'It\'s going to be a lot of fun.','ru':'Будет очень весело.'},{'en':'But I\'m going to go over here.','ru':'Я встану здесь.'},{'en':'I don\'t want to see what you\'re doing.','ru':'И не буду смотреть, что вы делаете.'},{'en':'Okay, so don\'t start yet.','ru':'Хорошо, пока не начинайте.'},{'en':'Wait for me to get over here and close my eyes.','ru':'Сейчас я закрою глаза.'},{'en':'Now Gwen, are you ready?','ru':'Гвен, вы готовы?'},{'en':'Pick up just one marker, pick up just one marker,','ru':'Возьмите один маркер, возьмите только один маркер,'},{'en':'and why don\'t you color in the horse for me?','ru':'и закрасьте лошадь, пожалуйста.'},{'en':'Color in the horse — big, big, big scribbles,','ru':'Закрасьте лошадь большими чертами,'},{'en':'broad strokes, don\'t worry about staying in the lines.','ru':'широкими штрихами, можете выходить за контуры.'},{'en':'All right. Great.','ru':'Так. Прекрасно.'},{'en':'And why don\'t you take that marker and recap it','ru':'Наденьте на маркер крышечку'},{'en':'and place it on the table for me.','ru':'и положите его на стол.'},{'en':'Okay, and pick up another marker out of the cup','ru':'Хорошо, теперь возьмите другой маркер,'},{'en':'and take off the cap','ru':'снимите крышечку'},{'en':'and color in the donkey for me, color in the donkey.','ru':'и закрасьте осла.'},{'en':'Big scribbles.','ru':'Большими чертами.'},{'en':'Okay, cool, and re-cap that marker','ru':'Хорошо, здорово, наденьте крышку'},{'en':'and place it on the table.','ru':'и положите его на стол.'},{'en':'And pick up another marker for me','ru':'Теперь возьмите другой маркер'},{'en':'and take off the cap. Isn\'t this fun?','ru':'и снимите крышку. Весело, правда?'},{'en':'And color in the owl for me.','ru':'Закрасьте сову.'},{'en':'Color in the owl.','ru':'Закрасьте сову.'},{'en':'Okay, and recap that marker','ru':'Хорошо, наденьте крышечку на маркер'},{'en':'and pick up another marker out of the cup','ru':'и возьмите другой маркер из стакана'},{'en':'and color in the rooster for me, color in the rooster.','ru':'и закрасьте петуха.'},{'en':'Good, good, good, good, good.','ru':'Хорошо, хорошо.'},{'en':'Big, big, big strokes. Good, good.','ru':'Большими штрихами. Хорошо.'},{'en':'Pick up another marker out of the cup','ru':'Возьмите другой маркер из стакана'},{'en':'and color in the ox for me. Color in the ox.','ru':'и закрасьте быка. Закрасьте быка.'},{'en':'Okay, good.','ru':'Хорошо.'},{'en':'A lot of color on that, and recap, and place it on the table,','ru':'Побольше краски, наденьте крышку, и положите на стол,'},{'en':'and pick up another marker out of the cup.','ru':'и возьмите другой маркер из стакана.'},{'en':'Oh, I\'m out? Okay, I\'m going to turn around.','ru':'Ой, больше нет? Хорошо, я повернусь.'},{'en':'Did I forget? Oh, I forgot my purple marker.','ru':'Я забыл?, Ой, я забыл свой фиолетовый маркер.'},{'en':'This is still going to work, though.','ru':'Но всё равно получится.'},{'en':'I think this is still going to work, mostly.','ru':'Думаю, всё равно получится, по большей части.'},{'en':'So Gwen, I\'m going to hand you this envelope.','ru':'Итак, Гвен, я сейчас, дам вам этот конверт.'},{'en':'Don\'t open it yet. Do not open it yet,','ru':'Не открывайте его пока. Не открывайте его пока,'},{'en':'but I am going to write down your choices','ru':'я сейчас запишу, что вы выбрали,'},{'en':'so that everybody can see','ru':'чтобы все могли видеть'},{'en':'the choices that you made.','ru':'то, что вы выбрали.'},{'en':'Okay, great. So we have a cobalt horse,','ru':'Хорошо, прекрасно.,Итак, у нас кобальтовая лошадь,'},{'en':'amber owl,','ru':'янтарная сова,'},{'en':'a silver ox,','ru':'серебряный бык,'},{'en':'yes, okay, a red donkey,','ru':'да, так, красный осёл,'},{'en':'and what was the emerald color? A rooster.','ru':'и кто был изумрудного цвета? Петух.'},{'en':'An emerald rooster. Okay.','ru':'Изумрудный петух. Хорошо.'},{'en':'Now for the moment of truth, Gwen,','ru':'А теперь момент истины, Гвен,'},{'en':'we\'re going to take a look in that envelope.','ru':'мы сейчас увидим что в конверте.'},{'en':'Why don\'t you open it up and remove','ru':'Откройте его, достаньте'},{'en':'the one piece of paper from inside','ru':'единственный лист бумаги,'},{'en':'and hand it to me,','ru':'дайте его мне'},{'en':'and we will see if it matches your choices.','ru':'и мы увидим сходится ли он с вашим.'},{'en':'Yes, I think it does.','ru':'Да, думаю да.'},{'en':'We have a cobalt horse, we have a red donkey,','ru':'Кобальтовая лошадь, красный осёл,'},{'en':'we have an amber owl, we have an emerald rooster, a silver ox,','ru':'янтарная сова, изумрудный петух, серебряный бык,'},{'en':'I forgot my purple marker so we have a blank sheep,','ru':'я забыл фиолетовый маркер, так что овца белая,'},{'en':'but that\'s a pretty amazing coincidence, don\'t you think?','ru':'но это довольно удивительное совпадение, не думаете?'},{'en':'Gwen, well done. That\'s beautiful. (Applause)','ru':'Гвен, молодец. Прекрасно. (Аплодисменты)'},{'en':'I\'ll take that back from you.','ru':'Я это возьму себе.'},{'en':'So ladies and gentlemen, how is this possible?','ru':'И так, дамы и господа, как такое возможно?'},{'en':'How is this possible? Well, could it be','ru':'Как такое возможно? Что ж,'},{'en':'that Gwen\'s brain is so wired to solve','ru':'может мозг Гвен, так запрограммирован решать задачи,'},{'en':'that she decoded hidden messages?','ru':'что она расшифровала скрытые сообщения?'},{'en':'Well this is the puzzle I present to you.','ru':'Что ж, это головоломка вам от меня.'},{'en':'Could there be order','ru':'Может ли быть порядок'},{'en':'in the chaos that I created?','ru':'в хаосе, созданном мной?'},{'en':'Let\'s take a closer look.','ru':'Давайте посмотрим более детально.'},{'en':'Do you recall when I showed you these puzzle pieces?','ru':'Помните, когда я показал вам, эти кусочки мозаики?'},{'en':'What image did it ultimately become? A cobalt horse.','ru':'Какую картинку они образовали?, Кобальтовую лошадь.'},{'en':'The plot thickens.','ru':'Интрига закручивается.'},{'en':'And then we played a game of tangrams','ru':'А потом мы играли в танграмы,'},{'en':'with an emerald rooster.','ru':'где был изумрудный петух.'},{'en':'That one\'s my favorite.','ru':'Мой любимый.'},{'en':'And then we had an experiment with a silver ox.','ru':'А потом мы экспериментировали, с серебряным быком.'},{'en':'And Katy Perry drinks her morning coffee','ru':'И Кэти Пэрри пила утренний кофе'},{'en':'out of an amber owl.','ru':'из янтарной совы.'},{'en':'Thank you, Katy, for taking that photo for me.','ru':'Спасибо, Кэти, за фото для меня.'},{'en':'Oh, and there\'s one more, there\'s one more.','ru':'Ах, и ещё кое-что, ещё кое-что.'},{'en':'I believe you colored a red donkey, Gwen.','ru':'Думаю, вы закрасили осла красным, Гвен.'},{'en':'Ladies and gentlemen, could you raise your hands','ru':'Дамы и господа, поднимите руки,'},{'en':'for me if you\'ve read "Don Quixote?"','ru':'если читали «Дон Кихота»?'},{'en':'Who\'s read "Don Quixote?" (Laughter)','ru':'Кто читал Дон Кихота? (Смех)'},{'en':'But wait, but wait, wait, wait, wait, there\'s more.','ru':'Но подождите, подождите, есть ещё кое-что.'},{'en':'There\'s more.','ru':'Есть ещё кое-что.'},{'en':'Gwen, I was so confident','ru':'Гвен, я был настолько уверен,'},{'en':'that you were going to make these choices','ru':'что вы сделаете именно так,'},{'en':'that I made another prediction,','ru':'что я сделал ещё один прогноз,'},{'en':'and I put it in an even more indelible place,','ru':'и разместил его, в ещё более неизменном месте,'},{'en':'and it\'s right here.','ru':'и он вот здесь.'},{'en':'Ladies and gentlemen,','ru':'Дамы и господа,'},{'en':'we have today\'s New York Times.','ru':'у нас сегодняшний выпуск New York Times.'},{'en':'The date is March 18th, 2014.','ru':'Дата 18 марта 2014 года.'},{'en':'Many of you in the first couple of rows','ru':'У многих в первых рядах'},{'en':'have it underneath your seats as well.','ru':'он под сиденьем.'},{'en':'Really dig. We hid them under there.','ru':'Тянитесь. Мы спрятали их там.'},{'en':'See if you can fish out the newspaper','ru':'Посмотрим, выловите ли вы газету.'},{'en':'and open up to the arts section','ru':'Откройте секцию «искусство»'},{'en':'and you will find the crossword puzzle,','ru':'и вы найдёте кроссворд.'},{'en':'and the crossword puzzle today','ru':'Сегодняшний кроссворд'},{'en':'was written by yours truly.','ru':'составлен вашим покорным слугой.'},{'en':'You can see my name above the grid.','ru':'Там моё имя над ним.'},{'en':'I\'m going to give this to you, Gwen, to take a look.','ru':'Сейчас я дам его вам, Гвен, посмотреть.'},{'en':'And I will also put it up on the screen.','ru':'И я его также выведу на экран.'},{'en':'Now let\'s take a look','ru':'Теперь давайте посмотрим'},{'en':'at another piece of the puzzle.','ru':'на другой кусочек головоломки.'},{'en':'If you look at the first clue for 1-across,','ru':'Посмотрите на определение, слова 1 по горизонтали,'},{'en':'it starts with the letter C, for corrupt,','ru':'оно начинается с буквы К,'},{'en':'and just below that we have an O, for outfielder,','ru':'а сразу под ней О,'},{'en':'and if you keep reading the first letters of the clues down,','ru':'и если продолжать читать, первые буквы определений,'},{'en':'you get cobalt horse,','ru':'получится кобальтовая лошадь,'},{'en':'amber owl, silver ox,','ru':'янтарная сова, серебряный бык,'},{'en':'red donkey, and emerald rooster.','ru':'красный осёл и изумрудный петух.'},{'en':'(Applause)','ru':'(Аплодисменты)'},{'en':'That\'s pretty cool, right?','ru':'Круто, правда?'},{'en':'It\'s The New York Times.','ru':'В Нью-Йорк Таймс.'},{'en':'But wait, wait, wait, wait. Wait.','ru':'Но подождите!'},{'en':'Oh, Gwen,','ru':'Гвен,'},{'en':'do you recall how I forgot my purple marker,','ru':'вы помните, как я забыл, фиолетовый маркер?'},{'en':'and you were unable to color the sheep?','ru':'И что вы не могли закрасить овцу?'},{'en':'Well, if you keep reading','ru':'Если продолжать читать,'},{'en':'starting with 25-down,','ru':'начиная с 25 по вертикали,'},{'en':'it says,','ru':'там написано:'},{'en':'"Oh, by the way,','ru':'«Да, и кстати,'},{'en':'the sheep can be left blank."','ru':'овцу можно не закрашивать».'},{'en':'(Laughter) (Applause)','ru':'(Смех) (Аплодисменты)'},{'en':'But wait, wait, wait, there\'s one more thing,','ru':'Но подождите, есть ещё кое-что,'},{'en':'there\'s one more thing,','ru':'есть ещё кое-что,'},{'en':'there\'s one final piece of the puzzle.','ru':'последний кусочек головоломки.'},{'en':'Gwen, I am so grateful for your choices','ru':'Гвен, я так благодарен вам, за выбор цветов,'},{'en':'because if we take a look','ru':'потому что если мы посмотрим'},{'en':'at the first letters of your combinations,','ru':'на первые буквы ваших комбинаций,'},{'en':'we get "C-H-A-O-S" for chaos','ru':'мы увидим «Х-А-О-С»'},{'en':'and "O-R-D-E-R" for order.','ru':'и «П-О-Р-Я-Д-О-К».'},{'en':'That\'s chaos and order.','ru':'Хаос и порядок.'},{'en':'We\'ve all made order out of chaos.','ru':'Мы создали порядок из хаоса.'},{'en':'So ladies and gentlemen, the next time','ru':'Дамы и господа, в следующий раз,'},{'en':'you find yourself with a puzzle,','ru':'когда будете решать головоломку'},{'en':'whether it\'s in your life or in your work,','ru':'в жизни или на работе,'},{'en':'or maybe it\'s at the Sunday morning','ru':'или в воскресное утро'},{'en':'breakfast table with The New York Times,','ru':'за завтраком, читая Нью-Йорк Таймс, помните,'},{'en':'remember, you are all wired to solve.','ru':'что мы все запрограммированы, решать задачи.'},{'en':'Thank you.','ru':'Спасибо.'}];
+$j = jQuery.noConflict();
+$j(document).ready(function(){
+	var vid, playbtn, seekslider, curtimetext, durtimetext;
+	function intializePlayer(){
+		// Set object references
+		vid = document.getElementById("my_video");
+		playbtn = document.getElementById("playpausebtn");
+		seekslider = document.getElementById("seekslider");
+		curtimetext = document.getElementById("curtimetext");
+		durtimetext = document.getElementById("durtimetext");
+		// Add event listeners
+		playbtn.addEventListener("click",playPause,false);
+		seekslider.addEventListener("change",vidSeek,false);
+		vid.addEventListener("timeupdate",seektimeupdate,false);
+	}
+	window.onload = intializePlayer;
+	function playPause(){
+		if(vid.paused){
+			vid.play();
+			playbtn.innerHTML = "Pause";
+		} else {
+			vid.pause();
+			playbtn.innerHTML = "Play";
+		}
+	}
+	function vidSeek(){
+		var seekto = vid.duration * (seekslider.value / 100);
+		vid.currentTime = seekto;
+		
+	}
+	
+	var prev = '#srerferf';
+	function seektimeupdate(){
+	var nt = vid.currentTime * (100 / vid.duration);
+	seekslider.value = nt;
+	 
+	var curmins = Math.floor(vid.currentTime);
+	var cursecs = Math.floor(vid.currentTime - curmins * 60);
+	var durmins = Math.floor(vid.duration / 60);
+	var dursecs = Math.floor(vid.duration - durmins * 60);
+	if(cursecs < 10){ cursecs = "0"+cursecs; }
+	if(dursecs < 10){ dursecs = "0"+dursecs; }
+	if(curmins < 10){ curmins = "0"+curmins; }
+	if(durmins < 10){ durmins = "0"+durmins; }
+	curtimetext.innerHTML = curmins+":"+cursecs;
+	durtimetext.innerHTML = durmins+":"+dursecs;
+	console.log(vid.currentTime);
+	var id = '#' + curmins;
+		if(id != prev){ 	
+			if($j('span').is(id)){
+				$j(prev).removeClass();
+				$j(id).addClass('current');
+				prev = id;
+				
+			} 
+			
+		}
+	}
+	$j("span").click(function() {
+		// `this` is the DOM element that was clicked
+		var contentPanelId = jQuery(this).attr("id");
+		vid.currentTime = contentPanelId;
+		
+		$j("#my_video").click();
+	});
+	
+	$j("span").mouseenter(function() {
+		var index = $j("span").index(this);
+		//console.log(index);
+		$j("#translate").text(languages[index].ru);
+		$j("#translate").css('left', 0);
+		$j("#translate").css('top', 0);
+	
+	});
+	
+	
+	var flag = true;
+	$j("#my_video").click(function(){
+		if(flag){
+			flag=false;
+			vid.pause();
+		}else{
+			flag=true;
+			vid.play();
+		}
+		
+	});
+	
+	
+});
+</script>
+</head>
+<body>
+<div id="box_box">
+<div id="video_controls_bar" style="position: fixed;display: none;">
+    <button id="playpausebtn">Pause</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+    <div id="curtimetext">00:00</div> / <div id="durtimetext">00:00</div>
+  </div>
+  <video id="my_video" width="550" height="410" autoplay>
+    <source src="http://download.ted.com/talks/DavidKwong_2014-480p.mp4">
+  </video>
+  <div id="translate" style="background: #e2e2e2; font-size: 16pt;">Перевод</div>
+  
+
+</div>
+<div class="text">
+<span class="talk-transcript__fragment" data-time="826" id="12">Puzzles</span>
+<span class="talk-transcript__fragment" data-time="2642" id="14">and magic.</span>
+<span class="talk-transcript__fragment" data-time="4941" id="16">I work in what most people think</span>
+<span class="talk-transcript__fragment" data-time="7085" id="19">are two distinct fields,</span>
+<span class="talk-transcript__fragment" data-time="9523" id="21">but I believe they are the same.</span>
+<span class="talk-transcript__fragment" data-time="12594" id="24">I am both a magician and</span>
+<span class="talk-transcript__fragment" data-time="14570" id="26">a New York Times crossword puzzle constructor,</span>
+<span class="talk-transcript__fragment" data-time="18406" id="30">which basically means I've taken</span>
+<span class="talk-transcript__fragment" data-time="19770" id="31">the world's two nerdiest hobbies</span>
+<span class="talk-transcript__fragment" data-time="21392" id="33">and combined them into one career.</span>
+<span class="talk-transcript__fragment" data-time="24320" id="36">And I believe that magic and puzzles are the same</span>
+<span class="talk-transcript__fragment" data-time="27443" id="39">because they both key into one of</span>
+<span class="talk-transcript__fragment" data-time="29379" id="41">the most important human drives:</span>
+<span class="talk-transcript__fragment" data-time="32030" id="44">the urge to solve.</span>
+<span class="talk-transcript__fragment" data-time="34116" id="46">Human beings are wired to solve,</span>
+<span class="talk-transcript__fragment" data-time="37249" id="49">to make order out of chaos.</span>
+<span class="talk-transcript__fragment" data-time="40253" id="52">It's certainly true for me.</span>
+<span class="talk-transcript__fragment" data-time="41760" id="53">I've been solving my whole life.</span>
+<span class="talk-transcript__fragment" data-time="43599" id="55">High school consisted of epic Scrabble matches in the cafeteria</span>
+<span class="talk-transcript__fragment" data-time="47903" id="59">and not really talking to girls,</span>
+<span class="talk-transcript__fragment" data-time="49612" id="61">and then at about that time</span>
+<span class="talk-transcript__fragment" data-time="51435" id="63">I started learning magic tricks</span>
+<span class="talk-transcript__fragment" data-time="53130" id="65">and definitely not talking to girls.</span>
+<span class="talk-transcript__fragment" data-time="55597" id="67">There's nothing like starting a conversation with,</span>
+<span class="talk-transcript__fragment" data-time="57644" id="69">"Hey, did you know that 'prestidigitation' is worth</span>
+<span class="talk-transcript__fragment" data-time="60200" id="72">20 points in Scrabble?"</span>
+<span class="talk-transcript__fragment" data-time="63224" id="75">But back then, I noticed an intersection</span>
+<span class="talk-transcript__fragment" data-time="66011" id="78">between puzzles and illusion.</span>
+<span class="talk-transcript__fragment" data-time="68736" id="80">When you do the crossword puzzle</span>
+<span class="talk-transcript__fragment" data-time="70682" id="82">or when you watch a magic show,</span>
+<span class="talk-transcript__fragment" data-time="72628" id="84">you become a solver,</span>
+<span class="talk-transcript__fragment" data-time="74880" id="86">and your goal is to try to find the order in the chaos,</span>
+<span class="talk-transcript__fragment" data-time="78658" id="90">the chaos of, say, a black-and-white puzzle grid,</span>
+<span class="talk-transcript__fragment" data-time="81898" id="93">a mixed-up bag of Scrabble tiles,</span>
+<span class="talk-transcript__fragment" data-time="84042" id="96">or a shuffled pack of playing cards.</span>
+<span class="talk-transcript__fragment" data-time="86850" id="98">And today, as a cruciverbalist —</span>
+<span class="talk-transcript__fragment" data-time="89864" id="101">23 points —</span>
+<span class="talk-transcript__fragment" data-time="91450" id="103">and an illusion designer, I create that chaos.</span>
+<span class="talk-transcript__fragment" data-time="95207" id="107">I test your ability to solve.</span>
+<span class="talk-transcript__fragment" data-time="98552" id="110">Now, it turns out research tells us</span>
+<span class="talk-transcript__fragment" data-time="100962" id="112">that solving is as primal as eating and sleeping.</span>
+<span class="talk-transcript__fragment" data-time="104960" id="116">From birth, we are wired to solve.</span>
+<span class="talk-transcript__fragment" data-time="108695" id="120">In one UCLA study, newborns still in the hospital</span>
+<span class="talk-transcript__fragment" data-time="112532" id="124">were shown patterns, patterns like this:</span>
+<span class="talk-transcript__fragment" data-time="115220" id="127">circle, cross, circle, cross.</span>
+<span class="talk-transcript__fragment" data-time="118831" id="130">And then the pattern was changed: triangle, square.</span>
+<span class="talk-transcript__fragment" data-time="123150" id="135">And by tracking an infant's gaze,</span>
+<span class="talk-transcript__fragment" data-time="125806" id="137">we know that newborns as young as a day old</span>
+<span class="talk-transcript__fragment" data-time="129110" id="141">can notice and respond to disruptions in order.</span>
+<span class="talk-transcript__fragment" data-time="131722" id="143">It's remarkable.</span>
+<span class="talk-transcript__fragment" data-time="133140" id="145">So from infancy through old age,</span>
+<span class="talk-transcript__fragment" data-time="135738" id="147">the urge to solve unites us all,</span>
+<span class="talk-transcript__fragment" data-time="138110" id="150">and I even found this photo on Instagram</span>
+<span class="talk-transcript__fragment" data-time="140750" id="152">of pop star Katy Perry solving a crossword puzzle</span>
+<span class="talk-transcript__fragment" data-time="143904" id="155">with her morning coffee.</span>
+<span class="talk-transcript__fragment" data-time="146130" id="158">Like.</span>
+<span class="talk-transcript__fragment" data-time="147801" id="159">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="151669" id="163">Now, solving exists across all cultures.</span>
+<span class="talk-transcript__fragment" data-time="156210" id="168">The American invention is the crossword puzzle,</span>
+<span class="talk-transcript__fragment" data-time="159154" id="171">and this year we are celebrating</span>
+<span class="talk-transcript__fragment" data-time="160553" id="172">the 100th anniversary of the crossword puzzle,</span>
+<span class="talk-transcript__fragment" data-time="163226" id="175">first published in The New York World.</span>
+<span class="talk-transcript__fragment" data-time="165733" id="177">But many other cultures have</span>
+<span class="talk-transcript__fragment" data-time="168372" id="180">China gives us tangrams,</span>
+<span class="talk-transcript__fragment" data-time="170382" id="182">which would test solvers' abilities</span>
+<span class="talk-transcript__fragment" data-time="172427" id="184">to form shapes from the jumbled pieces.</span>
+<span class="talk-transcript__fragment" data-time="175567" id="187">Chaos. Order.</span>
+<span class="talk-transcript__fragment" data-time="178570" id="190">Order.</span>
+<span class="talk-transcript__fragment" data-time="180628" id="192">And order.</span>
+<span class="talk-transcript__fragment" data-time="183823" id="195">That one's my favorite, let's hear it again.</span>
+<span class="talk-transcript__fragment" data-time="186393" id="198">Okay.</span>
+<span class="talk-transcript__fragment" data-time="188064" id="200">And how about this puzzle</span>
+<span class="talk-transcript__fragment" data-time="189840" id="201">invented in 18th-century England:</span>
+<span class="talk-transcript__fragment" data-time="192279" id="204">the jigsaw puzzle.</span>
+<span class="talk-transcript__fragment" data-time="194330" id="206">Is this not making order out of chaos?</span>
+<span class="talk-transcript__fragment" data-time="198144" id="210">So as you can see,</span>
+<span class="talk-transcript__fragment" data-time="199613" id="211">we are always solving.</span>
+<span class="talk-transcript__fragment" data-time="201392" id="213">We are always trying to decode our world.</span>
+<span class="talk-transcript__fragment" data-time="205354" id="217">It's an eternal quest.</span>
+<span class="talk-transcript__fragment" data-time="206884" id="218">It's just like the one Cervantes wrote about</span>
+<span class="talk-transcript__fragment" data-time="209528" id="221">in "Don Quixote,"</span>
+<span class="talk-transcript__fragment" data-time="210979" id="222">which by the way is the root of the word "quixotry,"</span>
+<span class="talk-transcript__fragment" data-time="212981" id="224">the highest-scoring Scrabble word of all time,</span>
+<span class="talk-transcript__fragment" data-time="214804" id="226">365 points.</span>
+<span class="talk-transcript__fragment" data-time="216660" id="228">But anyway, "Don Quixote" is an important book.</span>
+<span class="talk-transcript__fragment" data-time="219877" id="231">You guys have read "Don Quixote," yes?</span>
+<span class="talk-transcript__fragment" data-time="221914" id="233">I'm seeing some heads nod.</span>
+<span class="talk-transcript__fragment" data-time="223420" id="235">Come on guys, really?</span>
+<span class="talk-transcript__fragment" data-time="224702" id="236">Who's read "Don Quixote?" Let's do this.</span>
+<span class="talk-transcript__fragment" data-time="227239" id="239">There we go. Smart audience.</span>
+<span class="talk-transcript__fragment" data-time="228349" id="240">Who's read "Don Quixote?" Get them up.</span>
+<span class="talk-transcript__fragment" data-time="230063" id="242">Okay, good, because I need somebody smart here</span>
+<span class="talk-transcript__fragment" data-time="234276" id="246">because now I'm going to demonstrate</span>
+<span class="talk-transcript__fragment" data-time="235478" id="247">with the help of one of you</span>
+<span class="talk-transcript__fragment" data-time="237350" id="249">just how deeply rooted your urge to solve is,</span>
+<span class="talk-transcript__fragment" data-time="240686" id="252">just how wired to solve all of you really are,</span>
+<span class="talk-transcript__fragment" data-time="243185" id="255">so I'm going to come into the audience</span>
+<span class="talk-transcript__fragment" data-time="244627" id="256">and find somebody to help me.</span>
+<span class="talk-transcript__fragment" data-time="247625" id="259">Let's see.</span>
+<span class="talk-transcript__fragment" data-time="249747" id="261">Everybody's looking away all of a sudden.</span>
+<span class="talk-transcript__fragment" data-time="253639" id="265">Can I? Would you? What is your name? Gwen.</span>
+<span class="talk-transcript__fragment" data-time="257556" id="269">I'm not a mind reader, I can see your name tag.</span>
+<span class="talk-transcript__fragment" data-time="259997" id="271">Come with me, Gwen. Everyone give her </span>
+<span class="talk-transcript__fragment" data-time="264310" id="276">Gwen, after you.</span>
+<span class="talk-transcript__fragment" data-time="265982" id="277">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="267864" id="279">Are you so excited?</span>
+<span class="talk-transcript__fragment" data-time="271275" id="283">Did you know that your name is worth</span>
+<span class="talk-transcript__fragment" data-time="272730" id="284">eight points in Scrabble?</span>
+<span class="talk-transcript__fragment" data-time="274328" id="286">Okay, stand right here, Gwen, right here.</span>
+<span class="talk-transcript__fragment" data-time="278615" id="290">Now, Gwen, before we begin,</span>
+<span class="talk-transcript__fragment" data-time="281117" id="293">I'd like to point out a piece of the puzzle,</span>
+<span class="talk-transcript__fragment" data-time="283726" id="295">which is here in this envelope,</span>
+<span class="talk-transcript__fragment" data-time="285263" id="297">and I will not go near it. Okay?</span>
+<span class="talk-transcript__fragment" data-time="286883" id="298">And over here we have a</span>
+<span class="talk-transcript__fragment" data-time="288891" id="300">You can see we have an owl, we have a horse,</span>
+<span class="talk-transcript__fragment" data-time="290251" id="302">a donkey, a rooster, an ox, and a sheep,</span>
+<span class="talk-transcript__fragment" data-time="292480" id="304">and then here, Gwen, we have</span>
+<span class="talk-transcript__fragment" data-time="293690" id="305">some fancy art store markers,</span>
+<span class="talk-transcript__fragment" data-time="296110" id="308">colors like, can you see that word right there?</span>
+<span class="talk-transcript__fragment" data-time="298450" id="310">Gwen: Cobalt.</span>
+<span class="talk-transcript__fragment" data-time="300789" id="312">But we have a silver, a red, an emerald,</span>
+<span class="talk-transcript__fragment" data-time="303407" id="315">and an amber marker,</span>
+<span class="talk-transcript__fragment" data-time="304865" id="316">and Gwen, you are going to color this drawing</span>
+<span class="talk-transcript__fragment" data-time="307130" id="319">just like you were five years old,</span>
+<span class="talk-transcript__fragment" data-time="308607" id="320">one marker at a time.</span>
+<span class="talk-transcript__fragment" data-time="309715" id="321">It's going to be a lot of fun.</span>
+<span class="talk-transcript__fragment" data-time="311234" id="323">But I'm going to go over here.</span>
+<span class="talk-transcript__fragment" data-time="312255" id="324">I don't want to see what you're doing.</span>
+<span class="talk-transcript__fragment" data-time="314342" id="326">Okay, so don't start yet.</span>
+<span class="talk-transcript__fragment" data-time="315412" id="327">Wait for me to get over here and close my eyes.</span>
+<span class="talk-transcript__fragment" data-time="316839" id="328">Now Gwen, are you ready?</span>
+<span class="talk-transcript__fragment" data-time="318717" id="330">Pick up just one marker, pick up just one marker,</span>
+<span class="talk-transcript__fragment" data-time="322227" id="334">and why don't you color in the horse for me?</span>
+<span class="talk-transcript__fragment" data-time="323612" id="335">Color in the horse — big, big, big scribbles,</span>
+<span class="talk-transcript__fragment" data-time="327165" id="339">broad strokes, don't worry about staying in the lines.</span>
+<span class="talk-transcript__fragment" data-time="330123" id="342">All right. Great.</span>
+<span class="talk-transcript__fragment" data-time="331399" id="343">And why don't you take that marker and recap it</span>
+<span class="talk-transcript__fragment" data-time="332975" id="344">and place it on the table for me.</span>
+<span class="talk-transcript__fragment" data-time="334905" id="346">Okay, and pick up another marker out of the cup</span>
+<span class="talk-transcript__fragment" data-time="338125" id="350">and take off the cap</span>
+<span class="talk-transcript__fragment" data-time="340575" id="352">and color in the donkey for me, color in the donkey.</span>
+<span class="talk-transcript__fragment" data-time="342641" id="354">Big scribbles.</span>
+<span class="talk-transcript__fragment" data-time="345709" id="357">Okay, cool, and re-cap that marker</span>
+<span class="talk-transcript__fragment" data-time="347943" id="359">and place it on the table.</span>
+<span class="talk-transcript__fragment" data-time="349445" id="361">And pick up another marker for me</span>
+<span class="talk-transcript__fragment" data-time="351723" id="363">and take off the cap. Isn't this fun?</span>
+<span class="talk-transcript__fragment" data-time="354186" id="366">And color in the owl for me.</span>
+<span class="talk-transcript__fragment" data-time="355513" id="367">Color in the owl.</span>
+<span class="talk-transcript__fragment" data-time="358564" id="370">Okay, and recap that marker</span>
+<span class="talk-transcript__fragment" data-time="361050" id="373">and pick up another marker out of the cup</span>
+<span class="talk-transcript__fragment" data-time="362838" id="374">and color in the rooster for me, color in the rooster.</span>
+<span class="talk-transcript__fragment" data-time="366414" id="378">Good, good, good, good, good.</span>
+<span class="talk-transcript__fragment" data-time="367838" id="379">Big, big, big strokes. Good, good.</span>
+<span class="talk-transcript__fragment" data-time="368931" id="380">Pick up another marker out of the cup</span>
+<span class="talk-transcript__fragment" data-time="371196" id="383">and color in the ox for me. Color in the ox.</span>
+<span class="talk-transcript__fragment" data-time="374693" id="386">Okay, good.</span>
+<span class="talk-transcript__fragment" data-time="375956" id="387">A lot of color on that, and recap,</span>
+<span class="talk-transcript__fragment" data-time="378406" id="390">and pick up another marker out of the cup.</span>
+<span class="talk-transcript__fragment" data-time="381110" id="393">Oh, I'm out? Okay, I'm going to turn around.</span>
+<span class="talk-transcript__fragment" data-time="383849" id="395">Did I forget? Oh, I forgot my purple marker.</span>
+<span class="talk-transcript__fragment" data-time="389109" id="401">This is still going to work, though.</span>
+<span class="talk-transcript__fragment" data-time="390452" id="402">I think this is still going to work, mostly.</span>
+<span class="talk-transcript__fragment" data-time="392735" id="404">So Gwen, I'm going to hand you this envelope.</span>
+<span class="talk-transcript__fragment" data-time="395888" id="407">Don't open it yet. Do not open it yet,</span>
+<span class="talk-transcript__fragment" data-time="398840" id="410">but I am going to write down your choices</span>
+<span class="talk-transcript__fragment" data-time="401231" id="413">so that everybody can see</span>
+<span class="talk-transcript__fragment" data-time="403390" id="415">the choices that you made.</span>
+<span class="talk-transcript__fragment" data-time="404663" id="416">Okay, great. So we have a cobalt horse,</span>
+<span class="talk-transcript__fragment" data-time="413046" id="425">amber owl,</span>
+<span class="talk-transcript__fragment" data-time="418452" id="430">a silver ox,</span>
+<span class="talk-transcript__fragment" data-time="423233" id="435">yes, okay, a red donkey,</span>
+<span class="talk-transcript__fragment" data-time="426675" id="438">and what was the emerald color? A rooster.</span>
+<span class="talk-transcript__fragment" data-time="430050" id="442">An emerald rooster. Okay.</span>
+<span class="talk-transcript__fragment" data-time="434120" id="446">Now for the moment of truth, Gwen,</span>
+<span class="talk-transcript__fragment" data-time="436286" id="448">we're going to take a look in that envelope.</span>
+<span class="talk-transcript__fragment" data-time="437971" id="449">Why don't you open it up and remove</span>
+<span class="talk-transcript__fragment" data-time="439886" id="451">the one piece of paper from inside</span>
+<span class="talk-transcript__fragment" data-time="441178" id="453">and hand it to me,</span>
+<span class="talk-transcript__fragment" data-time="442207" id="454">and we will see if it matches your choices.</span>
+<span class="talk-transcript__fragment" data-time="446910" id="458">Yes, I think it does.</span>
+<span class="talk-transcript__fragment" data-time="448345" id="460">We have a cobalt horse, we have a red donkey,</span>
+<span class="talk-transcript__fragment" data-time="449909" id="461">we have an amber owl, we have</span>
+<span class="talk-transcript__fragment" data-time="452206" id="464">I forgot my purple marker so we have a blank sheep,</span>
+<span class="talk-transcript__fragment" data-time="454217" id="466">but that's a pretty amazing</span>
+<span class="talk-transcript__fragment" data-time="456932" id="468">Gwen, well done. That's beautiful. (Applause)</span>
+<span class="talk-transcript__fragment" data-time="461113" id="473">I'll take that back from you.</span>
+<span class="talk-transcript__fragment" data-time="462880" id="474">So ladies and gentlemen, how is this possible?</span>
+<span class="talk-transcript__fragment" data-time="466744" id="478">How is this possible? Well, could it be</span>
+<span class="talk-transcript__fragment" data-time="469561" id="481">that Gwen's brain is so wired to solve</span>
+<span class="talk-transcript__fragment" data-time="473823" id="485">that she decoded hidden messages?</span>
+<span class="talk-transcript__fragment" data-time="476669" id="488">Well this is the puzzle I present to you.</span>
+<span class="talk-transcript__fragment" data-time="478716" id="490">Could there be order</span>
+<span class="talk-transcript__fragment" data-time="480696" id="492">in the chaos that I created?</span>
+<span class="talk-transcript__fragment" data-time="483700" id="495">Let's take a closer look.</span>
+<span class="talk-transcript__fragment" data-time="485440" id="497">Do you recall when I showed you these puzzle pieces?</span>
+<span class="talk-transcript__fragment" data-time="489451" id="501">What image did it ultimately become? A cobalt horse.</span>
+<span class="talk-transcript__fragment" data-time="495208" id="507">The plot thickens.</span>
+<span class="talk-transcript__fragment" data-time="496985" id="508">And then we played a game of tangrams</span>
+<span class="talk-transcript__fragment" data-time="499190" id="511">with an emerald rooster.</span>
+<span class="talk-transcript__fragment" data-time="504180" id="516">That one's my favorite.</span>
+<span class="talk-transcript__fragment" data-time="506378" id="518">And then we had an experiment with a silver ox.</span>
+<span class="talk-transcript__fragment" data-time="512633" id="524">And Katy Perry drinks her morning coffee</span>
+<span class="talk-transcript__fragment" data-time="515333" id="527">out of an amber owl.</span>
+<span class="talk-transcript__fragment" data-time="519162" id="531">Thank you, Katy, for taking that photo for me.</span>
+<span class="talk-transcript__fragment" data-time="520841" id="532">Oh, and there's one more, there's one more.</span>
+<span class="talk-transcript__fragment" data-time="522806" id="534">I believe you colored a red donkey, Gwen.</span>
+<span class="talk-transcript__fragment" data-time="526234" id="538">Ladies and gentlemen, could you raise your hands</span>
+<span class="talk-transcript__fragment" data-time="527864" id="539">for me if you've read "Don Quixote?"</span>
+<span class="talk-transcript__fragment" data-time="530284" id="542">Who's read "Don Quixote?" (Laughter)</span>
+<span class="talk-transcript__fragment" data-time="533179" id="545">But wait, but wait, wait, wait, wait, there's more.</span>
+<span class="talk-transcript__fragment" data-time="534955" id="546">There's more.</span>
+<span class="talk-transcript__fragment" data-time="536450" id="548">Gwen, I was so confident</span>
+<span class="talk-transcript__fragment" data-time="539209" id="551">that you were going to make these choices</span>
+<span class="talk-transcript__fragment" data-time="541133" id="553">that I made another prediction,</span>
+<span class="talk-transcript__fragment" data-time="543771" id="555">and I put it in an even more indelible place,</span>
+<span class="talk-transcript__fragment" data-time="547101" id="559">and it's right here.</span>
+<span class="talk-transcript__fragment" data-time="549519" id="561">Ladies and gentlemen,</span>
+<span class="talk-transcript__fragment" data-time="550801" id="562">we have today's New York Times.</span>
+<span class="talk-transcript__fragment" data-time="554379" id="566">The date is March 18th, 2014.</span>
+<span class="talk-transcript__fragment" data-time="558204" id="570">Many of you in the first couple of rows</span>
+<span class="talk-transcript__fragment" data-time="560050" id="572">have it underneath your seats as well.</span>
+<span class="talk-transcript__fragment" data-time="562170" id="574">Really dig. We hid them under there.</span>
+<span class="talk-transcript__fragment" data-time="564380" id="576">See if you can fish out the newspaper</span>
+<span class="talk-transcript__fragment" data-time="565921" id="577">and open up to the arts section</span>
+<span class="talk-transcript__fragment" data-time="568319" id="580">and you will find the crossword puzzle,</span>
+<span class="talk-transcript__fragment" data-time="571782" id="583">and the crossword puzzle today</span>
+<span class="talk-transcript__fragment" data-time="573345" id="585">was written by yours truly.</span>
+<span class="talk-transcript__fragment" data-time="575404" id="587">You can see my name above the grid.</span>
+<span class="talk-transcript__fragment" data-time="576470" id="588">I'm going to give this to you, Gwen, to take a look.</span>
+<span class="talk-transcript__fragment" data-time="579003" id="591">And I will also put it up on the screen.</span>
+<span class="talk-transcript__fragment" data-time="583196" id="595">Now let's take a look</span>
+<span class="talk-transcript__fragment" data-time="585078" id="597">at another piece of the puzzle.</span>
+<span class="talk-transcript__fragment" data-time="588385" id="600">If you look at the first clue for 1-across,</span>
+<span class="talk-transcript__fragment" data-time="591603" id="603">it starts with the letter C, for corrupt,</span>
+<span class="talk-transcript__fragment" data-time="594899" id="606">and just below that we have an O, for outfielder,</span>
+<span class="talk-transcript__fragment" data-time="597825" id="609">and if you keep reading the</span>
+<span class="talk-transcript__fragment" data-time="600771" id="612">you get cobalt horse,</span>
+<span class="talk-transcript__fragment" data-time="603572" id="615">amber owl, silver ox,</span>
+<span class="talk-transcript__fragment" data-time="607060" id="619">red donkey, and emerald rooster.</span>
+<span class="talk-transcript__fragment" data-time="610558" id="622">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="612164" id="624">That's pretty cool, right?</span>
+<span class="talk-transcript__fragment" data-time="617735" id="629">It's The New York Times.</span>
+<span class="talk-transcript__fragment" data-time="619446" id="631">But wait, wait, wait, wait. Wait.</span>
+<span class="talk-transcript__fragment" data-time="621022" id="633">Oh, Gwen,</span>
+<span class="talk-transcript__fragment" data-time="622544" id="634">do you recall how I forgot my purple marker,</span>
+<span class="talk-transcript__fragment" data-time="625148" id="637">and you were unable to color the sheep?</span>
+<span class="talk-transcript__fragment" data-time="628195" id="640">Well, if you keep reading</span>
+<span class="talk-transcript__fragment" data-time="629648" id="641">starting with 25-down,</span>
+<span class="talk-transcript__fragment" data-time="631279" id="643">it says,</span>
+<span class="talk-transcript__fragment" data-time="632185" id="644">"Oh, by the way,</span>
+<span class="talk-transcript__fragment" data-time="633958" id="645">the sheep can be left blank."</span>
+<span class="talk-transcript__fragment" data-time="638270" id="650">(Laughter) (Applause)</span>
+<span class="talk-transcript__fragment" data-time="642706" id="654">But wait, wait, wait, there's one more thing,</span>
+<span class="talk-transcript__fragment" data-time="644280" id="656">there's one more thing,</span>
+<span class="talk-transcript__fragment" data-time="645483" id="657">there's one final piece of the puzzle.</span>
+<span class="talk-transcript__fragment" data-time="648322" id="660">Gwen, I am so grateful for your choices</span>
+<span class="talk-transcript__fragment" data-time="652641" id="664">because if we take a look</span>
+<span class="talk-transcript__fragment" data-time="654632" id="666">at the first letters of your combinations,</span>
+<span class="talk-transcript__fragment" data-time="656863" id="668">we get "C-H-A-O-S" for chaos</span>
+<span class="talk-transcript__fragment" data-time="659875" id="671">and "O-R-D-E-R" for order.</span>
+<span class="talk-transcript__fragment" data-time="662698" id="674">That's chaos and order.</span>
+<span class="talk-transcript__fragment" data-time="664228" id="676">We've all made order out of chaos.</span>
+<span class="talk-transcript__fragment" data-time="665904" id="677">So ladies and gentlemen, the next time</span>
+<span class="talk-transcript__fragment" data-time="667907" id="679">you find yourself with a puzzle,</span>
+<span class="talk-transcript__fragment" data-time="669459" id="681">whether it's in your life or in your work,</span>
+<span class="talk-transcript__fragment" data-time="672501" id="684">or maybe it's at the Sunday morning</span>
+<span class="talk-transcript__fragment" data-time="673682" id="685">breakfast table with The New York Times,</span>
+<span class="talk-transcript__fragment" data-time="676090" id="688">remember, you are all wired to solve.</span>
+<span class="talk-transcript__fragment" data-time="679932" id="691">Thank you.</span>
+<span class="talk-transcript__fragment" data-time="681524" id="693">(Applause)</span>
+</div>
+</body>
+</html>
+

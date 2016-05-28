@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script language="JavaScript" src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
+<style>
+* { margin: 0; padding: 0; }
+div#box_box{ width: 100%; background: black; height: 430px; position: fixed; top: 0px; text-align: center; }
+div#video_controls_bar{ background: #333; padding:10px; color:#CCC;}
+.text{ font-family: Tahoma; line-height: 1.5; font-size: 17px; max-width: 1000px; min-width: 600px; margin: 440px auto;}
+.current { background: yellow; text-decoration: underline; }
+
+span:hover{ color: green; }
+</style>
+<script>
+
+var languages = [{'en':'I\'ve been intrigued by this question','ru':'Мне всегда было интересно:'},{'en':'of whether we could evolve or develop a sixth sense --','ru':'можно ли развить в себе шестое чувство или создать его.'},{'en':'a sense that would give us seamless access','ru':'Шестое чувство, которое даст нам беспрепятственный доступ,'},{'en':'and easy access to meta-informationor information that may exist somewhere','ru':'легкий доступ к внешнему пласту информации, к информации, которая может иметься где-то там,'},{'en':'that may be relevant to help us make the right decision','ru':'но которая нам необходима для принятия верного решения'},{'en':'about whatever it is that we\'re coming across.','ru':'относительно стоящей прямо перед нами задачи.'},{'en':'And some of you may argue,','ru':'И кое-кто из вас, возможно, возразит,'},{'en':'"Well, don\'t today\'s cell phones do that already?"','ru':'не предоставляют ли уже сегодняшние сотовые телефоны нам эту возможность?'},{'en':'But I would say no.','ru':'Но я позволю себе сказать, что это не так.'},{'en':'When you meet someone here at TED --','ru':'Когда здесь, на TED, люди знакомятся –'},{'en':'and this is the top networking place,of course, of the year --','ru':'а эта конференция, конечно же, самое важное событие года для новых знакомств –'},{'en':'you don\'t shake somebody\'s hand','ru':'никому не придёт в голову сразу после рукопожатия'},{'en':'and then say, "Can you hold on for a moment','ru':'сказать: «Не могли бы вы подождать минуточку,'},{'en':'while I take out my phone and Google you?"','ru':'пока я через телефон соединюсь с Google, чтобы узнать о Вас поподробнее?»'},{'en':'Or when you go to the supermarket','ru':'Или, скажем, когда вы в супермаркете'},{'en':'and you\'re standing there in that huge aisle','ru':'стоите в огромном проходе,'},{'en':'of different types of toilet papers,','ru':'разглядывая рулоны туалетной бумаги,'},{'en':'you don\'t take out your cell phone, and open a browser,','ru':'вы не станете вытаскивать телефон, запускать браузер,'},{'en':'and go to a website to try to decide which of these different toilet papers','ru':'и заходить на веб-сайт, чтобы решить,какой тип туалетной бумаги'},{'en':'is the most ecologically responsible purchase to make.','ru':' является наиболее экологически сознательным выбором для покупки.'},{'en':'So we don\'t really have easy access to all this relevant information','ru':'Итак, у нас в реальности нет простого доступа к нужной информации,'},{'en':'that can just help us make optimal decisions','ru':' которая может помочь нам принять оптимальное решение'},{'en':'about what to do next and what actions to take.','ru':'о том, какие шаги предпринять дальше.'},{'en':'And so my research group at the Media Lab','ru':'И вот, наша группа исследователей в лаборатории Media Lab'},{'en':'has been developing a series of inventions','ru':'начала разрабатывать серию изобретений,'},{'en':'to give us access to this information in a sort of easy way,','ru':'призванных обеспечить доступ к такого рода информации достаточно легкий доступ,'},{'en':'without requiring that the user changes any of their behavior.','ru':' который не требует от пользователя смены образа привычного поведения.'},{'en':'And I\'m here to unveil our latest effort,','ru':' Здесь я хотела бы раскрыть вам наши последние результаты,'},{'en':'and most successful effort so far,','ru':' самые успешные на сегодняшний день,'},{'en':'which is still very much a work in process.','ru':'хотя работа в полном разгаре.'},{'en':'I\'m actually wearing the device right now and we\'ve sort of cobbled it together','ru':'Вот на мне как раз этот прибор. Мы его, как бы сказать, соорудили'},{'en':'with components that are off the shelf --','ru':' из имеющихся в свободной продаже частей –'},{'en':'and that, by the way, only cost 350 dollars at this point in time.','ru':'кстати, он обходится в 350 долларов по сегодняшним ценам.'},{'en':'I\'m wearing a camera, just a simple web cam,','ru':' На мне: камера, просто обычная вебкамера, а также'},{'en':'a portable, battery-powered projection system with a little mirror.','ru':'работающая на батареях портативная система из проектора и небольшого зеркала.'},{'en':'These components communicate to my cell phone in my pocket','ru':'Эти элементы сообщаются с моим сотовым телефоном в кармане,'},{'en':'which acts as the communication and computation device.','ru':'который служит коммуникационным и вычислительным центром.'},{'en':'And in the video here we see my student Pranav Mistry,','ru':'Здесь на экране – мой студент Пранав Мистри.'},{'en':'who\'s really the genius who\'s been implementing','ru':'Это настоящий гений, всю эту систему'},{'en':'and designing this whole system.','ru':'разрабатывал и проектировал он.'},{'en':'And we see how this system lets him walk up to any surface','ru':'Мы видим, как эта система позволяет ему подойти к любой поверхности'},{'en':'and start using his hands to interact with the information','ru':' и [голыми] руками начать обрабатывать информацию,'},{'en':'that is projected in front of him.','ru':'которая проецируется прямо перед ним.'},{'en':'The system tracks the four significant fingers.','ru':'Система следит за движениями четырёх самых активных пальцев.'},{'en':'In this case, he\'s wearing simple marker caps','ru':'В данном случае он надел простые шляпки от фломастера –'},{'en':'that you may recognize.','ru':'возможно, вы уже заметили это.'},{'en':'But if you want a more stylish version,','ru':'Но если хочется чего-то более элегантного,'},{'en':'you could also paint your nails in different colors.','ru':'можете покрасить себе ногти в различные цвета.'},{'en':'And the camera basically tracks these four fingers','ru':'По существу, камера нужна, чтобы прослеживать'},{'en':'and recognizes any gestures that he\'s making','ru':'и распознавать любые движения, кторые он делает.'},{'en':'so he can just go to, for example, a map of Long Beach,','ru':'К примеру, он может вызвать карту района Лонг-Бич [место проведения TED],'},{'en':'zoom in and out, etc.','ru':'укрупнить, сделать прочие операции.'},{'en':'The system also recognizes iconic gestures such as the "take a picture" gesture,','ru':'Система также распознает общепринятые жесты, как, например, жест обрамления в рамочку,'},{'en':'and then takes a picture of whatever is in front of you.','ru':' и снимает то, что находится прямо напротив.'},{'en':'And when he then walks back to the Media Lab,','ru':'А когда он вернётся в нашу лабораторию,'},{'en':'he can just go up to any wall','ru':'он может подойти к любой стене,'},{'en':'and project all the pictures that he\'s taken,','ru':'спроецировать все снятые фото,'},{'en':'sort through them and organize them, and re-size them, etc.,','ru':'просмотреть и рассортировать их,'},{'en':'again using all natural gestures.','ru':'подправить размеры и прочее,всё это при помощи естественных движений рук.'},{'en':'So, some of you most likely were here two years ago','ru':' Часть из присутствующих, скорее всего, была здесь два года назад'},{'en':'and saw the demo by Jeff Han, or some of you may think,','ru':'и видела демонстрацию Джеффа Хана.'},{'en':'"Well, doesn\'t this look like the Microsoft Surface Table?"','ru':'Другая часть, возможно, подумала: «А разве это не похоже на Microsoft Surface Table?»'},{'en':'And yes, you also interact using natural gestures,','ru':'Да, правильно, здесь вы тоже взаимодействуете с прибором используя естественные жесты,'},{'en':'both hands, etc.','ru':'обе руки и т.д.'},{'en':'But the difference here is that you can use any surface,','ru':'Но разница в том, что наш прибор позволяет использовать любую поверхность,'},{'en':'you can walk to up to any surface,','ru':'вы можете подойти к любой поверхности,'},{'en':'including your hand, if nothing else is available,','ru':'включая собственную руку, если обстоятельства ничего другого не позволяют,'},{'en':'and interact with this projected data.','ru':'и обрабатывать проецируемую информацию.'},{'en':'The device is completely portable, and can be --','ru':'Прибор можно очень легко носить'},{'en':'(Applause)','ru':'и его можно…'},{'en':'(Applause ends)','ru':'(Аплодисменты)'},{'en':'So, one important difference is that it\'s totally mobile.','ru':'Итак, одно важное отличие состоит в возможности носить его на себе.'},{'en':'Another even more important difference is that in mass production,','ru':'Другое, ещё более важное отличие в том, что при массовом производстве'},{'en':'this would not cost more tomorrow than today\'s cell phones','ru':'эта штука будет стоить завтра не больше, чем сегодня сотовый телефон,'},{'en':'and would actually not sort of be a bigger packaging --','ru':'и размера будет, фактически, не большего –'},{'en':'could look a lot more stylish','ru':'и выглядеть будет намного более элегантно,'},{'en':'than this version that I\'m wearing around my neck.','ru':'чем та модель, что висит у меня на шее.'},{'en':'But other than letting some of you live out your fantasy','ru':'Не будем говорить о том, что этот прибор кое-кому даст возможность воплотить мечту и'},{'en':'of looking as cool as Tom Cruise in "Minority Report,"','ru':'выглядеть так же впечатляюще, как Том Круз в фильме «Особое мнение».'},{'en':'the reason why we\'re really excited about this device','ru':'Для нас это устройство исключительно интересно тем, что'},{'en':'is that it really can act as one of these sixth-sense devices','ru':'оно действительно может функционировать как пресловутое шестое чувство,'},{'en':'that gives you relevant information about whatever is in front of you.','ru':'которое подсказывает нам нужную информацию о том, с кем или с чем мы имеем дело.'},{'en':'So we see Pranav here going into the supermarket','ru':' Вот вы видите, как Пранав в супермаркете'},{'en':'and he\'s shopping for some paper towels.','ru':'собирается купить бумажные полотенца.'},{'en':'And, as he picks up a product,','ru':'Как только он берет в руки товар,'},{'en':'the system can recognize the product that he\'s picking up,','ru':'наша система может распознать продукт, который он взял'},{'en':'using either image recognition or marker technology,','ru':'с помощью распознавания образов или маркерной техники,'},{'en':'and give him the green light or an orange light.','ru':'и освещает либо зелёным, либо оранжевым лучом.'},{'en':'He can ask for additional information.','ru':'Можно запросить дополнительную информацию.'},{'en':'So this particular choice here','ru':'Итак, этот конкретный выбор'},{'en':'is a particularly good choice, given his personal criteria.','ru':'оказался особенно удачный с точки зрения его личных критериев.'},{'en':'Some of you may want the toilet paper with the most bleach in it','ru':'Кто-то другой, выбирает более белую туалетную бумагу,'},{'en':'rather than the most ecologically responsible choice.','ru':'а не более экологически сознательный вариант.'},{'en':'(Laughter)','ru':'(Смех)'},{'en':'If he picks up a book in the bookstore, he can get an Amazon rating --','ru':'Когда в магазине он снимает с полки книгу,то он может узнать, какой у неё рейтинг на Amazon.'},{'en':'it gets projected right on the cover of the book.','ru':' Рейтинг проецируется прямо на обложку книги.'},{'en':'This is Juan\'s book, our previous speaker,','ru':'Это – книга Хуана [Энрикеса], его выступление было перед нашим.'},{'en':'which gets a great rating, by the way, at Amazon.','ru':'У этой книги, между прочим, – прекрасный рейтинг на Amazon.'},{'en':'And so, Pranav turns the page of the book','ru':'А вот Пранав, перелистывая книгу,'},{'en':'and can then see additional information about the book --','ru':'может получить дополнительную информацию о ней,'},{'en':'reader comments, maybe sort of information by his favorite critic, etc.','ru':'отзывы читателей, или мнение уважаемого им критика и т.д.'},{'en':'If he turns to a particular page,','ru':'Если он откроет какую-то конкретную страницу,'},{'en':'he finds an annotation by maybe an expert or a friend of ours','ru':'он найдёт там, возможно, аннотацию эксперта по [трудам] нашего друга,'},{'en':'that gives him a little bit of additional information','ru':'что даст ему дополнительную информацию'},{'en':'about whatever is on that particular page.','ru':'о том, что написано на этой странице.'},{'en':'Reading the newspaper -- it never has to be outdated.','ru':'Читая газету –она никогда не станет устаревшей.'},{'en':'(Laughter)','ru':' (Смех)'},{'en':'You can get video annotations of the events that you\'re reading about.','ru':'Вы можете получить видео-дополнение к событию, о котором читаете.'},{'en':'You can get the latest sports scores, etc.','ru':'Вы можете получить последние спортивные результаты и т.п.'},{'en':'This is a more controversial one.','ru':'А вот – приложения, которые могут вызвать возражения.'},{'en':'(Laughter)','ru':'(Смех)'},{'en':'As you interact with someone at TED,','ru':'Во время беседы с кем-либо на конференции TED,'},{'en':'maybe you can see a word cloud of the tags,','ru':'вы можете видеть его облако тегов --'},{'en':'the words that are associated with that person','ru':'слова, связанные с данным человеком'},{'en':'in their blog and personal web pages.','ru':'из его блога или личных веб-страниц.'},{'en':'In this case, the student is interested in cameras, etc.','ru':'В данном случае, этот студент интересуется фотоаппаратами и т.д.'},{'en':'On your way to the airport,','ru':'По дороге в аэропорт'},{'en':'if you pick up your boarding pass, it can tell you that your flight is delayed,','ru':'если вы вынете посадочный талон, то прибор сообщит вам о возможной задержке рейса'},{'en':'that the gate has changed, etc.','ru':'или об изменении выхода на посадку и т.п.'},{'en':'And, if you need to know what the current time is,','ru':'А если вам надо узнать, который час –'},{'en':'it\'s as simple as drawing a watch --','ru':'это также легко, как очертить форму часов'},{'en':'(Laughter)','ru':'(Смех)'},{'en':'(Applause)','ru':'(Аплодисменты)'},{'en':'on your arm.','ru':'у себя на руке.'},{'en':'So that\'s where we\'re at so far in developing this sixth sense','ru':'Вот что нам удалось пока что достичь в разработке шестого чувства,'},{'en':'that would give us seamless access to all this relevant information','ru':' которое позволит открыть беспрепятственный доступ к информации'},{'en':'about the things that we may come across.','ru':'о том, что находится прямо перед вами.'},{'en':'My student Pranav, who\'s really, like I said, the genius behind this.','ru':'Мой студент Пранав, как я сказала, наш настоящий гений-вдохновитель.'},{'en':'(Applause and cheering)','ru':'(Аплодисменты)'},{'en':'(Applause ends)','ru':'(Аплодисменты)'},{'en':'He does deserve a lot of applause,','ru':'Он давно заслужил аплодисменты –'},{'en':'because I don\'t think he\'s slept much in the last three months, actually.','ru':' последние три месяца ему не часто удавалось выспаться, вообще-то.'},{'en':'And his girlfriend is probably not very happy about him either.','ru':'И его подруга, возможно, не выражает особенного восторга.'},{'en':'But it\'s not perfect yet, it\'s very much a work in progress.','ru':'Но работа далека от совершенства, она ещё в полном разгаре.'},{'en':'And who knows, maybe in another 10 years','ru':'И как знать, может, через десяток лет'},{'en':'we\'ll be here with the ultimate sixth sense brain implant.','ru':'мы всё-таки придём к шестому чувству в виде имплантации в мозг.'},{'en':'Thank you.','ru':'Благодарю вас.'},{'en':'(Applause)','ru':' (Аплодисменты)'}];
+$j = jQuery.noConflict();
+$j(document).ready(function(){
+	var vid, playbtn, seekslider, curtimetext, durtimetext;
+	function intializePlayer(){
+		// Set object references
+		vid = document.getElementById("my_video");
+		playbtn = document.getElementById("playpausebtn");
+		seekslider = document.getElementById("seekslider");
+		curtimetext = document.getElementById("curtimetext");
+		durtimetext = document.getElementById("durtimetext");
+		// Add event listeners
+		playbtn.addEventListener("click",playPause,false);
+		seekslider.addEventListener("change",vidSeek,false);
+		vid.addEventListener("timeupdate",seektimeupdate,false);
+	}
+	window.onload = intializePlayer;
+	function playPause(){
+		if(vid.paused){
+			vid.play();
+			playbtn.innerHTML = "Pause";
+		} else {
+			vid.pause();
+			playbtn.innerHTML = "Play";
+		}
+	}
+	function vidSeek(){
+		var seekto = vid.duration * (seekslider.value / 100);
+		vid.currentTime = seekto;
+		
+	}
+	var i = 0;
+	var prev = '#srerferf';
+	function seektimeupdate(){
+	var nt = vid.currentTime * (100 / vid.duration);
+	seekslider.value = nt;
+	 
+	var curmins = Math.floor(vid.currentTime);
+	var cursecs = Math.floor(vid.currentTime - curmins * 60);
+	var durmins = Math.floor(vid.duration / 60);
+	var dursecs = Math.floor(vid.duration - durmins * 60);
+	if(cursecs < 10){ cursecs = "0"+cursecs; }
+	if(dursecs < 10){ dursecs = "0"+dursecs; }
+	if(curmins < 10){ curmins = "0"+curmins; }
+	if(durmins < 10){ durmins = "0"+durmins; }
+	curtimetext.innerHTML = curmins+":"+cursecs;
+	durtimetext.innerHTML = durmins+":"+dursecs;
+	//console.log(vid.currentTime);
+	var id = '#' + curmins;
+		if(id != prev){ 	
+			if($j('span').is(id)){
+				$j("#translate").text(languages[i].ru);
+				i+=1;
+				$j(prev).removeClass();
+				$j(id).addClass('current');
+				prev = id;
+				
+			} 
+			
+		}
+	}
+	$j("span").click(function() {
+		// `this` is the DOM element that was clicked
+		var contentPanelId = jQuery(this).attr("id");
+		vid.currentTime = contentPanelId;
+		i = $j("span").index(this);
+		$j("#my_video").click();
+	});
+	
+	$j("span").mouseenter(function() {
+		var index = $j("span").index(this);
+		//console.log(index);
+		$j("#translate").text(languages[index].ru);
+		
+	});
+	
+	$j("span").mouseleave(function(){
+		$j("#translate").text(languages[i].ru);
+	});
+	
+	
+	var flag = true;
+	$j("#my_video").click(function(){
+		if(flag){
+			flag=false;
+			vid.pause();
+		}else{
+			flag=true;
+			vid.play();
+		}
+		
+	});
+	
+	
+});
+</script>
+</head>
+<body>
+<div id="box_box">
+<div id="video_controls_bar" style="position: fixed;display: none;">
+    <button id="playpausebtn">Pause</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+    <div id="curtimetext">00:00</div> / <div id="durtimetext">00:00</div>
+  </div>
+  <video id="my_video" width="550" height="410" autoplay>
+    <source src="http://download.ted.com/talks/PattieMaes_2009-480p.mp4">
+  </video>
+  <div id="translate" style="background: #e2e2e2; font-size: 16pt;">Перевод</div>
+  
+
+</div>
+<div class="text">
+<span class="talk-transcript__fragment" data-time="746" id="12">I've been intrigued by this question</span>
+<span class="talk-transcript__fragment" data-time="2931" id="14">of whether we could evolve or develop a sixth sense --</span>
+<span class="talk-transcript__fragment" data-time="7382" id="19">a sense that would give us seamless access</span>
+<span class="talk-transcript__fragment" data-time="11000" id="23">and easy access to meta-information or information that may exist somewhere</span>
+<span class="talk-transcript__fragment" data-time="17000" id="29">that may be relevant to help us make the right decision</span>
+<span class="talk-transcript__fragment" data-time="20000" id="32">about whatever it is that we're coming across.</span>
+<span class="talk-transcript__fragment" data-time="23864" id="35">And some of you may argue,</span>
+<span class="talk-transcript__fragment" data-time="26000" id="38">"Well, don't today's cell phones do that already?"</span>
+<span class="talk-transcript__fragment" data-time="29286" id="41">But I would say no.</span>
+<span class="talk-transcript__fragment" data-time="31000" id="43">When you meet someone here at TED --</span>
+<span class="talk-transcript__fragment" data-time="33000" id="45">and this is the top networking place, of course, of the year --</span>
+<span class="talk-transcript__fragment" data-time="37063" id="49">you don't shake somebody's hand</span>
+<span class="talk-transcript__fragment" data-time="38945" id="50">and then say, "Can you hold on for a moment</span>
+<span class="talk-transcript__fragment" data-time="41000" id="53">while I take out my phone and Google you?"</span>
+<span class="talk-transcript__fragment" data-time="44110" id="56">Or when you go to the supermarket</span>
+<span class="talk-transcript__fragment" data-time="47000" id="59">and you're standing there in that huge aisle</span>
+<span class="talk-transcript__fragment" data-time="49833" id="61">of different types of toilet papers,</span>
+<span class="talk-transcript__fragment" data-time="52373" id="64">you don't take out your cell phone, and open a browser,</span>
+<span class="talk-transcript__fragment" data-time="56000" id="68">and go to a website to try to decide which of these different toilet papers</span>
+<span class="talk-transcript__fragment" data-time="61000" id="73">is the most ecologically responsible purchase to make.</span>
+<span class="talk-transcript__fragment" data-time="65084" id="77">So we don't really have easy access to all this relevant information</span>
+<span class="talk-transcript__fragment" data-time="69000" id="81">that can just help us make optimal decisions</span>
+<span class="talk-transcript__fragment" data-time="72994" id="84">about what to do next and what actions to take.</span>
+<span class="talk-transcript__fragment" data-time="76171" id="88">And so my research group at the Media Lab</span>
+<span class="talk-transcript__fragment" data-time="79000" id="91">has been developing a series of inventions</span>
+<span class="talk-transcript__fragment" data-time="83884" id="95">to give us access to this information in a sort of easy way,</span>
+<span class="talk-transcript__fragment" data-time="88485" id="100">without requiring that the user changes any of their behavior.</span>
+<span class="talk-transcript__fragment" data-time="93481" id="105">And I'm here to unveil our latest effort,</span>
+<span class="talk-transcript__fragment" data-time="98000" id="110">and most successful effort so far,</span>
+<span class="talk-transcript__fragment" data-time="100000" id="112">which is still very much a work in process.</span>
+<span class="talk-transcript__fragment" data-time="102834" id="114">I'm actually wearing the device right now and we've sort of cobbled it together</span>
+<span class="talk-transcript__fragment" data-time="108000" id="120">with components that are off the shelf --</span>
+<span class="talk-transcript__fragment" data-time="111682" id="123">and that, by the way, only cost 350 dollars at this point in time.</span>
+<span class="talk-transcript__fragment" data-time="116602" id="128">I'm wearing a camera, just a simple web cam,</span>
+<span class="talk-transcript__fragment" data-time="120582" id="132">a portable, battery-powered projection system with a little mirror.</span>
+<span class="talk-transcript__fragment" data-time="126354" id="138">These components communicate to my cell phone in my pocket</span>
+<span class="talk-transcript__fragment" data-time="130449" id="142">which acts as the communication and computation device.</span>
+<span class="talk-transcript__fragment" data-time="134754" id="146">And in the video here we see my student Pranav Mistry,</span>
+<span class="talk-transcript__fragment" data-time="138698" id="150">who's really the genius who's been implementing</span>
+<span class="talk-transcript__fragment" data-time="141000" id="153">and designing this whole system.</span>
+<span class="talk-transcript__fragment" data-time="143391" id="155">And we see how this system lets him walk up to any surface</span>
+<span class="talk-transcript__fragment" data-time="149000" id="161">and start using his hands to interact with the information</span>
+<span class="talk-transcript__fragment" data-time="153000" id="165">that is projected in front of him.</span>
+<span class="talk-transcript__fragment" data-time="155716" id="167">The system tracks the four significant fingers.</span>
+<span class="talk-transcript__fragment" data-time="159838" id="171">In this case, he's wearing simple marker caps</span>
+<span class="talk-transcript__fragment" data-time="163528" id="175">that you may recognize.</span>
+<span class="talk-transcript__fragment" data-time="165000" id="177">But if you want a more stylish version,</span>
+<span class="talk-transcript__fragment" data-time="167714" id="179">you could also paint your nails in different colors.</span>
+<span class="talk-transcript__fragment" data-time="171415" id="183">And the camera basically tracks these four fingers</span>
+<span class="talk-transcript__fragment" data-time="175000" id="187">and recognizes any gestures that he's making</span>
+<span class="talk-transcript__fragment" data-time="178863" id="190">so he can just go to, for example, a map of Long Beach,</span>
+<span class="talk-transcript__fragment" data-time="183389" id="195">zoom in and out, etc.</span>
+<span class="talk-transcript__fragment" data-time="185651" id="197">The system also recognizes iconic gestures such as the "take a picture" gesture,</span>
+<span class="talk-transcript__fragment" data-time="191769" id="203">and then takes a picture of whatever is in front of you.</span>
+<span class="talk-transcript__fragment" data-time="195211" id="207">And when he then walks back to the Media Lab,</span>
+<span class="talk-transcript__fragment" data-time="198000" id="210">he can just go up to any wall</span>
+<span class="talk-transcript__fragment" data-time="200469" id="212">and project all the pictures that he's taken,</span>
+<span class="talk-transcript__fragment" data-time="203405" id="215">sort through them and organize them, and re-size them, etc.,</span>
+<span class="talk-transcript__fragment" data-time="207000" id="219">again using all natural gestures.</span>
+<span class="talk-transcript__fragment" data-time="210848" id="222">So, some of you most likely were here two years ago</span>
+<span class="talk-transcript__fragment" data-time="214931" id="226">and saw the demo by Jeff Han, or some of you may think,</span>
+<span class="talk-transcript__fragment" data-time="219209" id="231">"Well, doesn't this look like the Microsoft Surface Table?"</span>
+<span class="talk-transcript__fragment" data-time="222604" id="234">And yes, you also interact using natural gestures,</span>
+<span class="talk-transcript__fragment" data-time="227000" id="239">both hands, etc.</span>
+<span class="talk-transcript__fragment" data-time="229000" id="241">But the difference here is that you can use any surface,</span>
+<span class="talk-transcript__fragment" data-time="232000" id="244">you can walk to up to any surface,</span>
+<span class="talk-transcript__fragment" data-time="235000" id="247">including your hand, if nothing else is available,</span>
+<span class="talk-transcript__fragment" data-time="238000" id="250">and interact with this projected data.</span>
+<span class="talk-transcript__fragment" data-time="241521" id="253">The device is completely portable, and can be --</span>
+<span class="talk-transcript__fragment" data-time="246000" id="258">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="251568" id="263">(Applause ends)</span>
+<span class="talk-transcript__fragment" data-time="253405" id="265">So, one important difference is that it's totally mobile.</span>
+<span class="talk-transcript__fragment" data-time="257000" id="269">Another even more important difference is that in mass production,</span>
+<span class="talk-transcript__fragment" data-time="261758" id="273">this would not cost more tomorrow than today's cell phones</span>
+<span class="talk-transcript__fragment" data-time="265447" id="277">and would actually not sort of be a bigger packaging --</span>
+<span class="talk-transcript__fragment" data-time="269449" id="281">could look a lot more stylish</span>
+<span class="talk-transcript__fragment" data-time="271495" id="283">than this version that I'm wearing around my neck.</span>
+<span class="talk-transcript__fragment" data-time="276133" id="288">But other than letting some of you live out your fantasy</span>
+<span class="talk-transcript__fragment" data-time="280903" id="292">of looking as cool as Tom Cruise in "Minority Report,"</span>
+<span class="talk-transcript__fragment" data-time="284858" id="296">the reason why we're really excited about this device</span>
+<span class="talk-transcript__fragment" data-time="288900" id="300">is that it really can act as one of these sixth-sense devices</span>
+<span class="talk-transcript__fragment" data-time="294756" id="306">that gives you relevant information about whatever is in front of you.</span>
+<span class="talk-transcript__fragment" data-time="300032" id="312">So we see Pranav here going into the supermarket</span>
+<span class="talk-transcript__fragment" data-time="304000" id="316">and he's shopping for some paper towels.</span>
+<span class="talk-transcript__fragment" data-time="307364" id="319">And, as he picks up a product,</span>
+<span class="talk-transcript__fragment" data-time="309292" id="321">the system can recognize the product that he's picking up,</span>
+<span class="talk-transcript__fragment" data-time="312370" id="324">using either image recognition or marker technology,</span>
+<span class="talk-transcript__fragment" data-time="316630" id="328">and give him the green light or an orange light.</span>
+<span class="talk-transcript__fragment" data-time="319628" id="331">He can ask for additional information.</span>
+<span class="talk-transcript__fragment" data-time="322562" id="334">So this particular choice here</span>
+<span class="talk-transcript__fragment" data-time="326347" id="338">is a particularly good choice, given his personal criteria.</span>
+<span class="talk-transcript__fragment" data-time="330000" id="342">Some of you may want the toilet paper with the most bleach in it</span>
+<span class="talk-transcript__fragment" data-time="334000" id="346">rather than the most ecologically responsible choice.</span>
+<span class="talk-transcript__fragment" data-time="337595" id="349">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="340772" id="352">If he picks up a book in the bookstore, he can get an Amazon rating --</span>
+<span class="talk-transcript__fragment" data-time="345504" id="357">it gets projected right on the cover of the book.</span>
+<span class="talk-transcript__fragment" data-time="348140" id="360">This is Juan's book, our previous speaker,</span>
+<span class="talk-transcript__fragment" data-time="352000" id="364">which gets a great rating, by the way, at Amazon.</span>
+<span class="talk-transcript__fragment" data-time="354732" id="366">And so, Pranav turns the page of the book</span>
+<span class="talk-transcript__fragment" data-time="357000" id="369">and can then see additional information about the book --</span>
+<span class="talk-transcript__fragment" data-time="360756" id="372">reader comments, maybe sort of information by his favorite critic, etc.</span>
+<span class="talk-transcript__fragment" data-time="367000" id="379">If he turns to a particular page,</span>
+<span class="talk-transcript__fragment" data-time="369000" id="381">he finds an annotation by maybe an expert or a friend of ours</span>
+<span class="talk-transcript__fragment" data-time="373317" id="385">that gives him a little bit of additional information</span>
+<span class="talk-transcript__fragment" data-time="376163" id="388">about whatever is on that particular page.</span>
+<span class="talk-transcript__fragment" data-time="379212" id="391">Reading the newspaper -- it never has to be outdated.</span>
+<span class="talk-transcript__fragment" data-time="383613" id="395">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="385000" id="397">You can get video annotations of the events that you're reading about.</span>
+<span class="talk-transcript__fragment" data-time="389813" id="401">You can get the latest sports scores, etc.</span>
+<span class="talk-transcript__fragment" data-time="393884" id="405">This is a more controversial one.</span>
+<span class="talk-transcript__fragment" data-time="396000" id="408">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="397675" id="409">As you interact with someone at TED,</span>
+<span class="talk-transcript__fragment" data-time="400000" id="412">maybe you can see a word cloud of the tags,</span>
+<span class="talk-transcript__fragment" data-time="404000" id="416">the words that are associated with that person</span>
+<span class="talk-transcript__fragment" data-time="406752" id="418">in their blog and personal web pages.</span>
+<span class="talk-transcript__fragment" data-time="409524" id="421">In this case, the student is interested in cameras, etc.</span>
+<span class="talk-transcript__fragment" data-time="414701" id="426">On your way to the airport,</span>
+<span class="talk-transcript__fragment" data-time="416681" id="428">if you pick up your boarding pass, it can tell you that your flight is delayed,</span>
+<span class="talk-transcript__fragment" data-time="420774" id="432">that the gate has changed, etc.</span>
+<span class="talk-transcript__fragment" data-time="423434" id="435">And, if you need to know what the current time is,</span>
+<span class="talk-transcript__fragment" data-time="426578" id="438">it's as simple as drawing a watch --</span>
+<span class="talk-transcript__fragment" data-time="430000" id="442">(Laughter)</span>
+<span class="talk-transcript__fragment" data-time="431229" id="443">(Applause)</span>
+<span class="talk-transcript__fragment" data-time="432388" id="444">on your arm.</span>
+<span class="talk-transcript__fragment" data-time="435614" id="447">So that's where we're at so far in developing this sixth sense</span>
+<span class="talk-transcript__fragment" data-time="442000" id="454">that would give us seamless access to all this relevant information</span>
+<span class="talk-transcript__fragment" data-time="446750" id="458">about the things that we may come across.</span>
+<span class="talk-transcript__fragment" data-time="449592" id="461">My student Pranav, who's really, like I said, the genius behind this.</span>
+<span class="talk-transcript__fragment" data-time="454010" id="466">(Applause and cheering)</span>
+<span class="talk-transcript__fragment" data-time="474845" id="486">(Applause ends)</span>
+<span class="talk-transcript__fragment" data-time="476000" id="488">He does deserve a lot of applause,</span>
+<span class="talk-transcript__fragment" data-time="479000" id="491">because I don't think he's slept much in the last three months, actually.</span>
+<span class="talk-transcript__fragment" data-time="483372" id="495">And his girlfriend is probably not very happy about him either.</span>
+<span class="talk-transcript__fragment" data-time="486798" id="498">But it's not perfect yet, it's very much a work in progress.</span>
+<span class="talk-transcript__fragment" data-time="491677" id="503">And who knows, maybe in another 10 years</span>
+<span class="talk-transcript__fragment" data-time="494634" id="506">we'll be here with the ultimate sixth sense brain implant.</span>
+<span class="talk-transcript__fragment" data-time="499000" id="511">Thank you.</span>
+<span class="talk-transcript__fragment" data-time="500071" id="512">(Applause)</span>
+
+
+</div>
+</body>
+</html>
+
